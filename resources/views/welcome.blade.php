@@ -17,9 +17,9 @@
                 <li>Contact</li>
             </ul>
         </nav>
-        
+
         <div>
-            <a href="" class="mx-3">Sign In</a>
+            <a href="/login" class="mx-3">Sign In</a>
             <a href="/register" class="outline-1 outline-white outline rounded-md p-1">Sign Up</a>
         </div>
     </header>
@@ -36,7 +36,7 @@
                     <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -top-36" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
                     <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -right-24" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
                     <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -bottom-32" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
-                
+
             </div>
         </div>
     </section>
