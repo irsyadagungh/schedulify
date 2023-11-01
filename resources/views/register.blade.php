@@ -34,7 +34,7 @@
                     </div>
                     <div class="flex flex-col gap-4">
                         <button class="outline outline-1 bg-white text-primary rounded-md py-1">Sign Up</button>
-                        <p>Already have an account? <a href="" class="text-blue">Login</a></p>
+                        <p>Already have an account? <a href="/login" class="text-blue">Login</a></p>
                     </div>
                 </form>
             </div>
