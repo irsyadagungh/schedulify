@@ -29,4 +29,6 @@ Route::get('/homepage', function () {
     return view('homepage');
 });
 
-
+Route::get('/personaltoday', function () {
+    return view('personaltoday');
+});
