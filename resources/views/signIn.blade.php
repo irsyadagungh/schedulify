@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     <title>Login</title>
 </head>
-<body class="bg-primary text-white h-[100vh]">
+<body class="bg-primary text-white h-[100vh] font-poppin">
 <header class="p-4">
     <a href="/" class="font-cursive text-xl hidden lg:block">Schedulify</a>
 </header>

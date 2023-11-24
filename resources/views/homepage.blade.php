@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/css/app.css')
   </head>
 
   <body class="max-w-full max-h-full font-['Inter']">

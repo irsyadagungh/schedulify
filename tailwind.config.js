@@ -10,9 +10,11 @@ export default {
     fontFamily: {
       'cursive' : ['Pacifico'],
       'inter' : ['Inter'],
+      'poppin': ['Poppins', 'sans-serif'],
     },
     colors: {
       'primary' : '#1A202B',
+      'secondary' : '#17171A',
       'white'   : '#FFFFFF',
       'blue'    : '#52B7C9',
     },
