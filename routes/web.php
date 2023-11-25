@@ -28,6 +28,9 @@ Route::get('/login', function () {
 Route::get('/homepage', function () {
     return view('homepage');
 });
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 Route::get('/personaltoday', function () {
     return view('personaltoday');
