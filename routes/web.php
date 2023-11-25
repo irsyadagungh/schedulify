@@ -32,4 +32,7 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+Route::get('/project', function () {
+    return view('projectHome');
+})->name('project');
 
