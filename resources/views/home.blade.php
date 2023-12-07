@@ -18,7 +18,7 @@
         <x-addNote>
         
         </x-addNote>
-        <h1 class="mt-2">Create New Project</h1>
+        <h1 class="mt-2 font-poppin">Create New Project</h1>
     </div>
 </div>
 
@@ -62,6 +62,9 @@
             </x-note>
             <x-note>
 
+            </x-note>
+            <x-note>
+                
             </x-note>
         </div>
     </div>

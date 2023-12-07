@@ -36,3 +36,7 @@ Route::get('/project', function () {
     return view('projectHome');
 })->name('project');
 
+Route::get('/projectDetail', function ()  {
+    return view('detailProject');
+})->name('detail-project');
+
