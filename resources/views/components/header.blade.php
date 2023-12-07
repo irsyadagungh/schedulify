@@ -1,9 +1,8 @@
-<div class="flex justify-between items-center font-poppin top w-full relative bg-primary p-4">
-    <header class=" flex gap-20 items-center justify-between w-full
-                    md:mx-10
-                    ">
+<div class="head flex justify-between items-center font-poppin w-full fixed z-20 h-16 top-0 px-8 bg-primary
+            md:px-20">
+    <header class=" flex items-center justify-between w-full">
         <div class="tools flex gap-7 items-center">
-            <h1 class="font-cursive text-xl">Schedulify</h1>
+            <a class="font-cursive text-xl cursor-pointer" href="/">Schedulify</a>
             <div class="menu flex flex-col gap-2 cursor-pointer
                         md:hidden">
                 <span class="w-6 h-px bg-white"></span>
@@ -15,7 +14,7 @@
             {{ $slot }}
         </div>
         
-        <div class="flex gap-2">
+        <div class="flex gap-10">
             <img src="{{ asset('assets/icons/notification.svg') }}" />
             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="">
         </div>

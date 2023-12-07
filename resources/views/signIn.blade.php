@@ -26,7 +26,7 @@
                         <p>Remember me</p>
                     </div>
                     <div class="flex flex-col gap-4">
-                        <button class="w-full bg-[#2C3748] text-white p-1 rounded-md">Login</button>
+                        <button class="w-full bg-ternary text-white p-1 rounded-md focus:outline focus:outline-offset-4 focus:outline-ternary duration-200 ease-in-out">Login</button>
                         <button class="w-full bg-white text-[#000000] p-1 rounded-md">Sign in with google</button>
                         <p class="text-center mt-6">Dont have acount ? <a href="/register" class="text-blue">Sign Up</a></p>
                     </div>
@@ -34,7 +34,8 @@
             </div>
         </div>
 
-        <div class="pics w-2/3 hidden items-end lg:flex">
+        <div class="pics w-2/3 hidden items-end 
+        lg:flex">
             <img src="{{asset('assets/images/loginPics.png')}}" class="list-image-loginPic w-[90%]" alt="">
         </div>
     </div>

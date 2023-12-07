@@ -33,7 +33,7 @@
                         <p>Remember me</p>
                     </div>
                     <div class="flex flex-col gap-4">
-                        <button class="outline outline-1 bg-white text-primary rounded-md py-1">Sign Up</button>
+                        <button class="outline outline-1 bg-white text-primary rounded-md py-1 focus:outline focus:outline-offset-4 focus:outline-white duration-200 ease-in-out">Sign Up</button>
                         <p>Already have an account? <a href="/login" class="text-blue">Login</a></p>
                     </div>
                 </form>

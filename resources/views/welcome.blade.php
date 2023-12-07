@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-primary text-white">
-    <header class="flex w-full justify-between bg-sky-300 p-4">
+    <header id="header" class="flex w-full justify-between backdrop-blur-2xl p-4">
         <h1 class="font-cursive text-xl text-white">Schedulify</h1>
         <nav>
             <ul class="flex gap-8">
@@ -25,7 +25,7 @@
     </header>
     <section>
         <img src="{{asset('assets/images/background.png')}}" class="absolute w-1/2 h-auto right-0 -z-10" alt="">
-        <div class="container bg-primary/25 backdrop-blur-3xl w-full h-[92vh] flex justify-center items-center">
+        <div class="container bg-primary/25 backdrop-blur-3xl w-full h-screen flex justify-center items-center">
             <div class="content-left w-1/2 flex flex-col justify-center items-center">
                 <div class="text">
                     <h1 class="text-3xl">Schedulify makes your plans organized</h1>
@@ -36,9 +36,11 @@
                     <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -top-36" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
                     <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -right-24" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
                     <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -bottom-32" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
-
             </div>
         </div>
+    </section>
+    <section class="w-full h-screen">
+
     </section>
 <script>
     AOS.init();
