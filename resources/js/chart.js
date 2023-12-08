@@ -108,10 +108,10 @@ import 'chartjs-plugin-datalabels';
         x: {
           type: 'time',
           time: {
-            unit: 'day',
-            tooltipFormat: 'dd-MM', // Format tooltip ketika dihover
+            unit: 'month',
+            tooltipFormat: 'MM-yyyy', // Format tooltip ketika dihover
             displayFormats: {
-              day: 'dd-MM', // Format yang akan ditampilkan di sumbu X
+              day: 'MM-yyyy', // Format yang akan ditampilkan di sumbu X
             },
           },
           min: '2022-12-01', // Tanggal mulai

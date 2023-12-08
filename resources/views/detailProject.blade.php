@@ -45,7 +45,7 @@
         {{-- Second Section --}}
         <div class="chart w-full max-h-3/6 overflow-scroll border border-ternary rounded-xl">
             <div class="chart-container h-[33rem]  w-fit">
-                <canvas id="chart" class="w-[2000vw] h-[100vh]"></canvas>
+                <canvas id="chart" class="w-screen h-[100vh]"></canvas>
             </div>
         </div>
     </div>
