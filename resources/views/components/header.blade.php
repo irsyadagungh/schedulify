@@ -13,8 +13,8 @@
         <div class="">
             {{ $slot }}
         </div>
-        
-        <div class="flex">
+
+        <div class="flex gap-6">
             <img src="{{ asset('assets/icons/notification.svg') }}" />
             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="">
         </div>

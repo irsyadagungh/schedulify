@@ -36,3 +36,8 @@ Route::get('/project', function () {
     return view('projectHome');
 })->name('project');
 
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+

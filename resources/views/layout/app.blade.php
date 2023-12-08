@@ -16,14 +16,17 @@
         <h1>{{ __('Home') }}</h1>
     @elseif(request()->routeIs('project'))
         <h1>{{ __('Project') }}</h1>
+    @elseif(request()->routeIs('profile'))
+        <h1>{{ __('Profile') }}</h1>
     @else
         <h1>{{ __('Default') }}</h1>
     @endif
     </x-header>
 
     <div class="container flex h-min-full h-fit w-full mt-16">
-
+        @if(request()->routeIs('home') || request()->routeIs('project'))
         @include('layout.sidebar')
+    @endif
 
         <div class="container relative md:ml-72   mt-10 w-full px-6">
 
