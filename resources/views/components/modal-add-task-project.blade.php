@@ -32,7 +32,7 @@
             <div id="assignee" class="flex flex-col">
                 <label for="">Assignee</label>
                 <x-dropdown-assignee>
-                    
+
                 </x-dropdown-assignee>
             </div>
 
