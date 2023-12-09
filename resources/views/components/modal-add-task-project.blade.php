@@ -32,7 +32,10 @@
             <div id="assignee" class="flex flex-col">
                 <label for="">Assignee</label>
                 <x-dropdown-assignee>
-                    
+                    <option value="">Choose</option>
+                    {{-- @foreach ( as ) --}}
+                    <option value="Name">Name</option>
+                    {{-- @endforeach --}}
                 </x-dropdown-assignee>
             </div>
 
