@@ -36,8 +36,11 @@ Route::get('/project', function () {
     return view('projectHome');
 })->name('project');
 
+Route::get('/projectDetail', function ()  {
+    return view('detailProject');
+})->name('detail-project');
 
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile');
+Route::get('/listTask', function ()  {
+    return view('listTaskProject');
+})->name('list-task');
 

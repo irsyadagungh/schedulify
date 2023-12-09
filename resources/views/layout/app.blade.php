@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js'])
 </head>
 <style>
 
@@ -24,16 +24,20 @@
     </x-header>
 
     <div class="container flex h-min-full h-fit w-full mt-16">
-        @if(request()->routeIs('home') || request()->routeIs('project'))
-        @include('layout.sidebar')
-    @endif
+        @if(request()->routeIs(['home', 'detail-project', 'project', 'list-task']))
+            @include('layout.sidebar')
+        @endif
 
-        <div class="container relative md:ml-72   mt-10 w-full px-6">
+        <div class="container relative md:ml-72 mt-10 w-full px-6">
 
             @yield('content')
 
         </div>
 
     </div>
+
+    <script>
+        new Accordion('.accordion-container');
+      </script>
 </body>
 </html>
