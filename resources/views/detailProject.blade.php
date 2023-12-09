@@ -36,7 +36,7 @@
                     Add Task <span>&#43;</span>
                 </button>
                 <div class="flex gap-2">
-                    <img src="{{ asset('assets/icons/share.svg') }}" alt="" srcset=""> 
+                    <img src="{{ asset('assets/icons/share.svg') }}" alt="" srcset="">
                     <span>Share</span>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 
         {{-- Third Section --}}
         <div class="flex justify-between">
-            <a href="" class="btn-list">
+            <a href="{{route('list-task')}}" class="btn-list">
                 <img src="{{ asset('assets/icons/list.svg') }}" alt="" srcset="">
                 List
             </a>

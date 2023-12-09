@@ -21,6 +21,8 @@ export default {
       'blue'    : '#52B7C9',
       'reject'  : '#BF5A5A',
       'done'    : '#5A82BF',
+      'Request' : '#BF965A',
+      'upload'  : '#2D2D2C',
     },
     listStyleImage: {
       loginPic : 'url("./public/assets/images/loginPics.jpg")'

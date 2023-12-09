@@ -1,6 +1,5 @@
-// TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com 
-import Accordion from 'accordion-js';
-import 'accordion-js/dist/accordion.min.css';
+// TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com
+
 
 window.onscroll = function () {
     const head = document.getElementById('header');
