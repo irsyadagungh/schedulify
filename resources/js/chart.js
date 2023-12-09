@@ -10,7 +10,7 @@ import 'chartjs-plugin-datalabels';
   const data = {
     datasets: [
       {
-        label: 'Weekly Sales',
+        // label: 'project',
 
         // Data X (Tanggal Bulan Tahun) dan Y (Akun (Task))
         data: [
@@ -81,7 +81,16 @@ import 'chartjs-plugin-datalabels';
           },
         },
       },
-      plugins: [todayLine]
+      plugins: {
+        datalabels: {
+          anchor: 'end', // Ancor titik label
+          align: 'end', // Posisi label di dalam bar
+          color: 'black', // Warna teks label
+          formatter: function(context) {
+            return context.dataset.data[context.dataIndex].x; // Menampilkan nilai Y (task) sebagai label
+          }
+        }
+      }
     },
   };
 

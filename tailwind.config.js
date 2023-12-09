@@ -4,6 +4,7 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+    'node_modules/preline/dist/*.js',
   ],
   theme: {
     extend: {},
@@ -21,6 +22,7 @@ export default {
       'blue'    : '#52B7C9',
       'reject'  : '#BF5A5A',
       'done'    : '#5A82BF',
+      'transparent' : '#00000000',
       'Request' : '#BF965A',
       'upload'  : '#2D2D2C',
     },
@@ -28,6 +30,8 @@ export default {
       loginPic : 'url("./public/assets/images/loginPics.jpg")'
     }
   },
-  plugins: [],
+  plugins: [
+    require('preline/plugin'),
+  ],
 }
 

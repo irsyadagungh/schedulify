@@ -33,15 +33,15 @@ Route::get('/home', function () {
 })->name('home');
 
 Route::get('/project', function () {
-    return view('projectHome');
+    return view('project.projectHome');
 })->name('project');
 
 Route::get('/projectDetail', function ()  {
-    return view('detailProject');
+    return view('project.detailProject');
 })->name('detail-project');
 
 Route::get('/listTask', function ()  {
-    return view('listTaskProject');
+    return view('project.listTaskProject');
 })->name('list-task');
 
 Route::get('/detailTask', function ()  {

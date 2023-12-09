@@ -1,5 +1,5 @@
-// TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com
 
+import 'preline'
 
 window.onscroll = function () {
     const head = document.getElementById('header');
@@ -29,7 +29,7 @@ const item = document.querySelector('.panel');
   for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function () {
       this.classList.toggle("active");
-    //   item.classList.toggle('p-4');
+      this.classList.toggle('rounded-b-none');
       var panel = this.nextElementSibling;
       if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
