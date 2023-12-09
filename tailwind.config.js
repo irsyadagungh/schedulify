@@ -19,6 +19,8 @@ export default {
       'ternary' : '#2C3748',
       'white'   : '#FFFFFF',
       'blue'    : '#52B7C9',
+      'reject'  : '#BF5A5A',
+      'done'    : '#5A82BF',
     },
     listStyleImage: {
       loginPic : 'url("./public/assets/images/loginPics.jpg")'

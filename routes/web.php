@@ -40,3 +40,7 @@ Route::get('/projectDetail', function ()  {
     return view('detailProject');
 })->name('detail-project');
 
+Route::get('/listTask', function ()  {
+    return view('listTaskProject');
+})->name('list-task');
+

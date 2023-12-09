@@ -13,7 +13,7 @@
     }
 }
     </style>
-    <div class="container flex flex-col gap-10 h-full w-[99%]">
+    <div class="container flex flex-col gap-8 h-full w-full">
 
         {{-- First Section --}}
         <div class="first flex justify-between">
@@ -32,7 +32,7 @@
 
             {{-- Button Section --}}
             <div class="flex justify-between items-center w-1/6">
-                <button class="bg-ternary px-4 rounded-md focus:outline focus:outline-offset-2 focus:outline-ternary duration-200 ease-in-out">
+                <button class="bg-ternary px-4 py-1 rounded-md focus:outline focus:outline-offset-2 focus:outline-ternary duration-200 ease-in-out">
                     Add Task <span>&#43;</span>
                 </button>
                 <div class="flex gap-2">
@@ -44,9 +44,22 @@
 
         {{-- Second Section --}}
         <div class="chart w-full max-h-3/6 overflow-scroll border border-ternary rounded-xl">
-            <div class="chart-container h-[33rem]  w-fit">
-                <canvas id="chart" class="w-screen h-[100vh]"></canvas>
+            <div class="chart-container h-[30rem] w-fit">
+                <canvas id="chart" class="w-full h-[90vh]"></canvas>
             </div>
+        </div>
+
+        {{-- Third Section --}}
+        <div class="flex justify-between">
+            <a href="" class="btn-list">
+                <img src="{{ asset('assets/icons/list.svg') }}" alt="" srcset="">
+                List
+            </a>
+
+            <a href="" class="btn-list">
+                <img src="{{ asset('assets/icons/details.svg') }}" alt="" srcset="">
+                Details
+            </a>
         </div>
     </div>
 @endsection
