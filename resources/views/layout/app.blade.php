@@ -14,7 +14,7 @@
     <x-header>
         @if(request()->routeIs('home'))
         <h1>{{ __('Home') }}</h1>
-    @elseif(request()->routeIs('project'))
+    @elseif(request()->routeIs(['project', 'detail-project', 'list-task']))
         <h1>{{ __('Project') }}</h1>
     @elseif(request()->routeIs('profile'))
         <h1>{{ __('Profile') }}</h1>

@@ -32,7 +32,7 @@
 
             {{-- Button Section --}}
             <div class="flex justify-between items-center w-1/6">
-                <button class="bg-ternary px-4 py-1 rounded-md focus:outline focus:outline-offset-2 focus:outline-ternary duration-200 ease-in-out">
+                <button data-hs-overlay="#hs-basic-modal" type="button" class="bg-ternary px-4 py-1 rounded-md focus:outline focus:outline-offset-2 focus:outline-ternary duration-200 ease-in-out">
                     Add Task <span>&#43;</span>
                 </button>
                 <div class="flex gap-2">
@@ -51,7 +51,7 @@
 
         {{-- Third Section --}}
         <div class="flex justify-between">
-            <a href="" class="btn-list">
+            <a href="{{ route('list-task') }}" class="btn-list">
                 <img src="{{ asset('assets/icons/list.svg') }}" alt="" srcset="">
                 List
             </a>
@@ -62,4 +62,8 @@
             </a>
         </div>
     </div>
+
+    <x-modal-add-task-project>
+
+    </x-modal-add-task-project>
 @endsection
