@@ -4,22 +4,34 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
+    'node_modules/preline/dist/*.js',
   ],
   theme: {
     extend: {},
     fontFamily: {
       'cursive' : ['Pacifico'],
       'inter' : ['Inter'],
+      'poppin': ['Poppins', 'sans-serif'],
     },
     colors: {
       'primary' : '#1A202B',
+      'card'    : '#222228',
+      'secondary' : '#17171A',
+      'ternary' : '#2C3748',
       'white'   : '#FFFFFF',
       'blue'    : '#52B7C9',
+      'reject'  : '#BF5A5A',
+      'done'    : '#5A82BF',
+      'transparent' : '#00000000',
+      'Request' : '#BF965A',
+      'upload'  : '#2D2D2C',
     },
     listStyleImage: {
       loginPic : 'url("./public/assets/images/loginPics.jpg")'
     }
   },
-  plugins: [],
+  plugins: [
+    require('preline/plugin'),
+  ],
 }
 

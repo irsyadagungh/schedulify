@@ -28,5 +28,23 @@ Route::get('/login', function () {
 Route::get('/homepage', function () {
     return view('homepage');
 });
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
+Route::get('/project', function () {
+    return view('project.projectHome');
+})->name('project');
+
+Route::get('/projectDetail', function ()  {
+    return view('project.detailProject');
+})->name('detail-project');
+
+Route::get('/listTask', function ()  {
+    return view('project.listTaskProject');
+})->name('list-task');
+
+Route::get('/detailTask', function ()  {
+    return view('detailTaskProject');
+})->name('details-task');
 

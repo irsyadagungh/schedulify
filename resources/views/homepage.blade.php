@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    @vite('resources/css/app.css')
   </head>
 
   <body class="max-w-full max-h-full font-['Inter']">
@@ -186,7 +187,7 @@
         <!-- Ini Card Personal-->
         <div class="flex">
           <div class="flex ml-12 mt-4">
-            <div class="text-white h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
+            <div id="card" class="text-white h-[180px] duration-200 z-10 w-[170px] bg-[#1A202B] rounded-xl">
               <p class="text-[11px] pl-3 pt-2">Just Now</p>
               <h2 class="tetx-[16px] pl-3">Judul</h2>
               <p class="text-[10px] pl-3 pt-1 pr-3 pb-3">
@@ -314,7 +315,7 @@
             </div>
           </div>
           <div class="flex ml-1 mt-4">
-            <div class="text-white h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
+            <div class="text-white  h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
               <div class="flex">
                 <h2 class="text-[14px] w-[130px] pt-3 pl-3">Ulangan Dadakan</h2>
                 <div class="flex">
@@ -402,6 +403,16 @@
         munculConfirm.classList.remove("absolute");
         munculConfirm.classList.add("hidden");
       });
+
+
+      const card = document.getElementById('card');
+
+      card.addEventListener("click", function(){
+        card.classList.toggle("scale-150");
+        card.classList.toggle("absolute");
+        card.classList.toggle("left-1/2");
+        card.classList.toggle("right-1/2");
+      })
     </script>
   </body>
 </html>
