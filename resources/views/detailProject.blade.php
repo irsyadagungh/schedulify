@@ -1,5 +1,4 @@
 @extends('layout.app')
-
 @section('content')
     <style>
         .chart {
@@ -14,7 +13,6 @@
 }
     </style>
     <div class="container flex flex-col gap-8 h-full w-full">
-
         {{-- First Section --}}
         <div class="first flex justify-between">
             {{-- Account section --}}
@@ -24,42 +22,36 @@
                 @endfor
                 <img class="absolute" style="left: {{ $i * 15 }}px;" src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="">
             </div>
-
             {{-- Title --}}
             <h1>
                 My Project
             </h1>
-
             {{-- Button Section --}}
-            <div class="flex justify-between items-center w-1/6">
-                <button class="bg-ternary px-4 py-1 rounded-md focus:outline focus:outline-offset-2 focus:outline-ternary duration-200 ease-in-out">
-                    Add Task <span>&#43;</span>
-                </button>
-                <div class="flex gap-2">
-                    <img src="{{ asset('assets/icons/share.svg') }}" alt="" srcset="">
-                    <span>Share</span>
-                </div>
+            <div class="flex justify-between items-center gap-5">
+                {{-- @if () --}}
+                    <x-btn-header-super-user>
+                    </x-btn-header-super-user>
+                {{-- @else --}}
+                    {{-- <x-list-task-link>
+                    </x-list-task-link> --}}
+                {{-- @endif --}}
             </div>
         </div>
-
         {{-- Second Section --}}
         <div class="chart w-full max-h-3/6 overflow-scroll border border-ternary rounded-xl">
             <div class="chart-container h-[30rem] w-fit">
                 <canvas id="chart" class="w-full h-[90vh]"></canvas>
             </div>
         </div>
-
         {{-- Third Section --}}
         <div class="flex justify-between">
-            <a href="{{route('list-task')}}" class="btn-list">
-                <img src="{{ asset('assets/icons/list.svg') }}" alt="" srcset="">
-                List
-            </a>
+            {{-- @if () --}}
+                <x-list-task-link>
 
-            <a href="" class="btn-list">
-                <img src="{{ asset('assets/icons/details.svg') }}" alt="" srcset="">
-                Details
-            </a>
+                </x-list-task-link>
+            {{-- @endif --}}
         </div>
+
+        <x-modal-add-task-project></x-modal-add-task-project>
     </div>
 @endsection
