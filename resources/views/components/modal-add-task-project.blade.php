@@ -5,7 +5,7 @@
 
             {{-- Header --}}
           <h3 class="font-bold text-gray-800">
-            Modal title
+            Create Task
           </h3>
           <button type="button" class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-basic-modal">
             <span class="sr-only">Close</span>
