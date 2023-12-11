@@ -31,16 +31,14 @@
             </h1>
 
             {{-- Button Section --}}
-            <div class="flex justify-between items-center gap-5">
-                {{-- @if () --}}
-                    <x-btn-header-super-user>
-
-                    </x-btn-header-super-user>
-                {{-- @else --}}
-                    {{-- <x-list-task-link>
-
-                    </x-list-task-link> --}}
-                {{-- @endif --}}
+            <div class="flex justify-between items-center w-1/6">
+                <button class="bg-ternary px-4 py-1 rounded-md focus:outline focus:outline-offset-2 focus:outline-ternary duration-200 ease-in-out">
+                    Add Task <span>&#43;</span>
+                </button>
+                <div class="flex gap-2">
+                    <img src="{{ asset('assets/icons/share.svg') }}" alt="" srcset="">
+                    <span>Share</span>
+                </div>
             </div>
         </div>
 
@@ -53,11 +51,15 @@
 
         {{-- Third Section --}}
         <div class="flex justify-between">
-            {{-- @if () --}}
-                <x-list-task-link>
-                
-                </x-list-task-link>
-            {{-- @endif --}}
+            <a href="{{route('list-task')}}" class="btn-list">
+                <img src="{{ asset('assets/icons/list.svg') }}" alt="" srcset="">
+                List
+            </a>
+
+            <a href="" class="btn-list">
+                <img src="{{ asset('assets/icons/details.svg') }}" alt="" srcset="">
+                Details
+            </a>
         </div>
     </div>
 @endsection

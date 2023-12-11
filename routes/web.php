@@ -44,3 +44,7 @@ Route::get('/listTask', function ()  {
     return view('project.listTaskProject');
 })->name('list-task');
 
+Route::get('/detailTask', function ()  {
+    return view('detailTaskProject');
+})->name('details-task');
+

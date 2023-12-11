@@ -23,6 +23,8 @@ export default {
       'reject'  : '#BF5A5A',
       'done'    : '#5A82BF',
       'transparent' : '#00000000',
+      'Request' : '#BF965A',
+      'upload'  : '#2D2D2C',
     },
     listStyleImage: {
       loginPic : 'url("./public/assets/images/loginPics.jpg")'
