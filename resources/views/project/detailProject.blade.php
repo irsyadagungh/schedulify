@@ -59,5 +59,7 @@
                 </x-list-task-link>
             {{-- @endif --}}
         </div>
+
+        <x-modal-add-task-project></x-modal-add-task-project>
     </div>
 @endsection
