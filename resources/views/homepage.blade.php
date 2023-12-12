@@ -38,7 +38,7 @@
     <div class="flex">
       <!-- Ini Aside Kiri -->
       <div class="max-h-full w-[334px] bg-[#1A202B] mt-20px relative">
-        <div class="text-white ml-4">
+        <div class="ml-4 text-white">
           <li
             class="flex w-[300px] h-[55px] hover:bg-black rounded-l-md pl-16 bg-black"
           >
@@ -73,7 +73,7 @@
               alt=""
               class="h-[70px] w-[70px] cursor-pointer justify-center items-center"
             />
-            <p class="text-white mt-2">Personal</p>
+            <p class="mt-2 text-white">Personal</p>
           </div>
           <div
             class="bg-[#222228] mt-20 ml-[59px] h-[208px] w-[231px] flex flex-col justify-center items-center rounded-xl"
@@ -83,14 +83,14 @@
               alt=""
               class="h-[70px] w-[70px] cursor-pointer"
             />
-            <p class="text-white mt-2">Project</p>
+            <p class="mt-2 text-white">Project</p>
           </div>
         </div>
-        <hr class="mt-10 mx-10" />
+        <hr class="mx-10 mt-10" />
 
-        <h1 class="text-white mt-16 ml-12">New Notes</h1>
+        <h1 class="mt-16 ml-12 text-white">New Notes</h1>
         <div class="flex mt-4">
-          <h3 class="text-white pl-12">Personal</h3>
+          <h3 class="pl-12 text-white">Personal</h3>
           <h3 class="text-white pl-[520px]">Project</h3>
         </div>
 
@@ -186,7 +186,7 @@
 
         <!-- Ini Card Personal-->
         <div class="flex">
-          <div class="flex ml-12 mt-4">
+          <div class="flex mt-4 ml-12">
             <div class="text-white h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
               <p class="text-[11px] pl-3 pt-2">Just Now</p>
               <h2 class="tetx-[16px] pl-3">Judul</h2>
@@ -198,7 +198,7 @@
               </p>
             </div>
           </div>
-          <div class="flex ml-1 mt-4">
+          <div class="flex mt-4 ml-1">
             <div class="text-white h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
               <p class="text-[11px] pl-3 pt-2">Just Now</p>
               <h2 class="tetx-[16px] pl-3">Judul</h2>
@@ -210,7 +210,7 @@
               </p>
             </div>
           </div>
-          <div class="flex ml-1 mt-4">
+          <div class="flex mt-4 ml-1">
             <div class="text-white h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
               <p class="text-[11px] pl-3 pt-2">Just Now</p>
               <h2 class="tetx-[16px] pl-3">Judul</h2>
@@ -224,7 +224,7 @@
           </div>
 
           <!-- Ini Card Project -->
-          <div class="flex ml-10 mt-4">
+          <div class="flex mt-4 ml-10">
             <div class="text-white h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
               <div class="flex">
                 <h2 class="text-[14px] w-[130px] pt-3 pl-3">Ulangan Dadakan</h2>
@@ -238,7 +238,7 @@
                   <img
                     id="untukKeluar"
                     src="{{asset('assets/icons/check-circle.svg')}}"
-                    class="pt-3 pl-0 cursor-pointer w-4"
+                    class="w-4 pt-3 pl-0 cursor-pointer"
                     alt=""
                   />
                 </div>
@@ -262,14 +262,14 @@
                 </progress>
                 <p class="text-[12px] pl-1">28%</p>
               </div>
-              <div class="flex justify-stretch p-1 pl-3">
+              <div class="flex p-1 pl-3 justify-stretch">
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />
               </div>
             </div>
           </div>
-          <div class="flex ml-1 mt-4">
+          <div class="flex mt-4 ml-1">
             <div class="text-white h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
               <div class="flex">
                 <h2 class="text-[14px] w-[130px] pt-3 pl-3">Ulangan Dadakan</h2>
@@ -283,7 +283,7 @@
                   <img
                     id="untukKeluar"
                     src="{{asset('assets/icons/check-circle.svg')}}"
-                    class="pt-3 pl-0 cursor-pointer w-4"
+                    class="w-4 pt-3 pl-0 cursor-pointer"
                     alt=""
                   />
                 </div>
@@ -307,14 +307,14 @@
                 </progress>
                 <p class="text-[12px] pl-1">28%</p>
               </div>
-              <div class="flex justify-stretch p-1 pl-3">
+              <div class="flex p-1 pl-3 justify-stretch">
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />
               </div>
             </div>
           </div>
-          <div class="flex ml-1 mt-4">
+          <div class="flex mt-4 ml-1">
             <div class="text-white h-[180px] w-[170px] bg-[#1A202B] rounded-xl">
               <div class="flex">
                 <h2 class="text-[14px] w-[130px] pt-3 pl-3">Ulangan Dadakan</h2>
@@ -327,7 +327,7 @@
                   />
                   <img
                     src="{{asset('assets/icons/check-circle.svg')}}"
-                    class="pt-3 pl-0 cursor-pointer w-4"
+                    class="w-4 pt-3 pl-0 cursor-pointer"
                     alt=""
                   />
                 </div>
@@ -351,7 +351,7 @@
                 </progress>
                 <p class="text-[12px] pl-1">28%</p>
               </div>
-              <div class="flex justify-stretch p-1 pl-3">
+              <div class="flex p-1 pl-3 justify-stretch">
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />
                 <img src="{{asset('assets/icons/male avatar.svg')}}" alt="" class="w-[25px]" />

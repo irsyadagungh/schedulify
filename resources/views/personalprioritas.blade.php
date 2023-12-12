@@ -112,6 +112,7 @@
                                       </svg>
 
                                    </div>
+
                                    <div class = "ikon2"style ="display:flex; margin-left:80px; margin-top:-15px   ">
                                       <img
                                       id="buatHapus"
@@ -126,9 +127,13 @@
                                       alt=""
                                       />
                                   </div>
+
                                   </div>
+
+
                                   <h2 class="text-[14px] w-[130px] pt-3 pl-3">Tubes DPL</h2>
                             </div>
+
                         </div>
                         <p class="text-[10px] pl-3 pt-2 pr-3 pb-3 opacity-95">
                           Lorem, ipsum dolor sit amet consectetur adipisicing elit. A id
