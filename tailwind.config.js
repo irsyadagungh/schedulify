@@ -25,6 +25,8 @@ export default {
       'transparent' : '#00000000',
       'Request' : '#BF965A',
       'upload'  : '#2D2D2C',
+      'join'    : '#313139',
+
     },
     listStyleImage: {
       loginPic : 'url("./public/assets/images/loginPics.jpg")'

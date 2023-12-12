@@ -31,6 +31,7 @@
             </h1>
 
             {{-- Button Section --}}
+
             <div class="flex justify-between items-center gap-5">
                 {{-- @if () --}}
                     <x-btn-header-super-user>
@@ -41,6 +42,7 @@
 
                     </x-list-task-link> --}}
                 {{-- @endif --}}
+
             </div>
         </div>
 
@@ -53,6 +55,7 @@
 
         {{-- Third Section --}}
         <div class="flex justify-between">
+
             {{-- @if () --}}
                 <x-list-task-link>
                 
@@ -62,4 +65,5 @@
 
         <x-modal-add-task-project></x-modal-add-task-project>
     </div>
+
 @endsection
