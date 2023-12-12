@@ -1,9 +1,11 @@
 @extends('layout.app')
 
 @section('content')
+
     <div class="mb-10">
    <a href="{{ route('project') }}" class="font-bold hover:underline">Home</a> <span>/</span> <a href="{{ route('detail-project') }}" class="font-bold hover:underline">Dashboard</a> <span>/</span> <span class="font-bold">List</span>
     </div>
+
     @for ($a = 0; $a < 5; $a++)
     <x-accordion-list-project>
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 font-poppin">
@@ -35,13 +37,13 @@
                     <button class="px-4 rounded-sm bg-reject">Reject</button>
                     <button class="px-4 rounded-sm bg-done">Done</button>
                 </td>
-
               </tr>
               @endfor
             </tbody>
           </table>
     </x-accordion-list-project>
-
+        
     @endfor
 
 @endsection
+

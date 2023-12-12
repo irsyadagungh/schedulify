@@ -10,63 +10,22 @@ import 'chartjs-plugin-datalabels';
   const data = {
     datasets: [
       {
-        label: 'Weekly Sales',
+        // label: 'project',
 
         // Data X (Tanggal Bulan Tahun) dan Y (Akun (Task))
         data: [
           {
-            x: ['2023-01-02', '2023-01-04'],
+            x: ['2023-01-02', '2023-07-04'],
             y: 'task 1',
           },
           {
-            x: ['2023-01-02', '2023-01-04'],
+            x: ['2023-05-02', '2023-10-04'],
             y: 'task 2',
           },
           {
-            x: ['2023-01-02', '2023-01-04'],
+            x: ['2023-07-02', '2023-12-04'],
             y: 'task 3',
           },
-          {
-            x: ['2023-01-02', '2023-01-04'],
-            y: 'task 4',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 5',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 6',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 7',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 8',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 9',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 10',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 11',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 12',
-          },
-          {
-            x: ['2023-01-01', '2024-01-02'],
-            y: 'task 13',
-          },
-          // Add data for each day as needed...
         ],
 
         // Warna bar (Bisa beda" tiap bar kalo warnanya banyak, sesuai jumlah data)
@@ -108,10 +67,10 @@ import 'chartjs-plugin-datalabels';
         x: {
           type: 'time',
           time: {
-            unit: 'day',
-            tooltipFormat: 'dd-MM', // Format tooltip ketika dihover
+            unit: 'month',
+            tooltipFormat: 'MM-yyyy', // Format tooltip ketika dihover
             displayFormats: {
-              day: 'dd-MM', // Format yang akan ditampilkan di sumbu X
+              day: 'MM-yyyy', // Format yang akan ditampilkan di sumbu X
             },
           },
           min: '2022-12-01', // Tanggal mulai
@@ -122,7 +81,16 @@ import 'chartjs-plugin-datalabels';
           },
         },
       },
-      plugins: [todayLine]
+      plugins: {
+        datalabels: {
+          anchor: 'end', // Ancor titik label
+          align: 'end', // Posisi label di dalam bar
+          color: 'black', // Warna teks label
+          formatter: function(context) {
+            return context.dataset.data[context.dataIndex].x; // Menampilkan nilai Y (task) sebagai label
+          }
+        }
+      }
     },
   };
 

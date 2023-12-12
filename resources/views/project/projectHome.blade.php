@@ -7,6 +7,7 @@
     <div class="flex flex-wrap gap-4">
         {{-- Note 1 --}}
 
+
         @for ($i = 0; $i < 2; $i++)
         <a href="{{ route('detail-project')}}">
         <x-note>
@@ -59,12 +60,10 @@
     </div>
 </div>
 
-
-
-
 <div class="flex flex-col gap-2">
     <h1 class="font-bold ">History Project</h1>
     <div class="flex flex-wrap gap-4">
+
 
         @for ($i = 0; $i < 5; $i++)
         {{-- Note 1 --}}
@@ -102,14 +101,14 @@
 
         </x-note>
         @endfor
+
     </div>
 </div>
 
-
 </div>
 
-
 <x-modal-new-project></x-modal-new-project>
+
 
 @endsection
 
