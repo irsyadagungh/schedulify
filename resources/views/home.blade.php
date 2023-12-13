@@ -11,7 +11,7 @@
     {{-- Personal --}}
 
     <div id="tombolAddNote">
-        <button data-hs-overlay="#hs-slide-down-animation-modal4">
+        <button data-hs-overlay="#hs-slide-down-animation-modal">
         <x-note>
             <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
         </x-note>
