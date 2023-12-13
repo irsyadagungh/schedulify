@@ -18,7 +18,7 @@
         {{-- First Section --}}
         <div class="first flex justify-between">
             {{-- Account section --}}
-            <div class="flex items-center">
+            <div class="flex items-center cursor-pointer" data-hs-overlay="#hs-slide-down-animation-modal">
                 @for ($i = 0; $i < 4; $i++)
                 <img class="absolute" style="left: {{ $i * 15 }}px;" src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="">
                 @endfor
@@ -60,6 +60,14 @@
             {{-- @endif --}}
         </div>
 
-        <x-modal-add-task-project></x-modal-add-task-project>
+
+        {{-- Overlay / Pop up --}}
+        <x-modal-add-task-project>
+
+        </x-modal-add-task-project>
+
+        <x-avatar-group>
+            
+        </x-avatar-group>
     </div>
 @endsection

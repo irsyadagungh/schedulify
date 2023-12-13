@@ -73,48 +73,5 @@
     </div>
 </div>
 
-
-<script>
-    // Untuk Add Note
-    const tombolAddNote = document.getElementById("tombolAddNote");
-    const munculAddNote = document.getElementById("popUpAddNote");
-
-    tombolAddNote.addEventListener("click", function () {
-      munculAddNote.classList.remove("hidden");
-      munculAddNote.classList.add("absolute");
-    });
-
-    // Untuk Close Add Note
-    const tombolX = document.getElementById("tombolX");
-
-    tombolX.addEventListener("click", function () {
-      munculAddNote.classList.remove("absolute");
-      munculAddNote.classList.add("hidden");
-    });
-
-    // Untuk Confirm Delete
-    const tombolHapus = document.getElementById("buatHapus");
-    const munculConfirm = document.getElementById("munculHapus");
-
-    tombolHapus.addEventListener("click", function () {
-      munculConfirm.classList.remove("hidden");
-      munculConfirm.classList.add("absolute");
-    });
-
-    // Untuk Hapus
-    const hapus = document.getElementById("untukHapus");
-
-    hapus.addEventListener("click", function () {
-      munculConfirm.classList.remove("absolute");
-      munculConfirm.classList.add("hidden");
-    });
-
-    // Untuk Hapus
-    const batal = document.getElementById("untukBatal");
-
-    batal.addEventListener("click", function () {
-      munculConfirm.classList.remove("absolute");
-      munculConfirm.classList.add("hidden");
-    });
-  </script>
+<x-modalNotes></x-modalNotes>
 @endsection
