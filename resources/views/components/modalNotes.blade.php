@@ -95,22 +95,23 @@
           <label for="">Pilih Warna</label>
           <div class="flex gap-1">
             <label for="red">
-              <input type="radio" name="colors" id="red" value="red" class="absolute opacity-0  w-7 h-7">
+              <input type="radio" name="colors" id="red" value="#643333" class="absolute opacity-0  w-7 h-7">
               <div class="icon-box bg-red w-7 h-7 rounded-md"></div>
             </label>
             
             <label for="green">
-              <input type="radio" name="colors" id="green" value="green" class="absolute opacity-0  w-7 h-7">
+              <input type="radio" name="colors" id="green" value="#466433" class="absolute opacity-0  w-7 h-7">
               <div class="icon-box bg-green w-7 h-7 rounded-md"></div>
             </label>
             
             <label for="yellow">
-              <input type="radio" name="colors" id="yellow" value="yellow" class="absolute opacity-0  w-7 h-7">
+              <input type="radio" name="colors" id="yellow" value="#645C33" class="absolute opacity-0  w-7 h-7">
               <div class="icon-box bg-yellow w-7 h-7 rounded-md"></div>
             </label>
 
-            <label for="card">
-              <input type="radio" name="colors" id="yellow" value="yellow" class="absolute opacity-0  w-7 h-7">
+            {{-- Warna buat reset ke warna asal gara" gatau cara unchecked radio button :v --}}
+            <label for="reset">
+              <input type="radio" name="colors" id="reset" value="#222228" class="absolute opacity-0  w-7 h-7">
               <div class="icon-box bg-ternary w-7 h-7 rounded-md"></div>
             </label>
           </div>
