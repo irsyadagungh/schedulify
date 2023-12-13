@@ -1,11 +1,9 @@
 @extends('layout.app')
 
 @section('content')
-
-    <div class="mb-10">
-   <a href="{{ route('project') }}" class="font-bold hover:underline">Home</a> <span>/</span> <a href="{{ route('detail-project') }}" class="font-bold hover:underline">Dashboard</a> <span>/</span> <span class="font-bold">List</span>
+<div class="mb-10">
+    <a href="{{ route('project') }}" class="font-bold hover:underline">Home</a> <span>/</span> <a href="{{ route('detail-project') }}" class="font-bold hover:underline">Dashboard</a> <span>/</span> <span class="font-bold">Details</span>
     </div>
-
     @for ($a = 0; $a < 5; $a++)
     <x-accordion-list-project>
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 font-poppin">
@@ -15,7 +13,7 @@
                 <th  class="th overflow-hidden overflow-ellipsis">Description</th>
                 <th scope="col" class="th">Status</th>
                 <th scope="col" class="th">Date</th>
-                <th scope="col" class="th">Action</th>
+                <th scope="col" class="th">Penanggung Jawab</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -31,23 +29,16 @@
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur modi veniam deserunt natus. Architecto a, quisquam commodi ut cumque reprehenderit mollitia tempora exercitationem est dolore, omnis sunt? Quidem, modi quod?
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore dolorem perspiciatis labore sunt quae ab, rem sed doloribus nihil voluptatum eligendi cumque aliquam excepturi! Laudantium ipsa officia sequi ad dolorum.</td>
                 </div>
-                <td class="td">
-                  <x-status-badge>
-                  Rejected
-                  </x-status-badge>
-                </td>
                 <td class="td">qwerty</td>
-                <td class="td">
-                    <button class="mx-2 px-4 py-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-reject bg-reject">Reject</button>
-                    <button class="mx-2 px-4 py-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">Done</button>
-                </td>
+                <td class="td">qwerty</td>
+                <td class="td">Martin Rahman Hakim</td>
+
               </tr>
               @endfor
             </tbody>
           </table>
     </x-accordion-list-project>
-        
+
     @endfor
 
 @endsection
-

@@ -34,6 +34,8 @@ export default {
       'red'   : '#643333',
       'green' : '#466433',
       'yellow' : '#645C33',
+      'join'    : '#313139',
+
     },
     listStyleImage: {
       loginPic : 'url("./public/assets/images/loginPics.jpg")'
