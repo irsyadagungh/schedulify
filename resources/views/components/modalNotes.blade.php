@@ -16,17 +16,27 @@
     pointer-events: none;
   }
 
+  label input[type="radio"]:checked ~ .icon-box{
+    border: 2px solid white;
+  }
+
   
 
 </style>
 
-<div id="hs-slide-down-animation-modal" class="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none">
-  <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+<div id="hs-slide-down-animation-modal" class="hs-overlay-backdrop-open:bg-black hs-overlay-backdrop-open:bg-opacity-25 hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none">
+  <div class="hs-overlay-open:mt-20 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
     <div class="flex flex-col bg-card   rounded-xl pointer-events-auto ">
-      <form action="">
+
+      {{-- Start Form --}}
+    <form action="">
       <div class="flex justify-between items-center py-3 px-4 border-ternary border-b dark:border-gray-700">
-        <input class="bg-transparent focus:border-none font-poppin" type="text" placeholder="Judul">
-        <button type="button" class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-slide-down-animation-modal">
+
+        {{-- Title --}}
+        <input class="bg-transparent focus:outline-none w-fit font-poppin" type="text" placeholder="Title">
+        
+        {{-- Button Close --}}
+        <button type="button" class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-slide-down-animation-modal">  
           <span class="sr-only">Close</span>
           <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
@@ -35,8 +45,8 @@
        
         {{-- Text Editor --}}
         <div class=" rounded-lg overflow-hidden">
-          <div id="hs-editor-tiptap">
-            <div class="flex align-middle gap-x-0.5 border rounded-xl border-ternary mb-4 p-2 dark:border-gray-700">
+          <div id="hs-editor-tiptap" class="font-poppin font-light">
+            <div class="flex justify-between border rounded-xl border-ternary mb-4 p-2 dark:border-gray-700">
               <button class="w-8 h-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" type="button" data-hs-editor-bold>
                 <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 12a4 4 0 0 0 0-8H6v8"/><path d="M15 20a4 4 0 0 0 0-8H6v8Z"/></svg>
               </button>
@@ -73,27 +83,43 @@
 
       </div>
       <div class="flex justify-between items-center gap-x-2 py-3 px-4 border-ternary border-t dark:border-gray-700">
+
+        {{-- Tanggal --}}
         <div class="flex gap-2">
           <label for="">Tenggat</label>
           <input type="date" name="" id="" class="bg-transparent border border-ternary rounded-md px-2">
         </div>
+
+        {{-- Warna --}}
         <div class="flex gap-4">
           <label for="">Pilih Warna</label>
-          <label for="">
-            <input type="checkbox" name="" id="" value="" class="hidden">
-            <div class="icon-box bg-red w-7 h-7 rounded-md"></div>
-          </label>
-          <label for="">
-            <input type="checkbox" name="" id="" value="" class="hidden">
-            <div class="icon-box bg-green w-7 h-7 rounded-md"></div>
-          </label>
-          <label for="">
-            <input type="checkbox" name="" id="" value="" class="hidden">
-            <div class="icon-box bg-yellow w-7 h-7 rounded-md"></div>
-          </label>
+          <div class="flex gap-1">
+            <label for="red">
+              <input type="radio" name="colors" id="red" value="red" class="absolute opacity-0  w-7 h-7">
+              <div class="icon-box bg-red w-7 h-7 rounded-md"></div>
+            </label>
+            
+            <label for="green">
+              <input type="radio" name="colors" id="green" value="green" class="absolute opacity-0  w-7 h-7">
+              <div class="icon-box bg-green w-7 h-7 rounded-md"></div>
+            </label>
+            
+            <label for="yellow">
+              <input type="radio" name="colors" id="yellow" value="yellow" class="absolute opacity-0  w-7 h-7">
+              <div class="icon-box bg-yellow w-7 h-7 rounded-md"></div>
+            </label>
+
+            <label for="card">
+              <input type="radio" name="colors" id="yellow" value="yellow" class="absolute opacity-0  w-7 h-7">
+              <div class="icon-box bg-ternary w-7 h-7 rounded-md"></div>
+            </label>
+          </div>
+          
         </div>
       </div>
     </form>
+    {{-- End Form --}}
+
     </div>
   </div>
 </div>

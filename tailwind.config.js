@@ -12,6 +12,7 @@ export default {
       'cursive' : ['Pacifico'],
       'inter' : ['Inter'],
       'poppin': ['Poppins', 'sans-serif'],
+      'inter' : ['Inter', 'sans-serif'],
     },
     colors: {
       'primary' : '#1A202B',

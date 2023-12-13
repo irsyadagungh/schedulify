@@ -38,8 +38,21 @@
                 </td>
                 <td class="td">qwerty</td>
                 <td class="td">
-                    <button class="mx-2 px-4 py-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-reject bg-reject">Reject</button>
-                    <button class="mx-2 px-4 py-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">Done</button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-reject bg-reject">
+                      <img src="{{ asset('assets/icons/reject.svg') }}" alt="" srcset="">
+                    </button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">
+                      <img src="{{asset('assets/icons/done.svg')}}" alt="" srcset="">
+                    </button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">
+                      <img src="{{asset('assets/icons/edit.svg')}}" alt="" srcset="">
+                    </button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">
+                      <img src="{{asset('assets/icons/delete-white.svg')}}" alt="" srcset="">
+                    </button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">
+                      <img src="{{asset('assets/icons/eye.svg')}}" alt="" srcset="">
+                    </button>
                 </td>
               </tr>
               @endfor

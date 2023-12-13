@@ -11,7 +11,7 @@
     {{-- Personal --}}
 
     <div id="tombolAddNote">
-        <button data-hs-overlay="#hs-slide-down-animation-modal4">
+        <button data-hs-overlay="#hs-slide-down-animation-modal">
         <x-note>
             <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
         </x-note>
@@ -125,7 +125,7 @@
         <div>
         <p class="text-xs flex">Task</p>
         </div>
-        <progress id="file" value="70" max="100" class="h-2 w-full mt-1.5" style="background-color: #8B5CF6; border-radius: 8px;"></progress>
+        <progress id="file" value="70" max="100" class="h-2 w-full mt-1.5 rounded-full" style="background-color: #8B5CF6; border-radius: 8px;"></progress>
         <div>
             <p class="text-xs">70%</p>
         </div>
