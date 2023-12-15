@@ -9,14 +9,10 @@
 
         <div class="flex flex-col gap-2 w-1/2">
             {{-- Input 1 --}}
-            <div>
             <label for="" class="">Nama Lengkap</label>
             <input type="text" class=" rounded-sm bg-secondary outline outline-1 outline-white">
-            </div>
-            <div>
             <label for="" class="">Username</label>
             <input type="text" class=" rounded-sm bg-secondary outline outline-1 outline-white">
-            </div>
             <label for="" class="">Tanggal Lahir</label>
             <input type="text" class=" rounded-sm bg-secondary outline outline-1 outline-white">
             <label for="" class="">Jenis Kelamin</label>
