@@ -32,6 +32,8 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+// Project
+
 Route::get('/project', function () {
     return view('project.projectHome');
 })->name('project');
@@ -47,4 +49,39 @@ Route::get('/listTask', function ()  {
 Route::get('/detailTask', function ()  {
     return view('project.detailTaskProject');
 })->name('details-task');
+
+Route::get('/listTaskUser', function ()  {
+    return view('project.user.list-task-user');
+})->name('list-task-user');
+
+// Profile
+Route::get('/profile', function ()  {
+    return view('profile');
+})->name('profile');
+
+// Personal
+
+Route::get('/personal', function () {
+    return view('personal.personal');
+})->name('personal');
+
+Route::get('/personallihatsemua', function ()  {
+    return view('personal.todaylihatsemua');
+})->name('todaylihatsemua');
+
+Route::get('/comingsoonlihatsemua', function ()  {
+    return view('personal.comingsoonlihatsemua');
+})->name('comingsoonlihatsemua');
+
+Route::get('/prioritaslihatsemua', function ()  {
+    return view('personal.prioritaslihatsemua');
+})->name('prioritaslihatsemua');
+
+Route::get('/donelihatsemua', function ()  {
+    return view('personal.donelihatsemua');
+})->name('donelihatsemua');
+
+Route::get('/kadaluwarsalihatsemua', function ()  {
+    return view('personal.kadaluwarsalihatsemua');
+})->name('kadaluwarsalihatsemua');
 
