@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ScheduleProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +86,47 @@ Route::get('/kadaluwarsalihatsemua', function ()  {
     return view('personal.kadaluwarsalihatsemua');
 })->name('kadaluwarsalihatsemua');
 
+Route::get('/listTaskUser', function ()  {
+    return view('project.user.list-task-user');
+})->name('list-task-user');
+
+// Profile
+Route::get('/profile', function ()  {
+    return view('profile');
+})->name('profile');
+
+// Personal
+
+Route::get('/personal', function () {
+    return view('personal.personal');
+})->name('personal');
+
+Route::get('/personallihatsemua', function ()  {
+    return view('personal.todaylihatsemua');
+})->name('todaylihatsemua');
+
+Route::get('/comingsoonlihatsemua', function ()  {
+    return view('personal.comingsoonlihatsemua');
+})->name('comingsoonlihatsemua');
+
+Route::get('/prioritaslihatsemua', function ()  {
+    return view('personal.prioritaslihatsemua');
+})->name('prioritaslihatsemua');
+
+Route::get('/donelihatsemua', function ()  {
+    return view('personal.donelihatsemua');
+})->name('donelihatsemua');
+
+Route::get('/kadaluwarsalihatsemua', function ()  {
+    return view('personal.kadaluwarsalihatsemua');
+})->name('kadaluwarsalihatsemua');
+
+// Route Project
+Route::controller(ScheduleProjectController::class)->group(function () {
+    Route::get('/scheduleProject', 'index');
+    Route::get('/scheduleProject/show/{id}', 'show');
+    Route::post('/scheduleProject/store', 'store');
+    Route::post('/scheduleProject/edit/{id}', 'edit');
+    Route::post('/scheduleProject/update/{id}', 'update');
+    Route::delete('/scheduleProject/delete/{id}', 'delete');
+});

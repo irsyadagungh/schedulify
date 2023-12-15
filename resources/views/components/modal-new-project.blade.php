@@ -14,16 +14,23 @@
                 </nav>
               </div>
             </div>
+            <form action="/scheduleProject/create" method="post">
+                @csrf
+            {{-- Hidden Input --}}
+            {{-- input user --}}
+            {{-- <input type="text" name="id_user" value="{{ auth()->user()->id }}" hidden> --}}
+            {{-- end Hidden Input --}}
+
             <div class="p-4 overflow-y-auto">
               <div id="segment-1" class="tab-content">
                 <div id="task-name" class="flex flex-col gap-2">
                     <label for="">Task Name</label>
-                    <input type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+                    <input type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md" name="judul" value="">
                 </div>
 
                 <div id="description" class="flex flex-col">
                     <label for="">Description</label>
-                    <textarea type="text" rows="10" class="w-full resize-none fill-none bg-transparent border border-ternary p-1 rounded-md"></textarea>
+                    <textarea type="text" rows="10" class="w-full resize-none fill-none bg-transparent border border-ternary p-1 rounded-md" name="deskripsi" value=""></textarea>
                 </div>
 
                 <div class="flex justify-center items-center gap-x-2 py-3 px-4 ">
@@ -46,6 +53,7 @@
                   </div>
               </div>
             </div>
+        </form>
 
       </div>
     </div>
