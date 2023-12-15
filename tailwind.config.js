@@ -12,6 +12,7 @@ export default {
       'cursive' : ['Pacifico'],
       'inter' : ['Inter'],
       'poppin': ['Poppins', 'sans-serif'],
+      'inter' : ['Inter', 'sans-serif'],
     },
     colors: {
       'primary' : '#1A202B',
@@ -25,6 +26,15 @@ export default {
       'transparent' : '#00000000',
       'Request' : '#BF965A',
       'upload'  : '#2D2D2C',
+      'black'  : '#000000',
+      'onProgress' : '#353f4f',
+      'rejected' : '#432531',
+      'rejectedText' : '#e54243',
+      'dones' : '#1e305e',
+      'text-dones' : '#3878e3',
+      'red'   : '#643333',
+      'green' : '#466433',
+      'yellow' : '#645C33',
       'join'    : '#313139',
 
     },

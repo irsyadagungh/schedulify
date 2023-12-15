@@ -31,11 +31,28 @@
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur modi veniam deserunt natus. Architecto a, quisquam commodi ut cumque reprehenderit mollitia tempora exercitationem est dolore, omnis sunt? Quidem, modi quod?
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore dolorem perspiciatis labore sunt quae ab, rem sed doloribus nihil voluptatum eligendi cumque aliquam excepturi! Laudantium ipsa officia sequi ad dolorum.</td>
                 </div>
-                <td class="td">qwerty</td>
+                <td class="td">
+                  <x-status-badge>
+                  Rejected
+                  </x-status-badge>
+                </td>
                 <td class="td">qwerty</td>
                 <td class="td">
-                    <button class="px-4 rounded-sm bg-reject">Reject</button>
-                    <button class="px-4 rounded-sm bg-done">Done</button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-reject bg-reject">
+                      <img src="{{ asset('assets/icons/reject.svg') }}" alt="" srcset="">
+                    </button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">
+                      <img src="{{asset('assets/icons/done.svg')}}" alt="" srcset="">
+                    </button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">
+                      <img src="{{asset('assets/icons/edit.svg')}}" alt="" srcset="">
+                    </button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">
+                      <img src="{{asset('assets/icons/delete-white.svg')}}" alt="" srcset="">
+                    </button>
+                    <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-done bg-done">
+                      <img src="{{asset('assets/icons/eye.svg')}}" alt="" srcset="">
+                    </button>
                 </td>
               </tr>
               @endfor
