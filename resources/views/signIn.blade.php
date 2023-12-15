@@ -16,7 +16,8 @@
             <div class="content flex flex-col justify-center mt-28 lg:mt-0">
                 <h1 class="text-2xl">Welcome to <span class="font-cursive">Schedulify</span></h1>
                 <p class="text-gray mb-10 opacity-50">Schedulify bisa mengatur jadwal kamu</p>
-                <form action="" class="flex flex-col gap-1">
+                <form action="login" class="flex flex-col gap-1" method="POST">
+                    @csrf
                     <label for="">Username :</label>
                     <input type="text" name="" id="" class="rounded-md w-full p-1 outline outline-white outline-1 bg-[#fff0]"><br>
                     <label for="">Password :</label>
@@ -34,7 +35,8 @@
             </div>
         </div>
 
-        <div class="pics w-2/3 hidden items-end lg:flex">
+        <div class="pics w-2/3 hidden items-end
+        lg:flex">
             <img src="{{asset('assets/images/loginPics.png')}}" class="list-image-loginPic w-[90%]" alt="">
         </div>
     </div>
