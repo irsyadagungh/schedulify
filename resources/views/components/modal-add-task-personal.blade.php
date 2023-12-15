@@ -3,12 +3,13 @@
       <div class="flex flex-col bg-card  shadow-sm rounded-xl">
         <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
             <h3 class="font-bold text-gray-800 dark:text-white">
-              Delete Schedule
+              Modal title
             </h3>
+
           </div>
           <div class="p-4 overflow-y-auto">
             <p class="mt-1 text-gray-800 dark:text-gray-400">
-              Jika anda menghapus schedul Lorem maka tidak akan bisa dipulihkan, apakah kamu yakin ingin menghapus schedule ini ?
+              This is a wider card with supporting text below as a natural lead-in to additional content.
             </p>
           </div>
           <div class="flex justify-center items-center gap-x-2 py-3 px-4 ">
@@ -20,5 +21,5 @@
             </button>
           </div>
       </div>
-   </div>
-</div>
+    </div>
+  </div>

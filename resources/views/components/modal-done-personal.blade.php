@@ -3,7 +3,9 @@
       <div class="flex flex-col bg-card  shadow-sm rounded-xl">
         <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
             <h3 class="font-bold text-gray-800 dark:text-white">
+
               Delete Schedule
+
             </h3>
 
           </div>
