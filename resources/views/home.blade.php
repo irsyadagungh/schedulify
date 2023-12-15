@@ -94,7 +94,6 @@
 
 
     <x-modal-hapus-personal></x-modal-hapus-personal>
-    <x-modal-add-task-personal></x-modal-add-task-personal>
 
 
 

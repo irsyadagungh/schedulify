@@ -107,9 +107,13 @@
                                         @endfor
 
                                          {{-- Tambah note --}}
-                                         <x-note>
-                                            <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
-                                        </x-note>
+                                         <div id="">
+                                            <button data-hs-overlay="#hs-slide-down-animation-modal">
+                                            <x-note>
+                                                <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
+                                            </x-note>
+                                        </button>
+                                        </div>
                                      </div>
                                 </div>
                             </div>
@@ -194,10 +198,16 @@
 
                                         </x-note>
                                         @endfor
-                                        <x-note>
-                                            <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
-                                        </x-note>
+                                        <div id="">
+                                            <button data-hs-overlay="#hs-slide-down-animation-modal">
+                                            <x-note>
+                                                <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
+                                            </x-note>
 
+                                        </button>
+                                    </div>
+
+                                    <x-modalNotes></x-modalNotes>
 
 
                                      </div>
