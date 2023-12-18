@@ -124,6 +124,7 @@ Route::get('/kadaluwarsalihatsemua', function ()  {
 })->name('kadaluwarsalihatsemua');
 
 // Route Project
+// Btw ini controller nya ilang lagi njir di gw
 Route::controller(ScheduleProjectController::class)->group(function () {
     Route::get('/scheduleProject', 'index');
     Route::get('/scheduleProject/show/{id}', 'show');
@@ -133,10 +134,13 @@ Route::controller(ScheduleProjectController::class)->group(function () {
     Route::delete('/scheduleProject/delete/{id}', 'delete');
 });
 
-Route::get('/login', [ConfirmablePasswordController::class,'show'])->name('login');
+Route::get('/login', [ConfirmablePasswordController::class,'show'])->name('login.show');
 Route::post('/login', [ConfirmablePasswordController::class,'store'])->name('login.store');
-Route::get('/register', [RegisteredUserController::class,'create'])->name('register');
+Route::get('/register', [RegisteredUserController::class,'create'])->name('register.create');
 Route::post('/register', [RegisteredUserController::class,'store'])->name('register.store');
+
+// Nambah dikit
+Route::post('/logout', [ConfirmablePasswordController::class, 'logout'])->name('logout');
 
 Route::get('/1', function () {
     return 'Halo User';
@@ -149,3 +153,22 @@ Route::get('/2', function () {
 Route::get('/3', function () {
     return 'Halo Admin';
 })->middleware('3');
+
+// Ini dari gpt yang tadi
+// Route::middleware(['auth', 'cek_status:user'])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
+
+// Route::middleware(['auth', 'cek_status:super_user'])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
+
+// Route::middleware(['auth', 'cek_status:admin'])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });

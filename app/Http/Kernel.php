@@ -70,5 +70,8 @@ class Kernel extends HttpKernel
         '1' => \App\Http\Middleware\CheckUserStatus::class,
         '2' => \App\Http\Middleware\CheckUserStatus::class,
         '3' => \App\Http\Middleware\CheckUserStatus::class,
+
+        // ini role yang tadi
+        // 'cek_status' => \App\Http\Middleware\CheckUserStatus::class,
     ];
 }

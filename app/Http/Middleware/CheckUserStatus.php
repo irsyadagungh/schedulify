@@ -13,8 +13,15 @@ class CheckUserStatus
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, $status): Response
     {
+        // Ini sekalian sama fortify tadi, tapi masih belom yakin
+        // $user = auth()->user();
+
+        // if ($user && in_array($user->status, $status)) {
+        //     return $next($request);
+        // }
+
         if ($request->user() && $request->user()->role === '1') {
             return $next($request);
         } else if ($request->user() && $request->user()->role === '2') {

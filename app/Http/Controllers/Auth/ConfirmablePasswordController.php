@@ -25,6 +25,15 @@ class ConfirmablePasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // Ini sekalian sama fortify tadi tapi belom yakin
+        // $credentials = $request->only('email', 'password', 'username');
+
+        // if (Auth::attempt($credentials)) {
+        //     return redirect('/home');
+        // }
+
+        // return back()->withErrors(['email' => 'Invalid credentials']);
+
         if (! Auth::guard('web')->validate([
             'username' => $request->user()->username,
             'email' => $request->user()->email,
