@@ -1,49 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 <body class="bg-primary text-white">
-    <header id="header" class="flex w-full justify-between backdrop-blur-2xl p-4">
+    <header id="header" class="relative z-50 flex w-full justify-between backdrop-blur-2xl p-4">
         <h1 class="font-cursive text-xl text-white">Schedulify</h1>
-        <nav>
-            <ul class="flex gap-8">
-                <li>Home</li>
-                <li>Feature</li>
-                <li>Contact</li>
+        <nav id="menu" class="absolute bg-primary z-50 w-full left-0 top-16 h-0 transition-all duration-300 overflow-hidden
+                            md:flex md:w-fit md:h-fit md:relative md:top-0 md:bg-transparent">
+            <ul class="flex flex-col gap-8 z-50 translate-x-1/2 translate-y-1/2
+                        md:flex-row md:translate-x-0 md:translate-y-0">
+                <li class="list">Home</li>
+                <li class="list">About</li>
+                <li class="list">Feature</li>
+                <li class="list">Contact</li>
             </ul>
         </nav>
 
-        <div>
-            <a href="/login" class="mx-3">Sign In</a>
+        <div class="flex gap-4">
+            <button id="btn" class="outline-1 outline-white outline rounded-md p-2 flex flex-col gap-2 justify-center items-center
+                                    md:hidden">
+                <span class="w-6 h-[1px] bg-white"></span>
+                <span class="w-6 h-[1px] bg-white"></span>
+                <span class="w-6 h-[1px] bg-white"></span>
+            </button>
             <a href="/register" class="outline-1 outline-white outline rounded-md p-1">Sign Up</a>
         </div>
     </header>
     <section>
         <img src="{{asset('assets/images/background.png')}}" class="absolute w-1/2 h-auto right-0 -z-10" alt="">
         <div class="container bg-primary/25 backdrop-blur-3xl w-full h-screen flex justify-center items-center">
-            <div class="content-left w-1/2 flex flex-col justify-center items-center">
+            <div class="content-left w-1/2 flex flex-col items-start px-32 gap-6">
                 <div class="text">
-                    <h1 class="text-3xl">Schedulify makes your plans organized</h1>
+                    <h1 class="text-3xl"><span class="text-4xl">Schedulify</span> <br>
+                        makes your <span class="auto-type"></span> organized </h1>
                     <p class="text-white/70">Keep your task which want to be reminded when the deadline is on</p>
                 </div>
+
+                <div class="flex gap-4">
+                    <a href="" class="py-1 px-2 rounded-md flex bg-ternary items-center gap-3">Learn more <img src="{{ asset('assets/icons/down-arrow.png') }}" alt="" srcset="" class="w-4 h-4 animate-bounce"></a>
+                    <a href="" class="py-1 px-2 rounded-md border border-white">Register</a>
+                </div>
             </div>
-            <div class="content-right relative w-1/2  h-full">
+            <div class="content-right relative w-1/2  h-full hidden md:block">
                     <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -top-36" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
                     <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -right-24" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
-                    <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -bottom-32" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
+                    <div data-aos="fade-down"><img class="scale-[0.60] mt-0 absolute -bottom-10" src="{{asset('assets/images/mockups.png')}}" alt=""></div>
             </div>
         </div>
     </section>
-    <section class="w-full h-screen">
+    <section id="sec2" class="w-full h-screen">
 
     </section>
+
+    <a href="#sec2" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-ternary/50 border border-ternary rounded-full p-2 animate-bounce">
+        <img src="{{ asset('assets/icons/arrow.png') }}" alt="Arrow" class="w-auto h-auto rotate-180 scale-x-[-1] filter invert">
+      </a>
 <script>
-    AOS.init();
+    var typed = new Typed('.auto-type', {
+    strings: ["plans", "projects", "tasks"],
+    typeSpeed: 150,
+    backSpeed: 150,
+    loop: true
+  });
+
+  const btn = document.getElementById("btn");
+  btn.addEventListener("click", function() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("h-0");
+    menu.classList.toggle("h-screen");
+  });
   </script>
 </body>
 </html>
