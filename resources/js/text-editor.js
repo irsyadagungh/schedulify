@@ -102,4 +102,27 @@ import { Editor } from 'https://esm.sh/@tiptap/core';
     action.addEventListener('click', fn);
   });
 
-  
+//   function saveEditorContent() {
+//     const editorContent = editor.getJSON();
+//     const jsonString = JSON.stringify(editorContent);
+//     return jsonString;
+//   }
+
+  // ... (Your existing code)
+
+// Assuming you have a button with id="save-button"
+const saveButton = document.querySelector('#save-button');
+
+saveButton.addEventListener('click', () => {
+  // Get the content from the Tiptap editor field
+  const editorContent = document.querySelector('[data-hs-editor-field]').innerHTML;
+
+  // Save the editor content to the deskripsi field
+  document.querySelector('[name="deskripsi"]').value = editorContent;
+
+  // Submit the form
+  document.querySelector('form').submit();
+});
+
+// ... (Your existing code)
+

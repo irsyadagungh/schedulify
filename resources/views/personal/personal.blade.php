@@ -59,7 +59,8 @@
                             <div style = "margin-top: 5px">
                                 <div style = "display:flex;  margin-left: 30px;">
                                     <div class="flex flex-wrap gap-2 card ">
-                                        @for ($i =0; $i<3; $i++)
+
+                                        @foreach ($data as $p)
                                         <x-note>
 
                                             <div class="flex -ml-1 ">
@@ -92,19 +93,20 @@
 
                                              {{-- Header --}}
                                    <div class="">
-                                    <h1 class="text-xs font-bold">Memancing Anak Kelas</h1>
-                                    <p class="text-[10px]">Created on 11.9.2023</p>
+                                    <h1 class="text-xs font-bold">{{$p->judul}}</h1>
+                                    <p class="text-[10px]">Created on {{$p->created_at}}</p>
                                    </div>
 
                                    {{-- Deskripsi --}}
                                    <div class="">
                                     <p class="text-xs">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. kdoawkdo
+                                        {!! $p->deskripsi !!}
                                     </p>
                                    </div>
 
+
                                         </x-note>
-                                        @endfor
+                                        @endforeach
 
                                          {{-- Tambah note --}}
                                          <div id="">

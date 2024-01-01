@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
             $table->string('judul', 50)->nullable();
-            $table->string('deskripsi')->nullable();
-            $table->date('tanggal_deadline');
-            $table->string('warna');
-            $table->string('status');
+            $table->text('deskripsi')->nullable();
+            $table->date('tanggal_deadline')->nullable();
+            $table->string('warna')->default('#222228');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

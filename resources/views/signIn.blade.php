@@ -16,17 +16,38 @@
             <div class="content flex flex-col justify-center mt-28 lg:mt-0">
                 <h1 class="text-2xl">Welcome to <span class="font-cursive">Schedulify</span></h1>
                 <p class="text-gray mb-10 opacity-50">Schedulify bisa mengatur jadwal kamu</p>
-                <form action="" class="flex flex-col gap-1">
+
+                {{-- login form --}}
+                <form action="{{route('login')}}" method="POST" class="flex flex-col gap-1">
+                    @csrf
+
+                    {{-- validate error --}}
+                    @if ($errors)
+                        @foreach ($errors->all() as $error)
+                            <p class="text-danger" style="columns:auto 50vh; ">{{ $error }}</p>
+                        @endforeach
+                    @endif
+
+                    {{--  validate sukes --}}
+                    @if (session()->has('sukses'))
+                        <p class="text-success">{{ session('sukses') }}</p>
+                    @endif
+
+                    {{-- username input --}}
                     <label for="">Username :</label>
-                    <input type="text" name="" id="" class="rounded-md w-full p-1 outline outline-white outline-1 bg-[#fff0]"><br>
+                    <input type="username" name="username" id="" class="rounded-md w-full p-1 outline outline-white outline-1 bg-[#fff0]"><br>
+
+                    {{-- password input --}}
                     <label for="">Password :</label>
-                    <input type="text" name="" id="" class="rounded-md w-full p-1 outline outline-white outline-1 bg-[#fff0]"><br>
+                    <input type="password" name="password" id="" class="rounded-md w-full p-1 outline outline-white outline-1 bg-[#fff0]"><br>
+
+                    {{-- rememberme checkbox --}}
                     <div class="w-full flex justify-start mb-10">
-                        <input class="mr-4" type="checkbox" name="" id="">
+                        <input class="mr-4" type="checkbox" name="remember" id="">
                         <p>Remember me</p>
                     </div>
                     <div class="flex flex-col gap-4">
-                        <button class="w-full bg-ternary text-white p-1 rounded-md focus:outline focus:outline-offset-4 focus:outline-ternary duration-200 ease-in-out">Login</button>
+                        <button type="submit" class="w-full bg-ternary text-white p-1 rounded-md focus:outline focus:outline-offset-4 focus:outline-ternary duration-200 ease-in-out">Login</button>
                         <button class="w-full bg-white text-[#000000] p-1 rounded-md">Sign in with google</button>
                         <p class="text-center mt-6">Dont have acount ? <a href="/register" class="text-blue">Sign Up</a></p>
                     </div>
@@ -34,7 +55,7 @@
             </div>
         </div>
 
-        <div class="pics w-2/3 hidden items-end 
+        <div class="pics w-2/3 hidden items-end
         lg:flex">
             <img src="{{asset('assets/images/loginPics.png')}}" class="list-image-loginPic w-[90%]" alt="">
         </div>
