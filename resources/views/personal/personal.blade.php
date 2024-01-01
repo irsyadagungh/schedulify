@@ -24,6 +24,8 @@
            {{-- Tab To Do --}}
         <div class="p-4 mt-3">
             <div id="basic-tabs-1" role="tabpanel" aria-labelledby="basic-tabs-item-1">
+
+
               {{-- Kategori Today --}}
                 <div class="hs-accordion-group">
                     <div class="hs-accordion active" id="hs-basic-heading-one " style="margin-left: -80px">
@@ -62,14 +64,16 @@
 
                                         @foreach ($data as $p)
                                         <x-note>
-
+                                        <div data-hs-overlay="#update" class="w-full h-44">
                                             <div class="flex -ml-1 ">
+                                                <button>
                                                 <img
                                                 id="untukPin"
                                                 src="{{asset('assets/icons/push_pin (1).svg')}}"
                                                 class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
                                                 alt=""
                                                 />
+                                                </button>
 
                                                 {{-- Ada Button --}}
                                                 <button data-hs-overlay="#hs-slide-down-animation-modal3">
@@ -104,13 +108,13 @@
                                     </p>
                                    </div>
 
-
+                                </div>
                                         </x-note>
                                         @endforeach
 
                                          {{-- Tambah note --}}
                                          <div id="">
-                                            <button data-hs-overlay="#hs-slide-down-animation-modal">
+                                            <button data-hs-overlay="#tambah">
                                             <x-note>
                                                 <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
                                             </x-note>
@@ -156,6 +160,7 @@
                                     <div class="flex flex-wrap gap-2 card ">
                                         @for ($i =0; $i<3; $i++)
                                         <x-note>
+                                            <div data-hs-overlay="#update" class="w-full h-44">
 
                                             <div class="flex -ml-1 ">
                                                 <img
@@ -197,11 +202,11 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. kdoawkdo
                                     </p>
                                    </div>
-
+                                </div>
                                         </x-note>
                                         @endfor
                                         <div id="">
-                                            <button data-hs-overlay="#hs-slide-down-animation-modal">
+                                            <button data-hs-overlay="#tambah">
                                             <x-note>
                                                 <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
                                             </x-note>
@@ -209,9 +214,9 @@
                                         </button>
                                     </div>
 
-                                    <x-modalNotes></x-modalNotes>
-
-
+                                    <x-note-update></x-note-update>
+                                    <x-note-tambah></x-note-tambah>
+                                    
                                      </div>
                                 </div>
                             </div>
@@ -444,8 +449,23 @@
 
             </div>
 
+            
 
-
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const buttons = document.querySelectorAll('#buatHapus, #untukKeluar');
+            
+                    buttons.forEach(button => {
+                        button.addEventListener('click', function(event) {
+                            // Mencegah event default
+                            event.preventDefault();
+            
+                            // Mencegah event penyebaran (event propagation)
+                            event.stopPropagation();
+                        });
+                    });
+                });
+            </script>
 
 
 

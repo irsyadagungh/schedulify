@@ -55,7 +55,20 @@
         </div>
     </section>
     <section id="sec2" class="w-full h-screen">
+        <div class="pembungkus flex">
+            <img src="{{ asset('assets/images/notes.png') }}" alt="" srcset="" class="w-1/2 h-1/2">
+            <div class="items-center flex">
+                <p class="w-3/4">
+                    Schedulify merupakan aplikasi sederhana berbasis web yang dirancang untuk membantu pengguna dapat mengatur kehidupan sehari-harinya dengan lebih efisien.
 
+                    Dalam aplikasi website ini, Anda dapat membuat schedule jadwal, progress dari jadwalnya, dan evaluasi setiap bulannya.
+
+                    Fitur unik yang paling diunggulkan di aplikasi Schedulify adalah kemampuannya untuk melacak kemajuan yang telah Anda capai dalam menyelesaikan tugas-tugas tersebut.
+
+                    Di aplikasi Schedulify kita menyuguhkan dua kategori yaitu kategori inidividual dan kategori project.
+                </p>
+            </div>
+        </div>
     </section>
 
     <a href="#sec2" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-ternary/50 border border-ternary rounded-full p-2 animate-bounce">
