@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ScheduleProjectController;
+use App\Http\Controllers\SchedulePersonalNoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,23 +22,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', function () {
-    return view('register');
-});
+// register route
+Route::get('/register',[RegisterController::class,'showRegistrationForm']);
+Route::post('/registerPost',[RegisterController::class,'register'])->name('reg');
 
-Route::get('/login', function () {
-    return view('signIn');
-});
+// login route
+Route::get('/login',[LoginController::class,'showLoginForm'])->name('ls');
+Route::post('/loginPost',[LoginController::class,'login'])->name('login');
 
-Route::get('/homepage', function () {
-    return view('homepage');
-});
+// home route
 Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-// Project
+// Profile
+Route::get('/profile',[ProfileController::class,'edit'])->name('p');
+Route::put('/profilePost',[ProfileController::class,'update'])->name('pp');
 
+// Project
 Route::get('/project', function () {
     return view('project.projectHome');
 })->name('project');
@@ -55,16 +60,12 @@ Route::get('/listTaskUser', function ()  {
     return view('project.user.list-task-user');
 })->name('list-task-user');
 
-// Profile
-Route::get('/profile', function ()  {
-    return view('profile');
-})->name('profile');
+
 
 // Personal
+Route::get('/personal',[SchedulePersonalNoteController::class,'index'])->name('personal');
+Route::post('/personalPost',[SchedulePersonalNoteController::class,'store'])->name('plStore');
 
-Route::get('/personal', function () {
-    return view('personal.personal');
-})->name('personal');
 
 Route::get('/personallihatsemua', function ()  {
     return view('personal.todaylihatsemua');
@@ -97,9 +98,9 @@ Route::get('/profile', function ()  {
 
 // Personal
 
-Route::get('/personal', function () {
-    return view('personal.personal');
-})->name('personal');
+// Route::get('/personal', function () {
+//     return view('personal.personal');
+// })->name('personal');
 
 Route::get('/personallihatsemua', function ()  {
     return view('personal.todaylihatsemua');

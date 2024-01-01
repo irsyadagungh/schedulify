@@ -33,7 +33,7 @@
                 <label for="">Assignee</label>
                 <x-dropdown-assignee>
                     <option value="">Choose</option>
-                    {{-- @foreach ( as ) --}}
+                    {{-- @foreach  --}}
                     <option value="Name">Name</option>
                     {{-- @endforeach --}}
                 </x-dropdown-assignee>

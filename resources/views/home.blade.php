@@ -22,12 +22,12 @@
 
     {{-- Create New Project --}}
     <div>
-
+        <button data-hs-overlay="#hs-vertically-centered-modal2">
         <x-note>
             <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
         </x-note>
-
-        <h1 class="mt-2 font-poppin">Create New Project</h1>
+        </button>
+        <h1 class="mt-2">Create New Project</h1>
     </div>
 </div>
 
@@ -145,5 +145,7 @@
     </div>
 </div>
 
-<x-modalNotes></x-modalNotes>
+<x-modalNotes-update></x-modalNotes-update>
+
+<x-modal-new-project></x-modal-new-project>
 @endsection

@@ -19,21 +19,63 @@
             lg:mt-0">
                 <h1 class="text-2xl">Welcome to <span class="font-cursive">Schedulify</span></h1>
                 <p class="text-gray mb-10 opacity-50">Schedulify bisa mengatur jadawal kamu</p>
-                <form action="" class="flex flex-col gap-1">
+
+                {{-- message --}}
+                {{-- @if(isset($status))
+                    <div class="alert alert-danger" role="alert">
+                        {{ $status }}
+                    </div>
+                @endif --}}
+                {{-- {{ dd($status) }} --}}
+                @if(isset($status))
+                <div class="alert alert-danger" role="alert">
+                    {{ $status }}
+                </div>
+                @endif
+
+                @error('username')
+                    <div class="alert alert-danger mt-3">
+                        {{ $message }}
+                    </div>
+                @enderror
+
+                @error('email')
+                    <div class="alert alert-danger mt-3">
+                        {{ $message }}
+                    </div>
+                @enderror
+
+                {{-- register form --}}
+                <form class="flex flex-col gap-1" action="{{route('reg')}}" method="POST">
+                    @csrf
+                    {{-- name input --}}
                     <label for="">Name :</label>
-                    <input type="text" class="rounded-md w-full p-1 bg-[#fff0] outline outline-white outline-1"><br>
+                    <input type="text" class="rounded-md w-full p-1 bg-[#fff0] outline outline-white outline-1" name="fullname"><br>
+
+
+
+                    {{-- username input --}}
                     <label for="">Username :</label>
-                    <input type="text" class="rounded-md w-full p-1 bg-[#fff0] outline outline-white outline-1"><br>
+                    <input type="text" class="rounded-md w-full p-1 bg-[#fff0] outline outline-white outline-1" name="username"><br>
+
+
+
+                    {{-- email input --}}
                     <label for="">Email :</label>
-                    <input type="text" class="rounded-md w-full p-1 bg-[#fff0] outline outline-white outline-1"><br>
+                    <input type="email" class="rounded-md w-full p-1 bg-[#fff0] outline outline-white outline-1" name="email"><br>
+
+                    {{-- password input --}}
                     <label for="">Password :</label>
-                    <input type="text" class="rounded-md w-full p-1 bg-[#fff0] outline outline-white outline-1">
-                    <div class="w-full flex justify-start mb-10">
+                    <input type="password" class="rounded-md w-full p-1 bg-[#fff0] outline outline-white outline-1" name="password">
+
+                    {{-- <div class="w-full flex justify-start mb-10">
                         <input class="mr-4" type="checkbox" name="" id="">
                         <p>Remember me</p>
-                    </div>
+                    </div> --}}
+
+                    <br>
                     <div class="flex flex-col gap-4">
-                        <button class="outline outline-1 bg-white text-primary rounded-md py-1 focus:outline focus:outline-offset-4 focus:outline-white duration-200 ease-in-out">Sign Up</button>
+                        <button type="submit" class="outline outline-1 bg-white text-primary rounded-md py-1 focus:outline focus:outline-offset-4 focus:outline-white duration-200 ease-in-out">Sign Up</button>
                         <p>Already have an account? <a href="/login" class="text-blue">Login</a></p>
                     </div>
                 </form>
