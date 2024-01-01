@@ -145,7 +145,6 @@
     </div>
 </div>
 
-<x-modalNotes-update></x-modalNotes-update>
-
+<x-modalNotes></x-modalNotes>
 <x-modal-new-project></x-modal-new-project>
 @endsection

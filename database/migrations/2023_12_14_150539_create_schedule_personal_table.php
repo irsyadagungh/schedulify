@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('judul', 50)->nullable();
             $table->text('deskripsi')->nullable();
             $table->date('tanggal_deadline')->nullable();
-            $table->string('warna')->default('#222228');
+            $table->string('warna')->default('#222228')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });
