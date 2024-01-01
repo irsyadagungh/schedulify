@@ -68,12 +68,11 @@ class ProfileController extends Controller
                 'max:50',
                 Rule::unique('users')->ignore($userId),
             ],
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => ['required',
+            'tanggal_lahir',
+            'jenis_kelamin' => [
                 Rule::in(['laki-laki', 'perempuan'])
             ],
-            'no_telepon' => 'required|max:13',
-            'no_telepon',
+            'no_telepon' => 'max:13',
             'email' => [
                 'required',
                 'email',

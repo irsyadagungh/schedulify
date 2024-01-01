@@ -17,7 +17,7 @@
             @csrf
             @method('put')
 
-            <div class="flex flex-col gap-2 w-1/2">
+            <div class="flex flex-col gap-2 ">
                 {{-- Nama input --}}
                 <label for="" class="">Nama Lengkap</label>
                 <input type="text" name="fullname" value=" {{auth()->user()->fullname}}" class=" rounded-sm bg-secondary outline outline-1 outline-white">

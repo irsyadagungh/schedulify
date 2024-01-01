@@ -22,13 +22,13 @@
 
     {{-- Create New Project --}}
     <div>
-        <button data-hs-overlay="#hs-vertically-centered-modal2">
-        <x-note>
-            <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
-        </x-note>
-        </button>
-        <h1 class="mt-2">Create New Project</h1>
-    </div>
+            <button data-hs-overlay="#hs-vertically-centered-modal2">
+            <x-note>
+                <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
+            </x-note>
+            </button>
+            <h1 class="mt-2">Create New Project</h1>
+        </div>
 </div>
 
 <hr class="my-4 border-white border-opacity-25" />
@@ -42,53 +42,53 @@
         <h1>Personal</h1>
         <div class="card flex flex-wrap gap-2 ">
 
-            @for ($i = 0; $i < 4; $i++)
+            @foreach ($data as $p)
+                                        <x-note>
 
-            <x-note>
+                                            <div class="flex -ml-1 ">
+                                                <img
+                                                id="untukPin"
+                                                src="{{asset('assets/icons/push_pin (1).svg')}}"
+                                                class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
+                                                alt=""
+                                                />
 
-                <div class="flex -ml-1 ">
-                    <img
-                    id="untukPin"
-                    src="{{asset('assets/icons/push_pin (1).svg')}}"
-                    class="mr-16 pl-0 pr-3 cursor-pointer w-10 h-5"
-                    alt=""
-                    />
+                                                {{-- Ada Button --}}
+                                                <button data-hs-overlay="#hs-slide-down-animation-modal3">
+                                               <img
+                                               id="buatHapus"
+                                               src="{{asset('assets/icons/delete.svg')}}"
+                                               class="pt-0 pl-4 cursor-pointer "
+                                               alt=""
+                                               />
+                                                </button>
 
-                    {{-- Ada Button --}}
-                    <button data-hs-overlay="#hs-slide-down-animation-modal3">
-                   <img
-                   id="buatHapus"
-                   src="{{asset('assets/icons/delete.svg')}}"
-                   class="pt-0 pl-4     cursor-pointer "
-                   alt=""
-                   />
-                    </button>
+                                                <button data-hs-overlay="#hs-slide-down-animation-modal4">
+                                               <img
+                                               id="untukKeluar"
+                                               src="{{asset('assets/icons/check_fig.svg')}}"
+                                               class="w-4 h-5 pt-0 cursor-pointer"
+                                               alt=""
+                                               />
+                                                </button>
+                                                    </div>
 
-                    <button data-hs-overlay="#hs-slide-down-animation-modal4">
-                   <img
-                   id="untukKeluar"
-                   src="{{asset('assets/icons/check_fig.svg')}}"
-                   class="pt-0  cursor-pointer w-4 h-5"
-                   alt=""
-                   />
-                    </button>
-                        </div>
+                                             {{-- Header --}}
+                                   <div class="">
+                                    <h1 class="text-xs font-bold">{{$p->judul}}</h1>
+                                    <p class="text-[10px]">Created on {{$p->created_at}}</p>
+                                   </div>
 
-                 {{-- Header --}}
-       <div class="">
-        <h1 class="text-xs font-bold">Memancing Anak Kelas</h1>
-        <p class="text-[10px]">Created on 11.9.2023</p>
-       </div>
+                                   {{-- Deskripsi --}}
+                                   <div class="">
+                                    <p class="text-xs">
+                                        {!! $p->deskripsi !!}
+                                    </p>
+                                   </div>
 
-       {{-- Deskripsi --}}
-       <div class="">
-        <p class="text-xs">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. kdoawkdo
-        </p>
-       </div>
 
-            </x-note>
-            @endfor
+                                        </x-note>
+                                        @endforeach
         </div>
     </div>
 
@@ -146,5 +146,4 @@
 </div>
 
 <x-modalNotes></x-modalNotes>
-<x-modal-new-project></x-modal-new-project>
 @endsection

@@ -31,9 +31,11 @@ Route::get('/login',[LoginController::class,'showLoginForm'])->name('ls');
 Route::post('/loginPost',[LoginController::class,'login'])->name('login');
 
 // home route
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+// Route::get('/home', function () {
+//     return view('home');
+// })->name('home');
+Route::get('/home',[SchedulePersonalNoteController::class,'home'])->name('home');
+
 
 // Profile
 Route::get('/profile',[ProfileController::class,'edit'])->name('p');

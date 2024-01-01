@@ -23,6 +23,17 @@ class SchedulePersonalNoteController extends Controller
         return view('personal.personal', compact('user', 'data'),['data' => $data]);
     }
 
+
+    public function home()
+    {
+        //
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $data = SchedulePersonal::all();
+
+
+        return view('home', compact('user', 'data'),['data' => $data]);
+    }
     /**
      * Show the form for creating a new resource.
      */
