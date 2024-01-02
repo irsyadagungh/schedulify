@@ -64,38 +64,32 @@
 
                                         @foreach ($data as $p)
                                         <x-note :note-id="$p->id">
-                                        <div data-hs-overlay="" class="w-full h-44">
-                                            <div class="flex -ml-1 ">
+                                        <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
+                                            <div class="flex justify-between">
 
-                                                    <a href="#" onclick="return confirm('Are you sure you want to delete?')">
-                                                        <img
-                                                        id="untukPin"
-                                                        src="{{asset('assets/icons/push_pin.svg')}}"
-                                                        class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
-                                                        alt=""
-                                                        />
-                                                    </a>
+                                                    <div>
+                                                        {{-- Kiri --}}
+                                                        <a href="">
+                                                            <img src="{{asset('assets/icons/push_pin.svg')}}" alt="">
+                                                        </a>
+                                                    </div>
 
 
-                                                    <a href="{{ url('personal/destroy/'.$p->id) }}" onclick="return confirm('Are you sure you want to delete?')">
-                                                        <img
-                                                        id="buatHapus"
-                                                        src="{{asset('assets/icons/delete.svg')}}"
-                                                        class="w-4 h-5 pt-0 cursor-pointer "
-                                                        alt=""
-                                                        />
-                                                    </a>
-                                                {{-- Ada Button --}}
+
+                                                    <div class="flex gap-2">
+                                                        {{-- Kanan --}}
+                                                        <a href="{{ url('personal/destroy/'.$p->id) }}" onclick="return confirm('Are you sure you want to delete?')">
+                                                            <img src="{{asset('assets/icons/delete.svg')}}" alt="" class="w-5 h-5">
+                                                        </a>
 
 
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal4">
-                                               <img
-                                               id="untukKeluar"
-                                               src="{{asset('assets/icons/check_fig.svg')}}"
-                                               class="w-4 h-5 pt-0 cursor-pointer"
-                                               alt=""
-                                               />
-                                                </button>
+                                                        <a href="">
+                                                            <img src="{{asset("assets/icons/done.svg")}}" alt="" class="w-5 h-5">
+                                                        </a>
+                                                    </div>
+
+
+
                                                     </div>
 
                                              {{-- Header --}}

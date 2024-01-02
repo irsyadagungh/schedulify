@@ -45,34 +45,32 @@
             @foreach ($data as $p)
                                         <x-note>
 
-                                            <div class="flex -ml-1 ">
-                                                <img
-                                                id="untukPin"
-                                                src="{{asset('assets/icons/push_pin.svg')}}"
-                                                class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
-                                                alt=""
-                                                />
+                                            <div class="flex justify-between">
 
-                                                {{-- Ada Button --}}
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal3">
-                                               <img
-                                               id="buatHapus"
-                                               src="{{asset('assets/icons/delete.svg')}}"
-                                               class="pt-0 pl-4 cursor-pointer "
-                                               alt=""
-                                               />
-                                                </button>
+                                                <div>
+                                                    {{-- Kiri --}}
+                                                    <a href="">
+                                                        <img src="{{asset('assets/icons/push_pin.svg')}}" alt="">
+                                                    </a>
+                                                </div>
 
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal4">
-                                               <img
-                                               id="untukKeluar"
-                                               src="{{asset('assets/icons/check_fig.svg')}}"
-                                               class="w-4 h-5 pt-0 cursor-pointer"
-                                               alt=""
-                                               />
-                                                </button>
-                                                    </div>
 
+
+                                                <div class="flex gap-2">
+                                                    {{-- Kanan --}}
+                                                    <a href="{{ url('personal/destroy/'.$p->id) }}" onclick="return confirm('Are you sure you want to delete?')">
+                                                        <img src="{{asset('assets/icons/delete.svg')}}" alt="" class="w-5 h-5">
+                                                    </a>
+
+
+                                                    <a href="">
+                                                        <img src="{{asset("assets/icons/done.svg")}}" alt="" class="w-5 h-5">
+                                                    </a>
+                                                </div>
+
+
+
+                                                </div>
                                              {{-- Header --}}
                                    <div class="">
                                     <h1 class="text-xs font-bold">{{$p->judul}}</h1>
