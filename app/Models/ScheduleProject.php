@@ -9,6 +9,7 @@ class ScheduleProject extends Model
 {
     use HasFactory;
 
+
     protected $table = 'schedule_project';
 
     protected $fillable = [

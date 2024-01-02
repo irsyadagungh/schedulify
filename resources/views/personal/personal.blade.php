@@ -63,27 +63,30 @@
                                     <div class="flex flex-wrap gap-2 card ">
 
                                         @foreach ($data as $p)
-                                        <x-note>
-                                        <div data-hs-overlay="#update" class="w-full h-44">
+                                        <x-note :note-id="$p->id">
+                                        <div data-hs-overlay="" class="w-full h-44">
                                             <div class="flex -ml-1 ">
-                                                <button>
-                                                <img
-                                                id="untukPin"
-                                                src="{{asset('assets/icons/push_pin (1).svg')}}"
-                                                class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
-                                                alt=""
-                                                />
-                                                </button>
 
+                                                    <a href="#" onclick="return confirm('Are you sure you want to delete?')">
+                                                        <img
+                                                        id="untukPin"
+                                                        src="{{asset('assets/icons/push_pin.svg')}}"
+                                                        class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
+                                                        alt=""
+                                                        />
+                                                    </a>
+
+
+                                                    <a href="{{ url('personal/destroy/'.$p->id) }}" onclick="return confirm('Are you sure you want to delete?')">
+                                                        <img
+                                                        id="buatHapus"
+                                                        src="{{asset('assets/icons/delete.svg')}}"
+                                                        class="w-4 h-5 pt-0 cursor-pointer "
+                                                        alt=""
+                                                        />
+                                                    </a>
                                                 {{-- Ada Button --}}
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal3">
-                                               <img
-                                               id="buatHapus"
-                                               src="{{asset('assets/icons/delete.svg')}}"
-                                               class="pt-0 pl-4 cursor-pointer "
-                                               alt=""
-                                               />
-                                                </button>
+
 
                                                 <button data-hs-overlay="#hs-slide-down-animation-modal4">
                                                <img
@@ -114,7 +117,7 @@
 
                                          {{-- Tambah note --}}
                                          <div id="">
-                                            <button data-hs-overlay="#tambah">
+                                            <button data-hs-overlay="#hs-slide-down-animation-modal">
                                             <x-note>
                                                 <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
                                             </x-note>
@@ -214,9 +217,9 @@
                                         </button>
                                     </div>
 
-                                    <x-note-update></x-note-update>
+                                    {{-- <x-note-update></x-note-update> --}}
                                     <x-note-tambah></x-note-tambah>
-                                    
+
                                      </div>
                                 </div>
                             </div>
@@ -449,17 +452,17 @@
 
             </div>
 
-            
+
 
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
                     const buttons = document.querySelectorAll('#buatHapus, #untukKeluar');
-            
+
                     buttons.forEach(button => {
                         button.addEventListener('click', function(event) {
                             // Mencegah event default
                             event.preventDefault();
-            
+
                             // Mencegah event penyebaran (event propagation)
                             event.stopPropagation();
                         });

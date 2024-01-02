@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SchedulePersonal extends Model
 {
 
+    protected $primaryKey = "id";
 
     protected $table = "schedule_personal";
 

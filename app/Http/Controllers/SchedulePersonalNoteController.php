@@ -17,10 +17,10 @@ class SchedulePersonalNoteController extends Controller
         //
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $data = SchedulePersonal::all();
+        $data = SchedulePersonal::where('id_user', $userId)->take(4)->get();
 
 
-        return view('personal.personal', compact('user', 'data'),['data' => $data]);
+        return view('personal.personal', compact('user', 'data'));
     }
 
 
@@ -29,7 +29,7 @@ class SchedulePersonalNoteController extends Controller
         //
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $data = SchedulePersonal::all();
+        $data = SchedulePersonal::where('id_user', $userId)->take(4)->get();
 
 
         return view('home', compact('user', 'data'),['data' => $data]);
@@ -83,9 +83,15 @@ class SchedulePersonalNoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SchedulePersonal $schedulePersonal)
+    public function edit($id)
     {
         //
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $data = SchedulePersonal::where('id_user', $userId)->get()->find($id);
+
+
+        return view('personal.personal', compact('user', 'data',));
     }
 
     /**
@@ -99,8 +105,10 @@ class SchedulePersonalNoteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SchedulePersonal $schedulePersonal)
+    public function destroy($id)
     {
         //
+        SchedulePersonal::where('id',$id)->delete();
+        return redirect('/personal')->with('sukses','Data Berhasil Di Hapus');
     }
 }

@@ -22,21 +22,24 @@
 
 
 
-</style>
-
+  </style>
 <div id="update" class="hs-overlay-backdrop-open:bg-black hs-overlay-backdrop-open:bg-opacity-25 hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none">
   <div class="hs-overlay-open:mt-20 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
     <div class="flex flex-col bg-card   rounded-xl pointer-events-auto ">
 
+  @php
+    //   dd($data);
+    // dd(auth()->user()->id);
+  @endphp
       {{-- Start Form --}}
-    <form action="{{route('plStore')}}" method="POST">
+    <form action="{{url('personal/edit/')}}" method="POST">
         @csrf
       <div class="flex justify-between items-center py-3 px-4 border-ternary border-b dark:border-gray-700">
 
         <input hidden name="id_user" value="{{auth()->user()->id}}" class="bg-transparent focus:outline-none w-fit font-poppin" type="text" placeholder="Title">
 
         {{-- Title --}}
-        <input name="judul" class="bg-transparent focus:outline-none w-fit font-poppin" type="text" placeholder="Title">
+        <input value="" name="judul" class="bg-transparent focus:outline-none w-fit font-poppin" type="text"   placeholder="Title">
 
         {{-- Button Close --}}
         <button id="save-button" type="submit" class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-slide-down-animation-modal">

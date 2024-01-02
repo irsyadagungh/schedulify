@@ -24,7 +24,7 @@
 
 </style>
 
-<div id="tambah" class="hs-overlay-backdrop-open:bg-black hs-overlay-backdrop-open:bg-opacity-25 hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none">
+<div id="hs-slide-down-animation-modal" class="hs-overlay-backdrop-open:bg-black hs-overlay-backdrop-open:bg-opacity-25 hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none">
   <div class="hs-overlay-open:mt-20 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
     <div class="flex flex-col bg-card   rounded-xl pointer-events-auto ">
 

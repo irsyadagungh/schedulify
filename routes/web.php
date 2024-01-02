@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PersonalUpdateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -66,32 +67,35 @@ Route::get('/listTaskUser', function ()  {
 
 // Personal
 Route::get('/personal',[SchedulePersonalNoteController::class,'index'])->name('personal');
+// Route::get('/personal/edit/{id}',[PersonalUpdateController::class,'edit'])->name('pedit');
 Route::post('/personalPost',[SchedulePersonalNoteController::class,'store'])->name('plStore');
+Route::get('/personal/edit/{id}',[SchedulePersonalNoteController::class,'edit'])->name('plEdit');
+Route::get('/personal/destroy/{id}',[SchedulePersonalNoteController::class,'destroy'])->name('pldel');
 
 
-Route::get('/personallihatsemua', function ()  {
-    return view('personal.todaylihatsemua');
-})->name('todaylihatsemua');
+// Route::get('/personallihatsemua', function ()  {
+//     return view('personal.todaylihatsemua');
+// })->name('todaylihatsemua');
 
-Route::get('/comingsoonlihatsemua', function ()  {
-    return view('personal.comingsoonlihatsemua');
-})->name('comingsoonlihatsemua');
+// Route::get('/comingsoonlihatsemua', function ()  {
+//     return view('personal.comingsoonlihatsemua');
+// })->name('comingsoonlihatsemua');
 
-Route::get('/prioritaslihatsemua', function ()  {
-    return view('personal.prioritaslihatsemua');
-})->name('prioritaslihatsemua');
+// Route::get('/prioritaslihatsemua', function ()  {
+//     return view('personal.prioritaslihatsemua');
+// })->name('prioritaslihatsemua');
 
-Route::get('/donelihatsemua', function ()  {
-    return view('personal.donelihatsemua');
-})->name('donelihatsemua');
+// Route::get('/donelihatsemua', function ()  {
+//     return view('personal.donelihatsemua');
+// })->name('donelihatsemua');
 
-Route::get('/kadaluwarsalihatsemua', function ()  {
-    return view('personal.kadaluwarsalihatsemua');
-})->name('kadaluwarsalihatsemua');
+// Route::get('/kadaluwarsalihatsemua', function ()  {
+//     return view('personal.kadaluwarsalihatsemua');
+// })->name('kadaluwarsalihatsemua');
 
-Route::get('/listTaskUser', function ()  {
-    return view('project.user.list-task-user');
-})->name('list-task-user');
+// Route::get('/listTaskUser', function ()  {
+//     return view('project.user.list-task-user');
+// })->name('list-task-user');
 
 // Profile
 Route::get('/profile', function ()  {

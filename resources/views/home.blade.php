@@ -48,7 +48,7 @@
                                             <div class="flex -ml-1 ">
                                                 <img
                                                 id="untukPin"
-                                                src="{{asset('assets/icons/push_pin (1).svg')}}"
+                                                src="{{asset('assets/icons/push_pin.svg')}}"
                                                 class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
                                                 alt=""
                                                 />
@@ -91,8 +91,8 @@
                                         @endforeach
         </div>
     </div>
-
-
+    <x-modal-add-task-personal></x-modal-add-task-personal>
+    <x-note-tambah></x-note-tambah>
     <x-modal-hapus-personal></x-modal-hapus-personal>
 
 
@@ -144,6 +144,5 @@
         </div>
     </div>
 </div>
-
-<x-modalNotes></x-modalNotes>
+{{-- <x-modalNotes></x-modalNotes> --}}
 @endsection
