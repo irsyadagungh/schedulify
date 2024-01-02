@@ -24,7 +24,7 @@
     </x-header>
 
     <div class="container flex h-min-full h-fit w-full mt-16">
-        @if(request()->routeIs(['home', 'detail-project', 'project', 'list-task', 'details-task' , 'list-task-user', 'personal']))
+        @if(request()->routeIs(['home', 'detail-project', 'project', 'list-task', 'details-task' , 'list-task-user', 'personal', 'update']))
             @include('layout.sidebar')
         @endif
 
