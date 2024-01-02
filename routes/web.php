@@ -32,15 +32,24 @@ Route::get('/login',[LoginController::class,'showLoginForm'])->name('ls');
 Route::post('/loginPost',[LoginController::class,'login'])->name('login');
 
 // home route
-// Route::get('/home', function () {
-//     return view('home');
-// })->name('home');
 Route::get('/home',[SchedulePersonalNoteController::class,'home'])->name('home');
 
 
 // Profile
 Route::get('/profile',[ProfileController::class,'edit'])->name('p');
 Route::put('/profilePost',[ProfileController::class,'update'])->name('pp');
+
+// Personal
+Route::get('/personal',[SchedulePersonalNoteController::class,'index'])->name('personal');
+// Route::get('/personal/edit/{id}',[PersonalUpdateController::class,'edit'])->name('pedit');
+Route::post('/personalPost',[SchedulePersonalNoteController::class,'store'])->name('plStore');
+Route::get('/personal/edit/{id}',[SchedulePersonalNoteController::class,'edit'])->name('plEdit');
+Route::get('/personal/destroy/{id}',[SchedulePersonalNoteController::class,'destroy'])->name('pldel');
+
+//project
+Route::get('/project',[SchedulePersonalNoteController::class,'index'])->name('project');
+Route::post('/projectPost',[ScheduleProjectController::class,'store'])->name('pjStore');
+
 
 // Project
 Route::get('/project', function () {
@@ -62,16 +71,6 @@ Route::get('/detailTask', function ()  {
 Route::get('/listTaskUser', function ()  {
     return view('project.user.list-task-user');
 })->name('list-task-user');
-
-
-
-// Personal
-Route::get('/personal',[SchedulePersonalNoteController::class,'index'])->name('personal');
-// Route::get('/personal/edit/{id}',[PersonalUpdateController::class,'edit'])->name('pedit');
-Route::post('/personalPost',[SchedulePersonalNoteController::class,'store'])->name('plStore');
-Route::get('/personal/edit/{id}',[SchedulePersonalNoteController::class,'edit'])->name('plEdit');
-Route::get('/personal/destroy/{id}',[SchedulePersonalNoteController::class,'destroy'])->name('pldel');
-
 
 // Route::get('/personallihatsemua', function ()  {
 //     return view('personal.todaylihatsemua');

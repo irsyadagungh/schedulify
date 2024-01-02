@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('deskripsi');
 
             // identitas schedule untuk member join room
-            $table->unsignedInteger('room_code');
+            $table->string('room_code','10');
 
             // log
             $table->timestamps();

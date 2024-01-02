@@ -6,6 +6,7 @@ use App\Models\ScheduleProject;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ScheduleProjectController extends Controller
 {
@@ -14,11 +15,7 @@ class ScheduleProjectController extends Controller
      */
     public function index()
     {
-        $idUser = Auth::user();
-        $user = User::findOrFail($idUser);
-        $project = ScheduleProject::where('id_user', $user->id)->get();
-
-        return view('project.projectHome', compact('project','users'));
+        //
     }
 
     /**
@@ -37,30 +34,30 @@ class ScheduleProjectController extends Controller
     {
         //
         // Auth User
-        $idUser = Auth::user();
-        $user = User::findOrFail($idUser);
+        // $idUser = Auth::user();
+        // $user = User::findOrFail($idUser);
 
         // random room_code
-        $randomNumber = rand(1, 9999);
+        $randomNumber = Str::random(10);
 
         // validasi data
         $request->validate([
-            'id_user' => $user,
+            'id_user' => 'required',
             'judul'=> 'required',
             'deskripsi' => 'required',
-            'room_code' => $randomNumber
+            'room_code'
         ]);
 
         //Add new data
         $project = new ScheduleProject();
-        $project->id_user = $request->$user;
+        $project->id_user = $request->input('id_user');
         $project->judul = $request->input('judul');
         $project->deskripsi = $request->input('deskripsi');
-        $project->room_code = $request->$randomNumber;
+        $project->room_code = $randomNumber;
         $project->save();
 
         // Redirect
-        return redirect()-> view('project.projectHome');
+        return redirect()-> route('project');
     }
 
     /**
