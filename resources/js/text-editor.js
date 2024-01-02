@@ -15,7 +15,7 @@ import { Editor } from 'https://esm.sh/@tiptap/core';
     extensions: [
       Placeholder.configure({
         placeholder: 'Type something...',
-        emptyNodeClass: 'text-white text-opacity-50 font-inter'
+        emptyNodeClass: 'text-white text-opacity-50 font-inter h-full'
       }),
       StarterKit,
       Paragraph.configure({

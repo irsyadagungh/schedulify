@@ -137,3 +137,8 @@ Route::controller(ScheduleProjectController::class)->group(function () {
     Route::post('/scheduleProject/update/{id}', 'update');
     Route::delete('/scheduleProject/delete/{id}', 'delete');
 });
+
+
+Route::get('/update', function () {
+    return view('updateNote');
+})->name('update');

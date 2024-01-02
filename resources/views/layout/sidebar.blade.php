@@ -7,7 +7,7 @@
                 <img src="{{ asset('assets/icons/home_FILL0_wght400_GRAD0_opsz24 1.svg') }}" alt="" srcset="">
                 {{ __('Home') }}
             </x-nav-link>
-            <x-nav-link :href="route('personal')" :active="request()->routeIs('personal')">
+            <x-nav-link :href="route('personal')" :active="request()->routeIs(['personal', 'update'])">
                 <img src="{{ asset('assets/icons/person.svg') }}" alt="" srcset="">
                 {{ __('Personal') }}
             </x-nav-link>
