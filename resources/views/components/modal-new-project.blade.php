@@ -14,16 +14,19 @@
                 </nav>
               </div>
             </div>
-            <form action="/scheduleProject/create" method="post">
-                @csrf
+            @csrf
             {{-- Hidden Input --}}
             {{-- input user --}}
-            {{-- <input type="text" name="id_user" value="{{ auth()->user()->id }}" hidden> --}}
             {{-- end Hidden Input --}}
 
             <div class="p-4 overflow-y-auto">
-              <div id="segment-1" class="tab-content">
-                <div id="task-name" class="flex flex-col gap-2">
+                <form action="{{route('pjStore')}}" method="post">
+                    @csrf
+                    <div id="segment-1" class="tab-content">
+                        <div id="task-name" class="flex flex-col gap-2">
+
+                            <input type="text" name="id_user" value="{{ auth()->user()->id }}" hidden>
+
                     <label for="">Task Name</label>
                     <input type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md" name="judul" value="">
                 </div>
@@ -34,12 +37,14 @@
                 </div>
 
                 <div class="flex justify-center items-center gap-x-2 py-3 px-4 ">
-                    <button type="button" class="py-1 px-20 inline-flex items-center gap-x-2 text-sm rounded-md bg-ternary text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-vertically-centered-modal2">
+                    <button type="submit" class="py-1 px-20 inline-flex items-center gap-x-2 text-sm rounded-md bg-ternary text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-vertically-centered-modal2">
                       Submit
                     </button>
                   </div>
+                </div>
+            </form>
 
-              </div>
+            <form action="" method="post">
               <div id="segment-2" class="tab-content hidden">
                 <div id="task-name" class="flex flex-col gap-2">
                     <label for="">Input the code</label>
@@ -52,8 +57,9 @@
                     </button>
                   </div>
               </div>
+            </form>
             </div>
-        </form>
+
 
       </div>
     </div>

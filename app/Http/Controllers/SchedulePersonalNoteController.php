@@ -88,18 +88,39 @@ class SchedulePersonalNoteController extends Controller
         //
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $data = SchedulePersonal::where('id_user', $userId)->get()->find($id);
+        $data = SchedulePersonal::findOrFail($id);
 
 
-        return view('personal.personal', compact('user', 'data',));
+        return view('personal.updateNote', compact('user', 'data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SchedulePersonal $schedulePersonal)
+    public function update(Request $request, SchedulePersonal $schedulePersonal, $id)
     {
         //
+        // dd($request);
+        $request->validate([
+            'id_user' => 'required',
+            'judul' => 'max:50',
+            'deskripsi' => 'string',
+            'tanggal_deadline',
+            'warna',
+            // 'status'
+        ]);
+
+        // Create a new user
+        $personal = SchedulePersonal::findOrFail($id);
+        $personal->id_user = $request->input('id_user');
+        $personal->judul = $request->input('judul');
+        $personal->deskripsi = $request->input('deskripsi');
+        $personal->tanggal_deadline = $request->input('tanggal_deadline');
+        $personal->warna = $request->input('warna');
+        // $personal->status = $request->input('status');
+
+        $personal->save();
+        return redirect()->route('personal')->with('success', 'Profile updated successfully.');
     }
 
     /**

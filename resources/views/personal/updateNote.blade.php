@@ -1,17 +1,46 @@
 @extends('layout.app')
 
 @section('content')
+<style>
+    .ProseMirror:focus {
+      outline: none;
+    }
+
+    .tiptap ul p,
+    .tiptap ol p {
+      display: inline;
+    }
+
+    .tiptap p.is-editor-empty:first-child::before {
+      font-size: 14px;
+      content: attr(data-placeholder);
+      float: left;
+      height: 0;
+      pointer-events: none;
+    }
+
+    label input[type="radio"]:checked ~ .icon-box{
+      border: 2px solid white;
+    }
+
+
+
+  </style>
 
     <div>
         {{-- Start Form --}}
-    <form action="{{route('plStore')}}" method="POST">
+    <form action="{{route('plUpdate', $data->id)}}" method="POST">
         @csrf
+        @method('put')
       <div class="flex justify-between items-center py-3 px-4 border-ternary border-b dark:border-gray-700">
 
-        <input hidden name="id_user" class="bg-transparent focus:outline-none w-fit font-poppin" type="text" placeholder="Title">
+        <input hidden name="id_user" value="{{$data -> id_user}}" class="bg-transparent focus:outline-none w-fit font-poppin" type="text" placeholder="Title">
 
+        @php
+            // dd($data);
+        @endphp
         {{-- Title --}}
-        <input name="judul" class="bg-transparent focus:outline-none w-fit font-poppin" type="text" placeholder="Title">
+        <input name="judul"  value="{{$data -> judul}}" class="bg-transparent focus:outline-none w-fit font-poppin" type="text" placeholder="Title">
 
         {{-- Button Close --}}
         <button id="save-button" type="submit" class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-slide-down-animation-modal">
@@ -53,16 +82,11 @@
                 <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
               </button>
             </div>
-            {{-- <textarea name="deskripsi" id="data-hs-editor-field" class="h-100 w-100"></textarea> --}}
-            {{-- <textarea name="deskripsi" id="data-hs-editor-field" class="h-100 w-full border-none outline-none"></textarea> --}}
-            <!-- or -->
-            {{-- <input type="text" name="deskripsi" id="data-hs-editor-field"> --}}
 
-            {{-- <style> textarea { border: none; outline: none; width: 100%; height: 100px; resize: none; background-image: url('image_url_here'); background-size: cover; font-size: 14px; padding: 10px; box-sizing: border-box; background-color: #28242c } </style> --}}
-            {{-- <textarea name="deskripsi" id="hs-editor-tiptap" class="h-100 w-full border-none outline-none" placeholder="Type something..."></textarea> --}}
-                {{-- <div data-hs-editor-field class="h-96"></div> --}}
-               <!-- Add this input field to your form -->
-            {{-- <input type="hidden" name="deskripsi" id="editor-content"> --}}
+            <script>
+                // Set initial content for Tiptap editor
+                const initialContent = {!! json_encode($data->deskripsi) !!};
+            </script>
 
             <div id="hs-editor-tiptap" class="font-poppin font-light h-full">
                 <!-- Other Tiptap setup code here -->
@@ -71,7 +95,19 @@
                 <div data-hs-editor-field class="h-96 overflow-y-scroll"></div>
 
                 <!-- Hidden input to store the editor content -->
-                <textarea type="hidden" name="deskripsi" id="editor-content" hidden></textarea>
+                <textarea type="texta" name="deskripsi" id="editor-content" hidden></textarea>
+
+                <script>
+                    // Event listener for the save button
+                    const saveButton = document.getElementById('save-button');
+                    saveButton.addEventListener('click', () => {
+                        // Get the content from the Tiptap editor
+                        const editorContent = editor.getHTML();
+
+                        // Update the hidden textarea with the editor content
+                        document.getElementById('editor-content').value = editorContent;
+                    });
+                </script>
             </div>
         </div>
         </div>
@@ -83,34 +119,35 @@
         {{-- Tanggal --}}
         <div class="flex gap-2">
           <label for="">Tenggat</label>
-          <input type="date" name="tanggal_deadline" id="" class="bg-transparent border border-ternary rounded-md px-2">
+          <input type="date" value="{{$data -> tanggal_deadline}}" name="tanggal_deadline" id="" class="bg-transparent border border-ternary rounded-md px-2">
         </div>
 
         {{-- Warna --}}
         <div class="flex gap-4">
-          <label for="">Pilih Warna</label>
-          <div class="flex gap-1">
-            <label for="red">
-              <input type="radio" name="warna" id="red" value="#643333" class="absolute opacity-0  w-7 h-7">
-              <div class="icon-box bg-red w-7 h-7 rounded-md"></div>
-            </label>
+            <label for="">Pilih Warna</label>
+            <div class="flex gap-1">
+                <label for="red">
+                    <input type="radio" name="warna" id="red" value="#643333" class="absolute opacity-0 w-7 h-7" {{$data->warna == '#643333' ? 'checked' : ''}}>
+                    <div class="icon-box bg-red w-7 h-7 rounded-md"></div>
+                </label>
 
-            <label for="green">
-              <input type="radio" name="warna" id="green" value="#466433" class="absolute opacity-0  w-7 h-7">
-              <div class="icon-box bg-green w-7 h-7 rounded-md"></div>
-            </label>
+                <label for="green">
+                    <input type="radio" name="warna" id="green" value="#466433" class="absolute opacity-0 w-7 h-7" {{$data->warna == '#466433' ? 'checked' : ''}}>
+                    <div class="icon-box bg-green w-7 h-7 rounded-md"></div>
+                </label>
 
-            <label for="yellow">
-              <input type="radio" name="warna" id="yellow" value="#645C33" class="absolute opacity-0  w-7 h-7">
-              <div class="icon-box bg-yellow w-7 h-7 rounded-md"></div>
-            </label>
+                <label for="yellow">
+                    <input type="radio" name="warna" id="yellow" value="#645C33" class="absolute opacity-0 w-7 h-7" {{$data->warna == '#645C33' ? 'checked' : ''}}>
+                    <div class="icon-box bg-yellow w-7 h-7 rounded-md"></div>
+                </label>
 
-            {{-- Warna buat reset ke warna asal gara" gatau cara unchecked radio button :v --}}
-            <label for="reset">
-              <input type="radio" name="warna" id="reset" value="#222228" class="absolute opacity-0  w-7 h-7">
-              <div class="icon-box bg-ternary w-7 h-7 rounded-md"></div>
-            </label>
-          </div>
+                {{-- Warna buat reset ke warna asal gara" gatau cara unchecked radio button :v --}}
+                <label for="reset">
+                    <input type="radio" name="warna" id="reset" value="#222228" class="absolute opacity-0 w-7 h-7" {{$data->warna == '#222228' ? 'checked' : ''}}>
+                    <div class="icon-box bg-ternary w-7 h-7 rounded-md"></div>
+                </label>
+            </div>
+        </div>
 
         </div>
       </div>

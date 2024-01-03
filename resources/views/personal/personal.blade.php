@@ -91,7 +91,7 @@
 
 
                                                     </div>
-
+                                    <a href="{{ route('plEdit', ['id' => $p->id]) }}">
                                              {{-- Header --}}
                                    <div class="">
                                     <h1 class="text-xs font-bold">{{$p->judul}}</h1>
@@ -106,6 +106,7 @@
                                    </div>
 
                                 </div>
+                                    </a>
                                         </x-note>
                                         @endforeach
 
@@ -210,8 +211,6 @@
 
                                         </button>
                                     </div>
-
-                                    {{-- <x-note-update></x-note-update> --}}
                                     <x-note-tambah></x-note-tambah>
 
                                      </div>
