@@ -1,32 +1,28 @@
-  <div id="hs-vertically-centered-modal" class="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none">
-    <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
-      <div class="w-full flex flex-col bg-card  shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
+<div id="hs-vertically-centered-modal" class="hs-overlay-backdrop-open:bg-black/50      hs-overlay hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hidden w-full h-full fixed top-0 start-0 z-[60] opacity-0 overflow-x-hidden transition-all overflow-y-auto pointer-events-none">
+    <div class="hs-overlay-open:opacity-100 hs-overlay-open:duration-500 opacity-0 transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto mt-64">
+      <div class="flex flex-col bg-card shadow-sm rounded-xl pointer-events-auto dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
         <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
-          {{-- Judul/Header --}}
-            <h3 class="font-bold text-gray-800 dark:text-white">
-            Code
+          <h3 class="font-bold text-gray-800 dark:text-white">
+            Modal title
           </h3>
-          <button type="button" class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-vertically-centered-modal">
+          <button type="button" class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-basic-modal">
             <span class="sr-only">Close</span>
             <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
           </button>
         </div>
-
-        {{-- Isi --}}
-        <div class="p-4 overflow-y-auto text-center flex flex-col gap-4">
-          <p id="textToCopy" class="text-gray-800 dark:text-gray-400 text-center text-xl font-bold">
-            67062231
+        <div class="p-4 overflow-y-auto justify-center flex">
+          <p class="mt-1 text-gray-800 dark:text-gray-400 text-lg font-bold p-5">
+            6706223151
           </p>
-
-          <div>
-            <button id="copyButton" class="p-1 px-10 rounded-md bg-ternary">Copy</button>
-          </div>
         </div>
 
-      </div>
     </div>
   </div>
 
+
+
+
+  {{--  --}}
   <div id="hs-vertically-centered-scrollable-modal" class="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none">
     <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto h-[calc(100%-3.5rem)] min-h-[calc(100%-3.5rem)] flex items-center">
       <div class="w-full max-h-full overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
