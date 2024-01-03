@@ -63,7 +63,7 @@
                                     <div class="flex flex-wrap gap-2 card ">
 
                                         @foreach ($data as $p)
-                                        <x-note :note-id="$p->id">
+                                        <x-note :note-id="$p->id" :customBg="$p->warna">
                                         <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
                                             <div class="flex justify-between">
 
@@ -156,7 +156,7 @@
                                 <div style = "display:flex;  margin-left: 30px;">
                                     <div class="flex flex-wrap gap-2 card ">
                                         @for ($i =0; $i<3; $i++)
-                                        <x-note>
+                                        <x-note >
                                             <div data-hs-overlay="#update" class="w-full h-44">
 
                                             <div class="flex -ml-1 ">
