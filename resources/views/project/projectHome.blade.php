@@ -11,7 +11,7 @@
         @foreach ($data as $p)
         {{-- Note 1 --}}
         <x-note>
-            <a href="{{route('pjShow', ['id' => $p -> id])}}">
+            <a href="{{route('pjShow', ['id' => $p -> id])}}" class="h-full">
                 {{-- Header --}}
                 <div class="">
                     <h1 class="text-xs font-bold">{{$p -> judul}}</h1>
@@ -24,26 +24,26 @@
                         {{$p -> deskripsi}}
                     </p>
                 </div>
+                
+                {{-- Bar Progress --}}
+                <div class="flex gap-2">
+                    <div>
+                        <p class="text-xs flex">Task</p>
+                    </div>
+                    <progress id="file" value="100" max="100" class="h-2 w-full mt-1.5" style="background-color: #8B5CF6; border-radius: 8px;"></progress>
+                    <div>
+                        <p class="text-xs">100%</p>
+                    </div>
+                </div>
+                
+                {{-- Member --}}
+                <div class="flex">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
+                </div>
+                
             </a>
-
-            {{-- Bar Progress --}}
-            <div class="flex gap-2">
-             <div>
-             <p class="text-xs flex">Task</p>
-             </div>
-             <progress id="file" value="100" max="100" class="h-2 w-full mt-1.5" style="background-color: #8B5CF6; border-radius: 8px;"></progress>
-             <div>
-                 <p class="text-xs">100%</p>
-             </div>
-             </div>
-
-            {{-- Member --}}
-            <div class="flex">
-             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
-             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
-             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
-            </div>
-
         </x-note>
         @endforeach
 
