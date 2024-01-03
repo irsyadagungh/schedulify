@@ -63,7 +63,11 @@
                                     <div class="flex flex-wrap gap-2 card ">
 
                                         @foreach ($data as $p)
-                                        <x-note >
+
+                                        @php
+                                            $warna = $p -> warna
+                                        @endphp
+                                        <x-note bg-color="bg-$warna">
                                         <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
                                             <div class="flex justify-between">
 
