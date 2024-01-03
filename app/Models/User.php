@@ -50,4 +50,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    function User(){
+        return $this->hasone(SchedulePersonal::class);
+    }
 }

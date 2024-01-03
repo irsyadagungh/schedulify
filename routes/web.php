@@ -43,18 +43,19 @@ Route::put('/profilePost',[ProfileController::class,'update'])->name('pp');
 Route::get('/personal',[SchedulePersonalNoteController::class,'index'])->name('personal');
 // Route::get('/personal/edit/{id}',[PersonalUpdateController::class,'edit'])->name('pedit');
 Route::post('/personalPost',[SchedulePersonalNoteController::class,'store'])->name('plStore');
-Route::get('/personal/edit/{id}',[SchedulePersonalNoteController::class,'edit'])->name('plEdit');
+Route::get('/personal/{id}/edit',[SchedulePersonalNoteController::class,'edit'])->name('plEdit');
+Route::put('/personal/{id}/update',[SchedulePersonalNoteController::class,'update'])->name('plUpdate');
 Route::get('/personal/destroy/{id}',[SchedulePersonalNoteController::class,'destroy'])->name('pldel');
 
 //project
-Route::get('/project',[SchedulePersonalNoteController::class,'index'])->name('project');
+Route::get('/project',[ScheduleProjectController::class,'index'])->name('project');
 Route::post('/projectPost',[ScheduleProjectController::class,'store'])->name('pjStore');
 
 
 // Project
-Route::get('/project', function () {
-    return view('project.projectHome');
-})->name('project');
+// Route::get('/project', function () {
+//     return view('project.projectHome');
+// })->name('project');
 
 Route::get('/projectDetail', function ()  {
     return view('project.detailProject');
@@ -138,6 +139,6 @@ Route::controller(ScheduleProjectController::class)->group(function () {
 });
 
 
-Route::get('/update', function () {
-    return view('updateNote');
-})->name('update');
+// Route::get('/update', function () {
+//     return view('personal/updateNote');
+// })->name('update');

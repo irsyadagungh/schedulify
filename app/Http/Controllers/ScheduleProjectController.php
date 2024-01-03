@@ -16,6 +16,12 @@ class ScheduleProjectController extends Controller
     public function index()
     {
         //
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $data = ScheduleProject::where('id_user', $userId)->take(4)->get();
+
+
+        return view('project.projectHome', compact('user', 'data'));
     }
 
     /**

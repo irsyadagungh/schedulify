@@ -63,7 +63,7 @@
                                     <div class="flex flex-wrap gap-2 card ">
 
                                         @foreach ($data as $p)
-                                        <x-note :note-id="$p->id">
+                                        <x-note >
                                         <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
                                             <div class="flex justify-between">
 
@@ -91,7 +91,7 @@
 
 
                                                     </div>
-
+                                    <a href="{{ route('plEdit', ['id' => $p->id]) }}">
                                              {{-- Header --}}
                                    <div class="">
                                     <h1 class="text-xs font-bold">{{$p->judul}}</h1>
@@ -106,6 +106,7 @@
                                    </div>
 
                                 </div>
+                                    </a>
                                         </x-note>
                                         @endforeach
 
@@ -210,8 +211,6 @@
 
                                         </button>
                                     </div>
-
-                                    {{-- <x-note-update></x-note-update> --}}
                                     <x-note-tambah></x-note-tambah>
 
                                      </div>

@@ -125,4 +125,15 @@ saveButton.addEventListener('click', () => {
 });
 
 // ... (Your existing code)
+editor.commands.setContent(initialContent);
 
+// const content = '{!!$data -> deskripsi!!}';
+// if (!content.trim()) {
+//   document.querySelector('[data-hs-editor-field]').classList.add('empty');
+// }
+
+// // Listen for editor changes and update the placeholder visibility
+// editor.on('update', () => {
+//   const isEmpty = editor.getHTML().trim() === '';
+//   document.querySelector('[data-hs-editor-field]').classList.toggle('empty', isEmpty);
+// });

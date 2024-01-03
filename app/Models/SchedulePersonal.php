@@ -19,4 +19,6 @@ class SchedulePersonal extends Model
         'warna',
         'status'
     ];
+
+
 }
