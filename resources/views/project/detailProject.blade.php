@@ -27,7 +27,7 @@
 
             {{-- Title --}}
             <h1>
-                My Project
+                {{$data -> judul}}
             </h1>
 
             {{-- Button Section --}}
@@ -58,7 +58,7 @@
 
             {{-- @if () --}}
                 <x-list-task-link>
-                
+
                 </x-list-task-link>
             {{-- @endif --}}
         </div>
@@ -70,8 +70,9 @@
         </x-modal-add-task-project>
 
         <x-avatar-group>
-            
+
         </x-avatar-group>
     </div>
 
+    <x-modal-share-task></x-modal-share-task>
 @endsection

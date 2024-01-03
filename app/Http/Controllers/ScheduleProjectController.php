@@ -69,10 +69,47 @@ class ScheduleProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ScheduleProject $scheduleProject)
+    public function show($id)
     {
         //
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $data = ScheduleProject::findOrFail($id);
+
+
+        return view('project.detailProject', compact('user', 'data'));
     }
+
+    public function storeTask(Request $request)
+    {
+        //
+        // Auth User
+        // $idUser = Auth::user();
+        // $user = User::findOrFail($idUser);
+
+        // random room_code
+        $randomNumber = Str::random(10);
+
+        // validasi data
+        $request->validate([
+            'id_user' => 'required',
+            'judul'=> 'required',
+            'deskripsi' => 'required',
+            'room_code'
+        ]);
+
+        //Add new data
+        $project = new ScheduleProject();
+        $project->id_user = $request->input('id_user');
+        $project->judul = $request->input('judul');
+        $project->deskripsi = $request->input('deskripsi');
+        $project->room_code = $randomNumber;
+        $project->save();
+
+        // Redirect
+        return redirect()-> route('project');
+    }
+
 
     /**
      * Show the form for editing the specified resource.

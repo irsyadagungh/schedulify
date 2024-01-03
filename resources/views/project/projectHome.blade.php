@@ -11,18 +11,20 @@
         @foreach ($data as $p)
         {{-- Note 1 --}}
         <x-note>
-            {{-- Header --}}
-            <div class="">
-             <h1 class="text-xs font-bold">{{$p -> judul}}</h1>
-             <p class="text-[10px]">Created on {{$p -> created_at}}</p>
-            </div>
+            <a href="{{route('pjShow', ['id' => $p -> id])}}">
+                {{-- Header --}}
+                <div class="">
+                    <h1 class="text-xs font-bold">{{$p -> judul}}</h1>
+                    <p class="text-[10px]">Created on {{$p -> created_at}}</p>
+                </div>
 
-            {{-- Deskripsi --}}
-            <div class="">
-             <p class="text-xs">
-                 {{$p -> deskripsi}}
-             </p>
-            </div>
+                {{-- Deskripsi --}}
+                <div class="">
+                    <p class="text-xs">
+                        {{$p -> deskripsi}}
+                    </p>
+                </div>
+            </a>
 
             {{-- Bar Progress --}}
             <div class="flex gap-2">

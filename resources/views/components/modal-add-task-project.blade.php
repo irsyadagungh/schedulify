@@ -15,7 +15,8 @@
 
         {{-- Form Input --}}
         <div class="p-4 overflow-y-auto">
-         <form action="">
+         <form action="{{route('pjStoreTask')}}">
+            @csrf
             {{-- Task Name --}}
             <div id="task-name" class="flex flex-col">
                 <label for="">Task Name</label>

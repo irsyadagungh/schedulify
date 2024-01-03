@@ -50,6 +50,8 @@ Route::get('/personal/destroy/{id}',[SchedulePersonalNoteController::class,'dest
 //project
 Route::get('/project',[ScheduleProjectController::class,'index'])->name('project');
 Route::post('/projectPost',[ScheduleProjectController::class,'store'])->name('pjStore');
+Route::post('/projectPostTask',[ScheduleProjectController::class,'storeTask'])->name('pjStoreTask');
+Route::get('/project/detail/{id}',[ScheduleProjectController::class,'show'])->name('pjShow');
 
 
 // Project
