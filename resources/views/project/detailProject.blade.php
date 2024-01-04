@@ -13,6 +13,13 @@
     }
 }
     </style>
+
+    @php
+    $userIsParticipant = $data->member->where('id_user', Auth::id())->first();
+    $userStatus = $userIsParticipant ? $userIsParticipant->status : '';
+    // dd($userStatus);
+    @endphp
+
     <div class="container flex flex-col gap-8 h-full w-full">
 
         {{-- First Section --}}
@@ -33,15 +40,15 @@
             {{-- Button Section --}}
 
             <div class="flex justify-between items-center gap-5">
-                {{-- @if () --}}
+                @if ($userStatus == "host")
                     <x-btn-header-super-user>
 
                     </x-btn-header-super-user>
-                {{-- @else --}}
-                    {{-- <x-list-task-link>
+                @elseif ($userStatus == "member")
+                    <x-list-task-link>
 
-                    </x-list-task-link> --}}
-                {{-- @endif --}}
+                    </x-list-task-link>
+                @endif
 
             </div>
         </div>
@@ -56,11 +63,13 @@
         {{-- Third Section --}}
         <div class="flex justify-between">
 
-            {{-- @if () --}}
+            @if ($userStatus == "host")
                 <x-list-task-link>
 
                 </x-list-task-link>
-            {{-- @endif --}}
+            @elseif ($userStatus == "member")
+                <button>bakso tanpa tepung</button>
+            @endif
         </div>
 
 
