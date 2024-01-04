@@ -30,6 +30,7 @@
                 <span class="w-6 h-[1px] bg-white"></span>
             </button>
             <a href="/register" class="outline-1 outline-white outline rounded-md p-1">Sign Up</a>
+            <a href="{{route('ls')}}" class="outline-1 bg-white text-black outline rounded-md py-1 px-3">Login</a>
         </div>
     </header>
     <section>

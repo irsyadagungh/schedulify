@@ -30,6 +30,7 @@ Route::post('/registerPost',[RegisterController::class,'register'])->name('reg')
 // login route
 Route::get('/login',[LoginController::class,'showLoginForm'])->name('ls');
 Route::post('/loginPost',[LoginController::class,'login'])->name('login');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 // home route
 Route::get('/home',[SchedulePersonalNoteController::class,'home'])->name('home');
