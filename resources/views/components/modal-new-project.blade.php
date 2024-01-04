@@ -44,15 +44,17 @@
                 </div>
             </form>
 
-            <form action="" method="post">
+            <form action="{{route('pjJoin')}}" method="post">
+                @csrf
               <div id="segment-2" class="tab-content hidden">
                 <div id="task-name" class="flex flex-col gap-2">
                     <label for="">Input the code</label>
-                    <input type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+                    {{-- <input type="text" name="id_user" value="{{ auth()->user()->id }}" hidden> --}}
+                    <input name="room_code" type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
                 </div>
 
                 <div class="flex justify-center items-center gap-x-2 py-5 px-4 ">
-                    <button type="button" class="py-1 px-10 inline-flex items-center gap-x-2 text-sm rounded-md bg-ternary text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-vertically-centered-modal2">
+                    <button type="submit" class="py-1 px-10 inline-flex items-center gap-x-2 text-sm rounded-md bg-ternary text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-vertically-centered-modal2">
                       Join
                     </button>
                   </div>

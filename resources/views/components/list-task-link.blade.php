@@ -3,7 +3,7 @@
     List
 </a>
 
-<a href="" class="btn-list">
+<a href="{{route('details-task')}}" class="btn-list">
     <img src="{{ asset('assets/icons/details.svg') }}" alt="" srcset="">
     Details
 </a>

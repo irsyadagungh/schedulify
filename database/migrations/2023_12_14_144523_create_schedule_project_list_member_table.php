@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('schedule_project_list_member', function (Blueprint $table) {
-            $table->foreignId('id_schedule_project')->primary()->constrained('schedule_project')->onDelete('cascade');
+            $table->foreignId('id_schedule_project')->constrained('schedule_project')->onDelete('cascade');
             $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
+            $table->enum('status', ['host', 'member']);
             $table->timestamps();
         });
     }
