@@ -89,6 +89,10 @@ class ScheduleProjectController extends Controller
         return redirect()->route('project');
     }
 
+    public function leave(){
+
+    }
+
     public function create()
     {
         //

@@ -12,7 +12,7 @@
         </div>
         <div class="p-4 overflow-y-auto justify-center flex">
           <p class="mt-1 text-gray-800 dark:text-gray-400 text-lg font-bold p-5">
-            6706223151
+            {{$code}}
           </p>
         </div>
 

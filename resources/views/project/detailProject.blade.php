@@ -85,5 +85,7 @@
         {{-- </x-avatar-group> --}}
     </div>
 
-    <x-modal-share-task></x-modal-share-task>
+    <x-modal-share-task :code="$data->room_code">
+
+    </x-modal-share-task>
 @endsection

@@ -20,13 +20,13 @@
             {{-- Task Name --}}
             <div id="task-name" class="flex flex-col">
                 <label for="">Task Name</label>
-                <input type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+                <input name="judul" type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
             </div>
 
             {{-- Description --}}
             <div id="description" class="flex flex-col">
                 <label for="">Description</label>
-                <textarea type="text" rows="10" class="w-full resize-none fill-none bg-transparent border border-ternary p-1 rounded-md"></textarea>
+                <textarea name="deskripsi" type="text" rows="10" class="w-full resize-none fill-none bg-transparent border border-ternary p-1 rounded-md"></textarea>
             </div>
 
             {{-- Dropdown Assignee --}}
@@ -43,13 +43,13 @@
             {{-- Start Date --}}
             <div id="start-date" class="flex flex-col">
                 <label for="">Start Date</label>
-                <input type="date" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+                <input name="start_date" type="date" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
             </div>
 
             {{-- End Date --}}
             <div id="end-date" class="flex flex-col">
                 <label for="">End Date</label>
-                <input type="date" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+                <input name="end_date" type="date" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
             </div>
          </form>
         </div>
