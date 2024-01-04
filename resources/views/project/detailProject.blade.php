@@ -68,7 +68,9 @@
 
                 </x-list-task-link>
             @elseif ($userStatus == "member")
-                <button>bakso tanpa tepung</button>
+                <a href="" class="bg-redLight p-1 rounded-md focus:outline focus:outline-redLight focus:outline-offset-2 focus:outline-1">
+                    Leave Project
+                </a>
             @endif
         </div>
 
