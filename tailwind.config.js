@@ -36,6 +36,7 @@ export default {
       'green' : '#466433',
       'yellow' : '#645C33',
       'join'    : '#313139',
+      'redLight' : '#AA3333',
 
     },
     listStyleImage: {

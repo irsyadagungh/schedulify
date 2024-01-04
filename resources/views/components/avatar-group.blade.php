@@ -14,7 +14,8 @@
                     <div class="flex justify-between items-center">
                         @foreach ($member as $member)
 
-                        <div class="flex gap-4">
+                        <div class="flex gap-4 justify-between w-full">
+                            <div class="flex gap-4">
                             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="">
                             <div class="flex flex-col">
                                 @if ($member->user)
@@ -26,6 +27,8 @@
                                     <p>Unknown User</p>
                                 @endif
                             </div>
+                        </div>
+                            <div>{{ $member->status }}</div>
                         </div>
                     </div>
                     @endforeach
