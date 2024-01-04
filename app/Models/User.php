@@ -53,5 +53,9 @@ class User extends Authenticatable
 
 
     // one to many scheduleproject to scheduleprojectmember
+    public function scheduleProjectMembers()
+    {
+        return $this->hasMany(ScheduleProjectMember::class, 'id_user');
+    }
 
 }

@@ -78,9 +78,11 @@
 
         </x-modal-add-task-project>
 
-        <x-avatar-group>
+        {{-- @foreach ($member as $m) --}}
+        <x-avatar-group :member="$member" />
+        {{-- @endforeach --}}
 
-        </x-avatar-group>
+        {{-- </x-avatar-group> --}}
     </div>
 
     <x-modal-share-task></x-modal-share-task>

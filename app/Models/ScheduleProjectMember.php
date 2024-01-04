@@ -20,4 +20,9 @@ class ScheduleProjectMember extends Model
     public function scheduleProjectMember(){
         return $this->belongsTo(ScheduleProject::class, 'id_schedule_project', 'id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user','id');
+    }
 }

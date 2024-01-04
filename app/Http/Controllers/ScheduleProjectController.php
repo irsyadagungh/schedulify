@@ -148,8 +148,9 @@ class ScheduleProjectController extends Controller
         $user = User::findOrFail($userId);
         $data = ScheduleProject::findOrFail($id);
 
+        $member = $data->member()->with('user')->get();
 
-        return view('project.detailProject', compact('user', 'data'));
+        return view('project.detailProject', compact('user', 'data','member'));
     }
 
     public function storeTask(Request $request)
