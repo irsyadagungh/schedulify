@@ -30,6 +30,7 @@ Route::post('/registerPost',[RegisterController::class,'register'])->name('reg')
 // login route
 Route::get('/login',[LoginController::class,'showLoginForm'])->name('ls');
 Route::post('/loginPost',[LoginController::class,'login'])->name('login');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 // home route
 Route::get('/home',[SchedulePersonalNoteController::class,'home'])->name('home');
@@ -53,6 +54,12 @@ Route::put('/personal/change/{id}',[SchedulePersonalNoteController::class,'chang
 //project
 Route::get('/project',[ScheduleProjectController::class,'index'])->name('project');
 Route::post('/projectPost',[ScheduleProjectController::class,'store'])->name('pjStore');
+Route::post('/projectPostTask/{id}',[ScheduleProjectController::class,'storeTask'])->name('pjStoreTask');
+Route::post('/projectJoin',[ScheduleProjectController::class,'join'])->name('pjJoin');
+Route::get('/project/leave/{id}',[ScheduleProjectController::class,'leave'])->name('pjLeave');
+Route::get('/project/detail/{id}',[ScheduleProjectController::class,'show'])->name('pjShow');
+Route::get('/project/detail/task/{id}',[ScheduleProjectController::class,'detailTask'])->name('pjDetailTask');
+Route::get('/project/detail/task/list/{id}',[ScheduleProjectController::class,'listTask'])->name('pjListTask');
 
 
 // Project

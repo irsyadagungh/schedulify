@@ -51,7 +51,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    function User(){
-        return $this->hasone(SchedulePersonal::class);
+
+    // one to many scheduleproject to scheduleprojectmember
+    public function scheduleProjectMembers()
+    {
+        return $this->hasMany(ScheduleProjectMember::class, 'id_user');
     }
+
 }

@@ -6,8 +6,8 @@
    <a href="{{ route('project') }}" class="font-bold hover:underline">Home</a> <span>/</span> <a href="{{ route('detail-project') }}" class="font-bold hover:underline">Dashboard</a> <span>/</span> <span class="font-bold">List</span>
     </div>
 
-    @for ($a = 0; $a < 5; $a++)
-    <x-accordion-list-project>
+    @foreach ($data as $d)
+    <x-accordion-list-project :email="$d->user->email" :username="$d->user->username">
         <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 font-poppin">
             <thead class="bg-gray-50 dark:bg-gray-700">
               <tr>
@@ -59,8 +59,6 @@
             </tbody>
           </table>
     </x-accordion-list-project>
-        
-    @endfor
-
+    @endforeach
 @endsection
 

@@ -3,7 +3,7 @@
         <div class="flex flex-col bg-card  shadow-sm rounded-xl pointer-events-auto dark:bg-gray-800 ">
             <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
                 <h3 class="font-bold text-gray-800">
-                    Member
+                    Project Contributors
                 </h3>
                 <button type="button" class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" data-hs-overlay="#hs-slide-down-animation-modal">
                     <span class="sr-only">Close</span>
@@ -11,18 +11,28 @@
                 </button>
             </div>
             <div class="p-4 overflow-y-auto flex flex-col gap-4">
-                @for ($i = 0; $i < 3; $i++)
                     <div class="flex justify-between items-center">
-                        <div class="flex gap-4">
+                        @foreach ($member as $member)
+
+                        <div class="flex gap-4 justify-between w-full">
+                            <div class="flex gap-4">
                             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="">
                             <div class="flex flex-col">
-                                <p>Irsyad Agung Hidayatullah</p>
-                                <p class="opacity-50">email@gmail.com</p>
+                                @if ($member->user)
+
+                                    <p>{{ $member->user->username }}</p>
+                                    <p class="opacity-50">{{ $member->user->email }}</p>
+                                @else
+                                    <!-- Handle the case where the user relationship is not available -->
+                                    <p>Unknown User</p>
+                                @endif
                             </div>
                         </div>
-                        <p>Member</p>
+                            <div>{{ $member->status }}</div>
+                        </div>
                     </div>
-                @endfor
+                    @endforeach
+
             </div>
         </div>
     </div>

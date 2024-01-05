@@ -10,6 +10,8 @@ class ScheduleProject extends Model
     use HasFactory;
 
 
+    protected $primaryKey = 'id';
+
     protected $table = 'schedule_project';
 
     protected $fillable = [
@@ -18,4 +20,13 @@ class ScheduleProject extends Model
         'deskripsi',
         'room_code'
     ];
+
+    // one to many scheduleproject to scheduleprojectmember
+    public function member(){
+        return $this->hasMany(ScheduleProjectMember::class, 'id_schedule_project', 'id');
+    }
+
+    public function task(){
+        return $this->hasMany(ScheduleProjectAddTask::class, 'id_schedule_project', 'id');
+    }
 }

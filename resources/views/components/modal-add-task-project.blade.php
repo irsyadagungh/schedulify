@@ -15,17 +15,18 @@
 
         {{-- Form Input --}}
         <div class="p-4 overflow-y-auto">
-         <form action="">
+         <form action="{{route('pjStoreTask', $project)}}" method="POST">
+            @csrf
             {{-- Task Name --}}
             <div id="task-name" class="flex flex-col">
                 <label for="">Task Name</label>
-                <input type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+                <input name="judul" type="text" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
             </div>
 
             {{-- Description --}}
             <div id="description" class="flex flex-col">
                 <label for="">Description</label>
-                <textarea type="text" rows="10" class="w-full resize-none fill-none bg-transparent border border-ternary p-1 rounded-md"></textarea>
+                <textarea name="deskripsi" type="text" rows="10" class="w-full resize-none fill-none bg-transparent border border-ternary p-1 rounded-md"></textarea>
             </div>
 
             {{-- Dropdown Assignee --}}
@@ -33,36 +34,35 @@
                 <label for="">Assignee</label>
                 <x-dropdown-assignee>
                     <option value="">Choose</option>
-                    {{-- @foreach  --}}
-                    <option value="Name">Name</option>
-                    {{-- @endforeach --}}
+                    @foreach($assign as $a)
+                    @if ($a -> status == "member")
+                    <option value="{{$a->user->id}}">{{$a->user->username}}</option>
+                    @endif
+                    @endforeach
                 </x-dropdown-assignee>
             </div>
 
             {{-- Start Date --}}
             <div id="start-date" class="flex flex-col">
                 <label for="">Start Date</label>
-                <input type="date" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+                <input name="start_date" type="date" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
             </div>
 
             {{-- End Date --}}
             <div id="end-date" class="flex flex-col">
                 <label for="">End Date</label>
-                <input type="date" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+                <input name="end_date" type="date" class="w-full fill-none bg-transparent border border-ternary p-1 rounded-md">
+            </div>
+            {{-- Button --}}
+            <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t border-ternary dark:border-gray-700">
+                <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg  bg-ternary text-gray-800 shadow-sm hover:bg-primary disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 " data-hs-overlay="#hs-basic-modal">
+                  Add Task
+                </button>
             </div>
          </form>
         </div>
         {{-- End Form --}}
 
-        {{-- Button --}}
-        <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t border-ternary dark:border-gray-700">
-          <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg  bg-ternary text-gray-800 shadow-sm hover:bg-primary disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 " data-hs-overlay="#hs-basic-modal">
-            Close
-          </button>
-          <a class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-ternary bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="#">
-            Save changes
-          </a>
-        </div>
       </div>
     </div>
   </div>

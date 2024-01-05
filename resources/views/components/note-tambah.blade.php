@@ -116,23 +116,23 @@
           <label for="">Pilih Warna</label>
           <div class="flex gap-1">
             <label for="red">
-              <input type="radio" name="warna" id="red" value="#643333" class="absolute opacity-0  w-7 h-7">
+              <input type="radio" name="warna" id="red" value="bg-[#643333]" class="absolute opacity-0  w-7 h-7">
               <div class="icon-box bg-red w-7 h-7 rounded-md"></div>
             </label>
 
             <label for="green">
-              <input type="radio" name="warna" id="green" value="#466433" class="absolute opacity-0  w-7 h-7">
+              <input type="radio" name="warna" id="green" value="bg-[#466433]" class="absolute opacity-0  w-7 h-7">
               <div class="icon-box bg-green w-7 h-7 rounded-md"></div>
             </label>
 
             <label for="yellow">
-              <input type="radio" name="warna" id="yellow" value="#645C33" class="absolute opacity-0  w-7 h-7">
+              <input type="radio" name="warna" id="yellow" value="bg-[#645C33]" class="absolute opacity-0  w-7 h-7">
               <div class="icon-box bg-yellow w-7 h-7 rounded-md"></div>
             </label>
 
             {{-- Warna buat reset ke warna asal gara" gatau cara unchecked radio button :v --}}
             <label for="reset">
-              <input type="radio" name="warna" id="reset" value="#222228" class="absolute opacity-0  w-7 h-7">
+              <input type="radio" name="warna" id="reset" value="bg-[#222228]" class="absolute opacity-0  w-7 h-7">
               <div class="icon-box bg-ternary w-7 h-7 rounded-md"></div>
             </label>
           </div>

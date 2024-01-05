@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('schedule_project_list_task', function (Blueprint $table) {
-            $table->foreignId('id_schedule_project')->primary()->constrained('schedule_project')->onDelete('cascade');
+            $table->foreignId('id_schedule_project')->constrained('schedule_project')->onDelete('cascade');
             $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
             $table->string('judul', 50)->nullable();
             $table->string('deskripsi')->nullable();
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('status');
+            $table->string('status')->default('On Going');
             $table->timestamps();
         });
     }

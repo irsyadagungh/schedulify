@@ -7,38 +7,22 @@ import 'chartjs-plugin-datalabels';
 
 
 (async function () {
-  const data = {
-    datasets: [
-      {
-        // label: 'project',
-
-        // Data X (Tanggal Bulan Tahun) dan Y (Akun (Task))
-        data: [
-          {
-            x: ['2023-01-02', '2023-07-04'],
-            y: 'task 1',
-          },
-          {
-            x: ['2023-05-02', '2023-10-04'],
-            y: 'task 2',
-          },
-          {
-            x: ['2023-07-02', '2023-12-04'],
-            y: 'task 3',
-          },
-        ],
-
-        // Warna bar (Bisa beda" tiap bar kalo warnanya banyak, sesuai jumlah data)
-        backgroundColor: 'rgba(255, 26, 104, 1)',
-        borderColor: 'rgba(255, 26, 104, 1)',
-        borderWidth: 1,
-        borderSkipped: false,
-        barPercentage: 0.5,
-        borderRadius:5,
-        top: true,
-      },
-    ],
-  };
+    const data = {
+        datasets: chartData.map(item => ({
+            label:item.judul,
+            data: [{
+                x: [item.start_date, item.end_date],
+                y: item.judul,
+            }],
+            backgroundColor: 'rgba(255, 26, 104, 1)',
+            borderColor: 'rgba(255, 26, 104, 1)',
+            borderWidth: 1,
+            borderSkipped: false,
+            barPercentage: 0.5,
+            borderRadius: 5,
+            top: true,
+        })),
+    };
 
   const todayLine = {
     id: 'todayLine',
@@ -74,7 +58,7 @@ import 'chartjs-plugin-datalabels';
             },
           },
           min: '2022-12-01', // Tanggal mulai
-          max: '2023-12-31', // Tanggal selesai
+          max: '2024-12-31', // Tanggal selesai
           position: 'top', // Letakkan label di atas grafik
           ticks: {
             autoSkip: false, // Pastikan semua tanggal ditampilkan
