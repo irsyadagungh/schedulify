@@ -1,5 +1,5 @@
 <div class="relative">
-  <select data-hs-select='{
+  <select name="id_user" data-hs-select='{
       "placeholder": "Select option...",
       "toggleTag": "<button type=\"button\"></button>",
       "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-transparent border border-ternary rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600",

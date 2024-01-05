@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ScheduleProject;
+use App\Models\ScheduleProjectAddTask;
 use App\Models\ScheduleProjectMember;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -89,8 +90,9 @@ class ScheduleProjectController extends Controller
         return redirect()->route('project');
     }
 
-    public function leave(){
-
+    public function leave($id){
+        ScheduleProjectMember::where('id_user',$id)->delete();
+        return redirect()->route('project')->with('sukses','Data Berhasil Di Hapus');
     }
 
     public function create()
@@ -146,41 +148,76 @@ class ScheduleProjectController extends Controller
      * Display the specified resource.
      */
     public function show($id)
+{
+    $userId = Auth::id();
+    $user = User::findOrFail($userId);
+    $data = ScheduleProject::findOrFail($id);
+
+    // logic for getting member id on the user table by relationship eloquent
+    $member = $data->member()->with('user')->get();
+
+    // Filter tasks based on the project ID
+    $chartData = $data->task()->where('id_schedule_project', $id)->get()->map(function ($task) {
+        return [
+            'start_date' => $task->start_date,
+            'end_date' => $task->end_date,
+            'judul' => $task->judul,
+        ];
+    });
+
+    return view('project.detailProject', compact('user', 'data', 'member', 'chartData'));
+}
+
+
+    public function storeTask(Request $request, $id)
     {
-        //
-        $userId = Auth::id();
-        $user = User::findOrFail($userId);
-        $data = ScheduleProject::findOrFail($id);
-
-        $member = $data->member()->with('user')->get();
-
-        return view('project.detailProject', compact('user', 'data','member'));
-    }
-
-    public function storeTask(Request $request)
-    {
-        // Generate a random room_code
-        $randomNumber = Str::random(10);
-
+        // dd($request);
         // Validate data
         $request->validate([
             'id_user' => 'required',
             'judul' => 'required',
             'deskripsi' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
         ]);
 
+        $scheduleProject = ScheduleProject::findOrFail($id);
         // Create a new ScheduleProject
-        $project = new ScheduleProject();
-        $project->id_user = $request->input('id_user');
-        $project->judul = $request->input('judul');
-        $project->deskripsi = $request->input('deskripsi');
-        $project->room_code = $randomNumber;
+        $addTask = new ScheduleProjectAddTask();
+        $addTask->id_schedule_project = $scheduleProject -> id;
+        $addTask->id_user = $request->input('id_user');
+        $addTask->judul = $request->input('judul');
+        $addTask->deskripsi = $request->input('deskripsi');
+        $addTask->start_date = $request->input('start_date');
+        $addTask->end_date = $request->input('end_date');
 
         // Save the project
-        $project->save();
+        $addTask->save();
 
         // Redirect
-        return redirect()->route('project');
+        return redirect()->route('pjShow', $scheduleProject -> id);
+    }
+
+    public function detailTask($id)
+    {
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $idProject = ScheduleProject::findOrFail($id);
+        $data = $idProject->task()->with('user')->where('id_schedule_project', $id)->get();
+
+
+        return view('project.detailTaskProject', compact('user', 'data','idProject'));
+    }
+
+    public function listTask($id)
+    {
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $idProject = ScheduleProject::findOrFail($id);
+        $data = $idProject->task()->with('user')->where('id_schedule_project', $id)->get();
+
+
+        return view('project.listTaskProject', compact('user', 'data','idProject'));
     }
 
 

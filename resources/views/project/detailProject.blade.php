@@ -45,7 +45,7 @@
 
                     </x-btn-header-super-user>
                 @elseif ($userStatus == "member")
-                    <x-list-task-link>
+                    <x-list-task-link :detail="$data -> id" >
 
                     </x-list-task-link>
                 @endif
@@ -56,19 +56,24 @@
         {{-- Second Section --}}
         <div class="chart w-full max-h-3/6 overflow-scroll border border-ternary rounded-xl">
             <div class="chart-container h-[30rem] w-fit">
-                <canvas id="chart" class="w-full h-[90vh]"></canvas>
+                <canvas id="chart" class="w-full h-[90vh]" ></canvas>
             </div>
         </div>
+
+        <script>
+            const chartData = @json($chartData); // Assuming $chartData is an array of arrays
+        </script>
+
 
         {{-- Third Section --}}
         <div class="flex justify-between">
 
             @if ($userStatus == "host")
-                <x-list-task-link>
+                <x-list-task-link :detail="$data -> id">
 
                 </x-list-task-link>
             @elseif ($userStatus == "member")
-                <a href="" class="bg-redLight p-1 rounded-md focus:outline focus:outline-redLight focus:outline-offset-2 focus:outline-1">
+                <a href="{{ url('project/leave/'.auth()->user()->id) }}" class="bg-redLight p-1 rounded-md focus:outline focus:outline-redLight focus:outline-offset-2 focus:outline-1">
                     Leave Project
                 </a>
             @endif
@@ -76,7 +81,7 @@
 
 
         {{-- Overlay / Pop up --}}
-        <x-modal-add-task-project>
+        <x-modal-add-task-project :assign="$member" :project="$data->id">
 
         </x-modal-add-task-project>
 

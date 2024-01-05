@@ -51,9 +51,12 @@ Route::get('/personal/destroy/{id}',[SchedulePersonalNoteController::class,'dest
 //project
 Route::get('/project',[ScheduleProjectController::class,'index'])->name('project');
 Route::post('/projectPost',[ScheduleProjectController::class,'store'])->name('pjStore');
-Route::post('/projectPostTask',[ScheduleProjectController::class,'storeTask'])->name('pjStoreTask');
+Route::post('/projectPostTask/{id}',[ScheduleProjectController::class,'storeTask'])->name('pjStoreTask');
 Route::post('/projectJoin',[ScheduleProjectController::class,'join'])->name('pjJoin');
+Route::get('/project/leave/{id}',[ScheduleProjectController::class,'leave'])->name('pjLeave');
 Route::get('/project/detail/{id}',[ScheduleProjectController::class,'show'])->name('pjShow');
+Route::get('/project/detail/task/{id}',[ScheduleProjectController::class,'detailTask'])->name('pjDetailTask');
+Route::get('/project/detail/task/list/{id}',[ScheduleProjectController::class,'listTask'])->name('pjListTask');
 
 
 // Project

@@ -25,4 +25,8 @@ class ScheduleProject extends Model
     public function member(){
         return $this->hasMany(ScheduleProjectMember::class, 'id_schedule_project', 'id');
     }
+
+    public function task(){
+        return $this->hasMany(ScheduleProjectAddTask::class, 'id_schedule_project', 'id');
+    }
 }

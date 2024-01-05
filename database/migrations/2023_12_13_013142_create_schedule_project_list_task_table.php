@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('deskripsi')->nullable();
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('status');
+            $table->string('status')->default('On Going');
             $table->timestamps();
         });
     }
