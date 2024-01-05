@@ -22,7 +22,7 @@
         @endphp
         @if ($userStatus == "host")
         <x-note>
-            <a href="{{route('pjShow', ['id' => $p -> id])}}" class="h-full">
+            <a href="{{route('pjShow', ['id' => $p -> id])}}" class="h-full flex flex-col gap-3">
                 {{-- Header --}}
                 <div class="">
                     <h1 class="text-xs font-bold">{{$p -> judul}}</h1>
@@ -31,12 +31,12 @@
 
                 {{-- Deskripsi --}}
                 <div class="">
-                    <p class="text-xs">
+                    <p class="text-xs h-12 mb-3 overflow-hidden">
                         {{$p -> deskripsi}}
                     </p>
                 </div>
 
-                {{-- Bar Progress --}}
+                {{-- Bar Progress
                 <div class="flex gap-2">
                     <div>
                         <p class="text-xs flex">Task</p>
@@ -45,13 +45,13 @@
                     <div>
                         <p class="text-xs">100%</p>
                     </div>
-                </div>
+                </div> --}}
 
                 {{-- Member --}}
-                <div class="flex">
-                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
-                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
-                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
+                <div class="flex gap-1">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-7 h-7">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-7 h-7">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-7 h-7">
                 </div>
 
             </a>
@@ -118,39 +118,85 @@
 
         @foreach ($data as $p)
         {{-- Note 1 --}}
+        @php
+            $userIsParticipant = $p->member->where('id_user', Auth::id())->first();
+            $userStatus = $userIsParticipant ? $userIsParticipant->status : '';
+            // dd($userStatus);
+        @endphp
+        @if ($userStatus == "host")
         <x-note>
-            {{-- Header --}}
-            <div class="">
-             <h1 class="text-xs font-bold">{{$p -> judul}}</h1>
-             <p class="text-[10px]">Created on {{$p -> created_at}}</p>
-            </div>
+            <a href="{{route('pjShow', ['id' => $p -> id])}}" class="h-full flex flex-col gap-3">
+                {{-- Header --}}
+                <div class="">
+                    <h1 class="text-xs font-bold">{{$p -> judul}}</h1>
+                    <p class="text-[10px]">Created on {{$p -> created_at}}</p>
+                </div>
 
-            {{-- Deskripsi --}}
-            <div class="">
-             <p class="text-xs">
-                 {{$p -> deskripsi}}
-             </p>
-            </div>
+                {{-- Deskripsi --}}
+                <div class="">
+                    <p class="text-xs h-12 mb-3 overflow-hidden">
+                        {{$p -> deskripsi}}
+                    </p>
+                </div>
 
-            {{-- Bar Progress --}}
-            <div class="flex gap-2">
-             <div>
-             <p class="text-xs flex">Task</p>
-             </div>
-             <progress id="file" value="100" max="100" class="h-2 w-full mt-1.5" style="background-color: #8B5CF6; border-radius: 8px;"></progress>
-             <div>
-                 <p class="text-xs">100%</p>
-             </div>
-             </div>
+                {{-- Bar Progress
+                <div class="flex gap-2">
+                    <div>
+                        <p class="text-xs flex">Task</p>
+                    </div>
+                    <progress id="file" value="100" max="100" class="h-2 w-full mt-1.5" style="background-color: #8B5CF6; border-radius: 8px;"></progress>
+                    <div>
+                        <p class="text-xs">100%</p>
+                    </div>
+                </div> --}}
 
-            {{-- Member --}}
-            <div class="flex">
-             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
-             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
-             <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
-            </div>
+                {{-- Member --}}
+                <div class="flex gap-1">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-7 h-7">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-7 h-7">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-7 h-7">
+                </div>
 
+            </a>
         </x-note>
+        @elseif ($userStatus == "member")
+        <x-note>
+            <a href="{{route('pjShow', ['id' => $p -> id])}}" class="h-full">
+                {{-- Header --}}
+                <div class="">
+                    <h1 class="text-xs font-bold">{{$p -> judul}}</h1>
+                    <p class="text-[10px]">Created on {{$p -> created_at}}</p>
+                </div>
+
+                {{-- Deskripsi --}}
+                <div class="">
+                    <p class="text-xs">
+                        {{$p -> deskripsi}}
+                    </p>
+                </div>
+
+                {{-- Bar Progress --}}
+                <div class="flex gap-2">
+                    <div>
+                        <p class="text-xs flex">Task</p>
+                    </div>
+                    <progress id="file" value="100" max="100" class="h-2 w-full mt-1.5" style="background-color: #8B5CF6; border-radius: 8px;"></progress>
+                    <div>
+                        <p class="text-xs">100%</p>
+                    </div>
+                </div>
+
+                {{-- Member --}}
+                <div class="flex">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
+                    <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset="" class="w-1/6 h-1/6">
+                </div>
+
+            </a>
+        </x-note>
+        @endif
+
         @endforeach
 
     </div>

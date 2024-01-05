@@ -156,61 +156,54 @@
                             <div style = "margin-top: 5px">
                                 <div style = "display:flex;  margin-left: 30px;">
                                     <div class="flex flex-wrap gap-2 card ">
-                                        @for ($i =0; $i<3; $i++)
-                                        <x-note >
-                                            <div data-hs-overlay="#update" class="w-full h-44">
+                                        @foreach ($data as $p)
+                                        <x-note :note-id="$p->id" :customBg="$p->warna">
+                                        <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
+                                            <div class="flex justify-between">
 
-                                            <div class="flex -ml-1 ">
-                                                <img
-                                                id="untukPin"
-                                                src="{{asset('assets/icons/push_pin (1).svg')}}"
-                                                class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
-                                                alt=""
-                                                />
-
-                                                {{-- Ada Button --}}
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal3">
-                                               <img
-                                               id="buatHapus"
-                                               src="{{asset('assets/icons/delete.svg')}}"
-                                               class="pt-0 pl-4 cursor-pointer "
-                                               alt=""
-                                               />
-                                                </button>
-
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal4">
-                                               <img
-                                               id="untukKeluar"
-                                               src="{{asset('assets/icons/check_fig.svg')}}"
-                                               class="w-4 h-5 pt-0 cursor-pointer"
-                                               alt=""
-                                               />
-                                                </button>
+                                                    <div>
+                                                        {{-- Kiri --}}
+                                                        <a href="">
+                                                            <img src="{{asset('assets/icons/push_pin.svg')}}" alt="">
+                                                        </a>
                                                     </div>
 
+
+
+                                                    <div class="flex gap-2">
+                                                        {{-- Kanan --}}
+                                                        <a href="{{ url('personal/destroy/'.$p->id) }}" onclick="return confirm('Are you sure you want to delete?')">
+                                                            <img src="{{asset('assets/icons/delete.svg')}}" alt="" class="w-5 h-5">
+                                                        </a>
+
+
+                                                        <a href="">
+                                                            <img src="{{asset("assets/icons/done.svg")}}" alt="" class="w-5 h-5">
+                                                        </a>
+                                                    </div>
+
+
+
+                                                    </div>
+                                    <a href="{{ route('plEdit', ['id' => $p->id]) }}">
                                              {{-- Header --}}
                                    <div class="">
-                                    <h1 class="text-xs font-bold">Memancing Anak Kelas</h1>
-                                    <p class="text-[10px]">Created on 11.9.2023</p>
+                                    <h1 class="text-xs font-bold">{{$p->judul}}</h1>
+                                    <p class="text-[10px]">Created on {{$p->created_at}}</p>
                                    </div>
 
                                    {{-- Deskripsi --}}
                                    <div class="">
                                     <p class="text-xs">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. kdoawkdo
+                                        {!! $p->deskripsi !!}
                                     </p>
                                    </div>
-                                </div>
-                                        </x-note>
-                                        @endfor
-                                        <div id="">
-                                            <button data-hs-overlay="#tambah">
-                                            <x-note>
-                                                <h1 class=" font-bold text-[50px] text-center mt-7">+</h1>
-                                            </x-note>
 
-                                        </button>
-                                    </div>
+                                </div>
+                                    </a>
+                                        </x-note>
+                                        @endforeach
+
                                     <x-note-tambah></x-note-tambah>
 
                                      </div>
@@ -251,9 +244,53 @@
                             <div style = "margin-top: 5px">
                                 <div style = "display:flex;  margin-left: 30px;">
                                     <div class="flex flex-wrap gap-2 card ">
+                                        @foreach ($data as $p)
+                                        <x-note :note-id="$p->id" :customBg="$p->warna">
+                                        <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
+                                            <div class="flex justify-between">
+
+                                                    <div>
+                                                        {{-- Kiri --}}
+                                                        <a href="">
+                                                            <img src="{{asset('assets/icons/push_pin.svg')}}" alt="">
+                                                        </a>
+                                                    </div>
 
 
-                                         {{-- Tambah note --}}
+
+                                                    <div class="flex gap-2">
+                                                        {{-- Kanan --}}
+                                                        <a href="{{ url('personal/destroy/'.$p->id) }}" onclick="return confirm('Are you sure you want to delete?')">
+                                                            <img src="{{asset('assets/icons/delete.svg')}}" alt="" class="w-5 h-5">
+                                                        </a>
+
+
+                                                        <a href="">
+                                                            <img src="{{asset("assets/icons/done.svg")}}" alt="" class="w-5 h-5">
+                                                        </a>
+                                                    </div>
+
+
+
+                                                    </div>
+                                    <a href="{{ route('plEdit', ['id' => $p->id]) }}">
+                                             {{-- Header --}}
+                                   <div class="">
+                                    <h1 class="text-xs font-bold">{{$p->judul}}</h1>
+                                    <p class="text-[10px]">Created on {{$p->created_at}}</p>
+                                   </div>
+
+                                   {{-- Deskripsi --}}
+                                   <div class="">
+                                    <p class="text-xs">
+                                        {!! $p->deskripsi !!}
+                                    </p>
+                                   </div>
+
+                                </div>
+                                    </a>
+                                        </x-note>
+                                        @endforeach
 
                                      </div>
                                 </div>

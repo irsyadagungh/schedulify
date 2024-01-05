@@ -2,7 +2,7 @@
             md:fixed md:w-2/6 md:left-0 md:h-screen
             lg:w-1/6">
     <div class=" flex flex-col items-start pt-20 h-full">
-        <ul class="w-full h-4/5 justify-between flex flex-col px-4 gap-1">
+        <ul class="w-full h-5/6 justify-between flex flex-col px-4 gap-1">
             <div>
             <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 <img src="{{ asset('assets/icons/home_FILL0_wght400_GRAD0_opsz24 1.svg') }}" alt="" srcset="">

@@ -43,7 +43,7 @@
         <div class="card flex flex-wrap gap-2 ">
 
             @foreach ($data as $p)
-                                        <x-note>
+                                        <x-note :note-id="$p->id" :customBg="$p->warna">
 
                                             <div class="flex justify-between">
 

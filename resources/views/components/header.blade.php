@@ -2,7 +2,7 @@
             md:px-20">
     <header class=" flex items-center justify-between w-full">
         <div class="tools flex gap-7 items-center">
-            <a class="font-cursive text-xl cursor-pointer" href="/">Schedulify</a>
+            <a class="font-cursive text-xl cursor-pointer" href="{{route ('home')}}">Schedulify</a>
             <div class="menu flex flex-col gap-2 cursor-pointer
                         md:hidden">
                 <span class="w-6 h-px bg-white"></span>
