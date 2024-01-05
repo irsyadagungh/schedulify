@@ -20,7 +20,7 @@ export default {
       'secondary' : '#17171A',
       'ternary' : '#2C3748',
       'white'   : '#FFFFFF',
-      'blue'    : '#52B7C9',
+      'blue'    : '#336AAA',
       'reject'  : '#BF5A5A',
       'done'    : '#5A82BF',
       'transparent' : '#00000000',

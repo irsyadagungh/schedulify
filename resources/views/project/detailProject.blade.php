@@ -69,9 +69,17 @@
         <div class="flex justify-between">
 
             @if ($userStatus == "host")
-                <x-list-task-link :detail="$data -> id">
+                <div class="flex w-full justify-between">
+                    <div class="flex gap-4">
+                        <x-list-task-link :detail="$data -> id">
 
-                </x-list-task-link>
+                        </x-list-task-link>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="" class="bg-redLight rounded-md py-1 px-2 focus:outline focus:outline-1 focus:outline-redLight focus:outline-offset-2">Delete Project</a>
+                        <a href="" class="bg-blue py-1 px-4 rounded-md focus:outline focus:outline-1 focus:outline-blue focus:outline-offset-2">Done</a>
+                    </div>
+                </div>
             @elseif ($userStatus == "member")
                 <a href="{{ url('project/leave/'.auth()->user()->id) }}" class="bg-redLight p-1 rounded-md focus:outline focus:outline-redLight focus:outline-offset-2 focus:outline-1">
                     Leave Project
