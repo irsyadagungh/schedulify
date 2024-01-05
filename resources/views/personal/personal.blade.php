@@ -69,9 +69,15 @@
 
                                                     <div>
                                                         {{-- Kiri --}}
-                                                        <a href="">
-                                                            <img src="{{asset('assets/icons/push_pin.svg')}}" alt="">
-                                                        </a>
+                                                        <form action="{{ url('personal/change/'.$p->id) }}" method="post">
+                                                            @csrf
+                                                            @method('put')
+                                                            <input type="hidden" name="status" value="{{ $p->status }}">
+                                                            <button type="submit" onclick="return confirm('Are you sure you want to change?')">
+                                                                <img src="{{asset('assets/icons/push_pin.svg')}}" alt="" class="w-5 h-5">
+                                                            </button>
+                                                        </form>
+
                                                     </div>
 
 
@@ -156,53 +162,55 @@
                             <div style = "margin-top: 5px">
                                 <div style = "display:flex;  margin-left: 30px;">
                                     <div class="flex flex-wrap gap-2 card ">
-                                        @for ($i =0; $i<3; $i++)
+
+                                        @foreach ($data_prioritas as $data_p)
                                         <x-note>
                                             <div data-hs-overlay="#update" class="w-full h-44">
 
                                             <div class="flex -ml-1 ">
-                                                <img
-                                                id="untukPin"
-                                                src="{{asset('assets/icons/push_pin (1).svg')}}"
-                                                class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
-                                                alt=""
-                                                />
+                                                <form action="{{ url('personal/change/'.$data_p->id) }}" method="post">
+                                                    @csrf
+                                                    @method('put')
+                                                    <input type="hidden" name="status" value="{{ $data_p->status }}">
+                                                    <button type="submit" onclick="return confirm('Are you sure you want to change?')">
+                                                        <img
+                                                        id="untukPin"
+                                                        src="{{asset('assets/icons/pin-white-fill.svg')}}"
+                                                        class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
+                                                        alt=""
+                                                        />
+                                                    </button>
+                                                </form>
 
                                                 {{-- Ada Button --}}
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal3">
-                                               <img
-                                               id="buatHapus"
-                                               src="{{asset('assets/icons/delete.svg')}}"
-                                               class="pt-0 pl-4 cursor-pointer "
-                                               alt=""
-                                               />
-                                                </button>
+                                                <div class="flex gap-2">
+                                                    {{-- Kanan --}}
+                                                    <a href="{{ url('personal/destroy/'.$data_p->id) }}" onclick="return confirm('Are you sure you want to delete?')">
+                                                        <img src="{{asset('assets/icons/delete.svg')}}" alt="" class="w-5 h-5">
+                                                    </a>
 
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal4">
-                                               <img
-                                               id="untukKeluar"
-                                               src="{{asset('assets/icons/check_fig.svg')}}"
-                                               class="w-4 h-5 pt-0 cursor-pointer"
-                                               alt=""
-                                               />
-                                                </button>
+
+                                                    <a href="">
+                                                        <img src="{{asset("assets/icons/done.svg")}}" alt="" class="w-5 h-5">
+                                                    </a>
+                                                </div>
                                                     </div>
 
                                              {{-- Header --}}
                                    <div class="">
-                                    <h1 class="text-xs font-bold">Memancing Anak Kelas</h1>
-                                    <p class="text-[10px]">Created on 11.9.2023</p>
+                                    <h1 class="text-xs font-bold">{{ $data_p->judul }}</h1>
+                                    <p class="text-[10px]">Created on {{ $data_p->created_at }}</p>
                                    </div>
 
                                    {{-- Deskripsi --}}
                                    <div class="">
                                     <p class="text-xs">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. kdoawkdo
+                                        {!! $data_p->deskripsi !!}
                                     </p>
                                    </div>
                                 </div>
                                         </x-note>
-                                        @endfor
+                                        @endforeach
                                         <div id="">
                                             <button data-hs-overlay="#tambah">
                                             <x-note>
@@ -254,7 +262,53 @@
 
 
                                          {{-- Tambah note --}}
+                                         @for ($i =0; $i<3; $i++)
+                                        <x-note>
+                                            <div data-hs-overlay="#update" class="w-full h-44">
 
+                                            <div class="flex -ml-1 ">
+                                                <img
+                                                id="untukPin"
+                                                src="{{asset('assets/icons/pin-white-fill.svg')}}"
+                                                class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
+                                                alt=""
+                                                />
+
+                                                {{-- Ada Button --}}
+                                                <button data-hs-overlay="#hs-slide-down-animation-modal3">
+                                               <img
+                                               id="buatHapus"
+                                               src="{{asset('assets/icons/delete.svg')}}"
+                                               class="pt-0 pl-4 cursor-pointer "
+                                               alt=""
+                                               />
+                                                </button>
+
+                                                <button data-hs-overlay="#hs-slide-down-animation-modal4">
+                                               <img
+                                               id="untukKeluar"
+                                               src="{{asset('assets/icons/check_fig.svg')}}"
+                                               class="w-4 h-5 pt-0 cursor-pointer"
+                                               alt=""
+                                               />
+                                                </button>
+                                                    </div>
+
+                                             {{-- Header --}}
+                                   <div class="">
+                                    <h1 class="text-xs font-bold">Memancing Anak Kelas</h1>
+                                    <p class="text-[10px]">Created on 11.9.2023</p>
+                                   </div>
+
+                                   {{-- Deskripsi --}}
+                                   <div class="">
+                                    <p class="text-xs">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. kdoawkdo
+                                    </p>
+                                   </div>
+                                </div>
+                                        </x-note>
+                                        @endfor
                                      </div>
                                 </div>
                             </div>
@@ -308,7 +362,7 @@
                                             <div class="flex -ml-1 ">
                                                 <img
                                                 id="untukPin"
-                                                src="{{asset('assets/icons/push_pin (1).svg')}}"
+                                                src="{{asset('assets/icons/push_pin.svg')}}"
                                                 class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
                                                 alt=""
                                                 />
@@ -400,7 +454,7 @@
                                             <div class="flex -ml-1 ">
                                                 <img
                                                 id="untukPin"
-                                                src="{{asset('assets/icons/push_pin (1).svg')}}"
+                                                src="{{asset('assets/icons/push_pin.svg')}}"
                                                 class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
                                                 alt=""
                                                 />
@@ -444,8 +498,6 @@
 
 
             </div>
-
-
 
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
