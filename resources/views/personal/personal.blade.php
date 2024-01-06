@@ -59,17 +59,19 @@
                     {{-- Bagian note --}}
                         <div class="px-6 pb-4">
                             <div style = "margin-top: 5px">
-                                <div style = "display:flex;  margin-left: 30px;">
+                                <div class="flex flex-row w-full">
                                     <div class="flex flex-wrap gap-2 card ">
 
-                                        @foreach ($data as $p)
+                                        @foreach ($dataToday as $p)
+                                        @if ($p->tanggal_deadline == $formatDate)
                                         <x-note :note-id="$p->id" :customBg="$p->warna">
                                         <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
-                                            <div class="flex justify-between">
+                                            <div class="flex flex-col w-full justify-between">
 
-                                                    <div>
-                                                        {{-- Kiri --}}
-                                                        <form action="{{ url('personal/change/'.$p->id) }}" method="post">
+                                                <div class="flex justify-between">
+                                                {{-- Kiri --}}
+                                                <div >
+                                                <form action="{{ url('personal/change/'.$p->id) }}" method="post" class="flex">
                                                             @csrf
                                                             @method('put')
                                                             <input type="hidden" name="status" value="{{ $p->status }}">
@@ -77,22 +79,31 @@
                                                                 <img src="{{asset('assets/icons/push_pin.svg')}}" alt="" class="w-5 h-5">
                                                             </button>
                                                         </form>
-
                                                     </div>
 
-
-
-                                                    <div class="flex gap-2">
+                                                    <div class="flex gap-2 flex-wrap">
                                                         {{-- Kanan --}}
                                                         <a href="{{ url('personal/destroy/'.$p->id) }}" onclick="return confirm('Are you sure you want to delete?')">
                                                             <img src="{{asset('assets/icons/delete.svg')}}" alt="" class="w-5 h-5">
                                                         </a>
 
 
-                                                        <a href="">
-                                                            <img src="{{asset("assets/icons/done.svg")}}" alt="" class="w-5 h-5">
-                                                        </a>
-                                                    </div>
+                                                        <div>
+                                                        <form action="{{ route('done', $p->id) }}" method="post">
+                                                                @csrf
+                                                                @method('put')
+                                                                <input type="hidden" name="status" value="{{ $p->status }}">
+                                                                <button type="submit" onclick="return confirm('Are you sure you want to done this note ?')">
+                                                                    <img src="{{asset("assets/icons/done.svg")}}" alt="" class="w-5 h-5">
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                        </div>
+
+                                                        {{-- </div>
+                                                        <a href="{{'done'}}">
+
+                                                        </a> --}}
 
 
 
@@ -114,6 +125,8 @@
                                 </div>
                                     </a>
                                         </x-note>
+
+                                        @endif
                                         @endforeach
 
                                          {{-- Tambah note --}}
@@ -164,7 +177,7 @@
                                     <div class="flex flex-wrap gap-2 card ">
 
                                         @foreach ($data_prioritas as $data_p)
-                                        <x-note>
+                                        <x-note :note-id="$data_p->id" :customBg="$data_p->warna">
                                             <div data-hs-overlay="#update" class="w-full h-44">
 
                                             <div class="flex -ml-1 ">
@@ -199,7 +212,7 @@
 
 
                                                     </div>
-                                    <a href="{{ route('plEdit', ['id' => $p->id]) }}">
+                                    <a href="{{ route('plEdit', ['id' => $data_p->id]) }}">
                                              {{-- Header --}}
                                    <div class="">
                                     <h1 class="text-xs font-bold">{{ $data_p->judul }}</h1>
@@ -261,54 +274,7 @@
 
 
                                          {{-- Tambah note --}}
-                                         @for ($i =0; $i<3; $i++)
-                                        <x-note>
-                                            <div data-hs-overlay="#update" class="w-full h-44">
-
-                                            <div class="flex -ml-1 ">
-                                                <img
-                                                id="untukPin"
-                                                src="{{asset('assets/icons/pin-white-fill.svg')}}"
-                                                class="w-10 h-5 pl-0 pr-3 mr-16 cursor-pointer"
-                                                alt=""
-                                                />
-
-                                                {{-- Ada Button --}}
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal3">
-                                               <img
-                                               id="buatHapus"
-                                               src="{{asset('assets/icons/delete.svg')}}"
-                                               class="pt-0 pl-4 cursor-pointer "
-                                               alt=""
-                                               />
-                                                </button>
-
-                                                <button data-hs-overlay="#hs-slide-down-animation-modal4">
-                                               <img
-                                               id="untukKeluar"
-                                               src="{{asset('assets/icons/check_fig.svg')}}"
-                                               class="w-4 h-5 pt-0 cursor-pointer"
-                                               alt=""
-                                               />
-                                                </button>
-                                                    </div>
-
-                                             {{-- Header --}}
-                                   <div class="">
-                                    <h1 class="text-xs font-bold">Memancing Anak Kelas</h1>
-                                    <p class="text-[10px]">Created on 11.9.2023</p>
-                                   </div>
-
-                                   {{-- Deskripsi --}}
-                                   <div class="">
-                                    <p class="text-xs">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. kdoawkdo
-                                    </p>
-                                   </div>
-                                </div>
-                                        </x-note>
-                                        @endfor
-                                        @foreach ($data as $p)
+                                        @foreach ($dataComingSoon as $p)
                                         <x-note :note-id="$p->id" :customBg="$p->warna">
                                         <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
                                             <div class="flex justify-between">

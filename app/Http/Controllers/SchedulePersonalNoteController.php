@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SchedulePersonal;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,21 +15,32 @@ class SchedulePersonalNoteController extends Controller
      */
     public function index()
     {
-        //
+        // date
+        $currentDate = Carbon::now();
+        $formatDate = $currentDate->format('Y-m-d');
+        // dd($formatDate);
+
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $data = SchedulePersonal::where('id_user', $userId)->where('status', null)->take(4)->get();
-        $data_prioritas = SchedulePersonal::where('id_user', $userId)->where('status', '!=', null)->get();
+        $dataToday = SchedulePersonal::where('id_user', $userId)->where('tanggal_deadline', $formatDate)->take(4)->get();
+        // prioritas data by bayu
+        $data_prioritas = SchedulePersonal::where('id_user', $userId)->where('status', 'prioritas')->take(4)->get();
+        $dataComingSoon = SchedulePersonal::where('id_user', $userId)->where('tanggal_deadline','!=' ,$formatDate)->where('status',  null)->take(4)->get();
 
-        return view('personal.personal', compact('user', 'data', 'data_prioritas'));
+        return view('personal.personal', compact('user', 'dataToday','dataComingSoon', 'data_prioritas','formatDate'));
     }
 
     public function todayShowAll()
     {
-        //
+
+        $currentDate = Carbon::now();
+        $formatDate = $currentDate->format('Y-m-d');
+        // dd($formatDate);
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $data = SchedulePersonal::where('id_user', $userId)->get();
+        $data = SchedulePersonal::where('id_user', $userId)
+                ->where('tanggal_deadline', $formatDate)
+                ->get();
 
 
         return view('personal.todaylihatsemua', compact('user', 'data'));
@@ -38,7 +50,9 @@ class SchedulePersonalNoteController extends Controller
         //
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $data = SchedulePersonal::where('id_user', $userId)->get();
+        $data = SchedulePersonal::where('id_user', $userId)
+                ->where('status', 'prioritas')
+                ->get();
 
 
         return view('personal.prioritaslihatsemua', compact('user', 'data'));
@@ -46,10 +60,16 @@ class SchedulePersonalNoteController extends Controller
 
     public function comingSoonShowAll()
     {
+        // date
+        $currentDate = Carbon::now();
+        $formatDate = $currentDate->format('Y-m-d');
         //
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $data = SchedulePersonal::where('id_user', $userId)->get();
+        $data = SchedulePersonal::where('id_user', $userId)
+                ->where('tanggal_deadline','!=',$formatDate)
+                ->where('status', null)
+                ->get();
 
 
         return view('personal.comingsoonlihatsemua', compact('user', 'data'));
@@ -164,13 +184,31 @@ class SchedulePersonalNoteController extends Controller
         SchedulePersonal::where('id',$id)->delete();
         return redirect('/personal')->with('sukses','Data Berhasil Di Hapus');
     }
-
+    // status prioritas by bayu
     public function change(Request $request, $id)
     {
         if($request->status == 'prioritas'){
             $value = null;
         }else{
             $value = "prioritas";
+        }
+
+        $request->validate([
+            'status',
+        ]);
+
+        $personal = SchedulePersonal::findOrFail($id);
+        $personal->status = $value;
+        $personal->save();
+        return redirect()->route('personal');
+    }
+
+    public function done(Request $request, $id)
+    {
+        if($request->status == 'done'){
+            $value = null;
+        }else{
+            $value = "done";
         }
 
         $request->validate([

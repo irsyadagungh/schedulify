@@ -51,7 +51,8 @@ Route::get('/personal/{id}/edit',[SchedulePersonalNoteController::class,'edit'])
 Route::put('/personal/{id}/update',[SchedulePersonalNoteController::class,'update'])->name('plUpdate');
 Route::get('/personal/destroy/{id}',[SchedulePersonalNoteController::class,'destroy'])->name('pldel');
 
-Route::put('/personal/change/{id}',[SchedulePersonalNoteController::class,'change'])->name('plChange');
+Route::put('/personal/done/{id}',[SchedulePersonalNoteController::class,'done'])->name('done');
+Route::put('/personal/prioritas/{id}',[SchedulePersonalNoteController::class,'change'])->name('plChange');
 
 
 //project
