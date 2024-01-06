@@ -58,14 +58,14 @@
                     {{-- Bagian note --}}
                         <div class="px-6 pb-4">
                             <div style = "margin-top: 5px">
-                                <div class="flex flex-row w-full">
-                                    <div class="flex flex-wrap gap-2 card ">
+                                <div class="flex gap-4 w-full ml-8">
+                                    <div class="flex flex-wrap gap-4 card">
 
                                         @foreach ($dataToday as $p)
                                         @if ($p->tanggal_deadline == $formatDate)
                                         <x-note :note-id="$p->id" :customBg="$p->warna">
-                                        <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
-                                            <div class="flex flex-col w-full justify-between">
+                                        <div data-hs-overlay="" class="w-full h-full flex flex-col gap-2 ">
+                                            <div class="flex flex-col w-full">
 
                                                 <div class="flex justify-between">
                                                 {{-- Kiri --}}
@@ -107,7 +107,7 @@
 
 
                                                     </div>
-                                    <a href="{{ route('plEdit', ['id' => $p->id]) }}">
+                                    <a href="{{ route('plEdit', ['id' => $p->id]) }}" class="h-full">
                                              {{-- Header --}}
                                    <div class="">
                                     <h1 class="text-xs font-bold">{{$p->judul}}</h1>
@@ -124,10 +124,11 @@
                                 </div>
                                     </a>
                                         </x-note>
+                                    </div>
 
                                         @endif
                                         @endforeach
-
+                                    </div>
                                          {{-- Tambah note --}}
                                          <div id="">
                                             <button data-hs-overlay="#hs-slide-down-animation-modal">
