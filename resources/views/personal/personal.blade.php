@@ -70,7 +70,7 @@
                                                 <div class="flex justify-between">
                                                 {{-- Kiri --}}
                                                 <div>
-                                                <form action="{{ url('personal/change/'.$p->id) }}" method="post" class="flex">
+                                                <form action="{{ route('plChange',$p->id) }}" method="post" class="flex">
                                                             @csrf
                                                             @method('put')
                                                             <input type="hidden" name="status" value="{{ $p->status }}">
