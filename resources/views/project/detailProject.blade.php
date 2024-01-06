@@ -76,7 +76,7 @@
                         </x-list-task-link>
                     </div>
                     <div class="flex gap-4">
-                        <a href="" class="bg-redLight rounded-md py-1 px-2 focus:outline focus:outline-1 focus:outline-redLight focus:outline-offset-2">Delete Project</a>
+                        <a href="{{route('pjDelete', $data -> id)}}" class="bg-redLight rounded-md py-1 px-2 focus:outline focus:outline-1 focus:outline-redLight focus:outline-offset-2" >Delete Project</a>
                         <a href="" class="bg-blue py-1 px-4 rounded-md focus:outline focus:outline-1 focus:outline-blue focus:outline-offset-2">Done</a>
                     </div>
                 </div>

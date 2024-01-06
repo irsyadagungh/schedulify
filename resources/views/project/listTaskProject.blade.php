@@ -19,24 +19,19 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                @for ($i = 0; $i < 3; $i++)
               <tr>
-                <td class="td dark:text-gray-200">qwerty</td>
+                <td class="td dark:text-gray-200"> {{$d->judul}}</td>
                 <td class="td max-w-[300px] overflow-hidden overflow-ellipsis">
                   <div class="whitespace-normal break-words text-justify">
                     <!-- Isi deskripsi disini -->
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur modi veniam deserunt natus. Architecto a, quisquam commodi ut cumque reprehenderit mollitia tempora exercitationem est dolore, omnis sunt? Quidem, modi quod?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur modi veniam deserunt natus. Architecto a, quisquam commodi ut cumque reprehenderit mollitia tempora exercitationem est dolore, omnis sunt? Quidem, modi quod?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur modi veniam deserunt natus. Architecto a, quisquam commodi ut cumque reprehenderit mollitia tempora exercitationem est dolore, omnis sunt? Quidem, modi quod?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur modi veniam deserunt natus. Architecto a, quisquam commodi ut cumque reprehenderit mollitia tempora exercitationem est dolore, omnis sunt? Quidem, modi quod?
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore dolorem perspiciatis labore sunt quae ab, rem sed doloribus nihil voluptatum eligendi cumque aliquam excepturi! Laudantium ipsa officia sequi ad dolorum.</td>
-                </div>
+                    {{$d->deskripsi}}
+                    </div>
                 <td class="td">
                   <x-status-badge>
-                  Rejected
+                    {{$d->status}}
                   </x-status-badge>
                 </td>
-                <td class="td">qwerty</td>
+                <td class="td"> {{$d->start_date}}/{{$d->end_date}}</td>
                 <td class="td">
                     <button class="mx-1 p-1 rounded-md focus:outline focus:outline-1 focus:outline-offset-2 focus:outline-reject bg-reject">
                       <img src="{{ asset('assets/icons/reject.svg') }}" alt="" srcset="">
@@ -55,7 +50,6 @@
                     </button>
                 </td>
               </tr>
-              @endfor
             </tbody>
           </table>
     </x-accordion-list-project>

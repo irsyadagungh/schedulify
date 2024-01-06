@@ -58,6 +58,7 @@ Route::put('/personal/prioritas/{id}',[SchedulePersonalNoteController::class,'ch
 //project
 Route::get('/project',[ScheduleProjectController::class,'index'])->name('project');
 Route::post('/projectPost',[ScheduleProjectController::class,'store'])->name('pjStore');
+Route::get('/project/destroy/{id}',[ScheduleProjectController::class,'destroy'])->name('pjDelete');
 Route::post('/projectPostTask/{id}',[ScheduleProjectController::class,'storeTask'])->name('pjStoreTask');
 Route::post('/projectJoin',[ScheduleProjectController::class,'join'])->name('pjJoin');
 Route::get('/project/leave/{id}',[ScheduleProjectController::class,'leave'])->name('pjLeave');

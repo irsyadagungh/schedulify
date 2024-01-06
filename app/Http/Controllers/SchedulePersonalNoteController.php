@@ -86,6 +86,22 @@ class SchedulePersonalNoteController extends Controller
         return view('personal.comingsoonlihatsemua', compact('user', 'data','formatDate'));
     }
 
+    public function doneShowAll()
+    {
+        // date
+        $currentDate = Carbon::now();
+        $formatDate = $currentDate->format('Y-m-d');
+
+        //
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $data = SchedulePersonal::where('id_user', $userId)
+                ->where('status', 'prioritas')
+                ->get();
+
+
+        return view('personal.prioritaslihatsemua', compact('user', 'data','formatDate'));
+    }
 
     public function home()
     {

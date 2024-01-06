@@ -12,7 +12,7 @@
                 <img src="{{ asset('assets/icons/person.svg') }}" alt="" srcset="">
                 {{ __('Personal') }}
             </x-nav-link>
-            <x-nav-link :href="route('project')" :active="request()->routeIs(['project', 'detail-project', 'list-task', 'pjShow'])">
+            <x-nav-link :href="route('project')" :active="request()->routeIs(['project', 'detail-project', 'pjListTask', 'pjShow'])">
                 <img src="{{ asset('assets/icons/groups.svg') }}" alt="" srcset="">
                 {{ __('Projects') }}
             </x-nav-link>

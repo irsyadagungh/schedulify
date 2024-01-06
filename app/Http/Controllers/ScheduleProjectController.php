@@ -240,8 +240,27 @@ class ScheduleProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ScheduleProject $scheduleProject)
+    public function destroy($id)
     {
-        //
+        ScheduleProject::where('id',$id)->delete();
+        return redirect('/project')->with('sukses','Data Berhasil Di Hapus');
+    }
+
+    public function done(Request $request, $id)
+    {
+        if($request->status == 'done'){
+            $value = null;
+        }else{
+            $value = "done";
+        }
+
+        $request->validate([
+            'status',
+        ]);
+
+        $project = ScheduleProject::findOrFail($id);
+        $project->status = $value;
+        $project->save();
+        return redirect()->route('personal');
     }
 }
