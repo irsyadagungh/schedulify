@@ -16,9 +16,9 @@
         <h1>{{ __('Home') }}</h1>
     @elseif(request()->routeIs(['project', 'pjShow', 'pjListTask','pjDetailTask']))
         <h1>{{ __('Project') }}</h1>
-    @elseif(request()->routeIs(['personal']))
+    @elseif(request()->routeIs(['personal','today','prioritas','comingsoon']))
         <h1>{{ __('Personal') }}</h1>
-    @elseif(request()->routeIs('profile'))
+    @elseif(request()->routeIs('p'))
         <h1>{{ __('Profile') }}</h1>
     @else
         <h1>{{ __('Default') }}</h1>
@@ -26,7 +26,8 @@
     </x-header>
 
     <div class="container flex h-min-full h-fit w-full mt-16">
-        @if(request()->routeIs(['home', 'detail-project', 'project', 'list-task', 'details-task' , 'list-task-user', 'personal', 'plEdit', 'pjShow','p']))
+        @if(request()->routeIs(['home', 'detail-project', 'project', 'list-task', 'details-task' ,
+         'list-task-user', 'personal', 'plEdit', 'pjShow','p','today']))
             @include('layout.sidebar')
         @endif
 

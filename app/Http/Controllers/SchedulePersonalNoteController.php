@@ -23,6 +23,38 @@ class SchedulePersonalNoteController extends Controller
         return view('personal.personal', compact('user', 'data'));
     }
 
+    public function todayShowAll()
+    {
+        //
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $data = SchedulePersonal::where('id_user', $userId)->get();
+
+
+        return view('personal.todaylihatsemua', compact('user', 'data'));
+    }
+    public function prioritasShowAll()
+    {
+        //
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $data = SchedulePersonal::where('id_user', $userId)->get();
+
+
+        return view('personal.prioritaslihatsemua', compact('user', 'data'));
+    }
+
+    public function comingSoonShowAll()
+    {
+        //
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $data = SchedulePersonal::where('id_user', $userId)->get();
+
+
+        return view('personal.comingsoonlihatsemua', compact('user', 'data'));
+    }
+
 
     public function home()
     {

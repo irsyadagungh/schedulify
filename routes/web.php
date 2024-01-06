@@ -42,6 +42,9 @@ Route::put('/profilePost',[ProfileController::class,'update'])->name('pp');
 
 // Personal
 Route::get('/personal',[SchedulePersonalNoteController::class,'index'])->name('personal');
+Route::get('/personal/today',[SchedulePersonalNoteController::class,'todayShowAll'])->name('today');
+Route::get('/personal/prioritas',[SchedulePersonalNoteController::class,'prioritasShowAll'])->name('prioritas');
+Route::get('/personal/comingsoon',[SchedulePersonalNoteController::class,'comingSoonShowAll'])->name('comingsoon');
 // Route::get('/personal/edit/{id}',[PersonalUpdateController::class,'edit'])->name('pedit');
 Route::post('/personalPost',[SchedulePersonalNoteController::class,'store'])->name('plStore');
 Route::get('/personal/{id}/edit',[SchedulePersonalNoteController::class,'edit'])->name('plEdit');
@@ -57,6 +60,7 @@ Route::get('/project/leave/{id}',[ScheduleProjectController::class,'leave'])->na
 Route::get('/project/detail/{id}',[ScheduleProjectController::class,'show'])->name('pjShow');
 Route::get('/project/detail/task/{id}',[ScheduleProjectController::class,'detailTask'])->name('pjDetailTask');
 Route::get('/project/detail/task/list/{id}',[ScheduleProjectController::class,'listTask'])->name('pjListTask');
+
 
 
 // Project
@@ -105,9 +109,9 @@ Route::get('/listTaskUser', function ()  {
 // })->name('list-task-user');
 
 // Profile
-Route::get('/profile', function ()  {
-    return view('profile');
-})->name('profile');
+// Route::get('/profile', function ()  {
+//     return view('profile');
+// })->name('profile');
 
 // Personal
 

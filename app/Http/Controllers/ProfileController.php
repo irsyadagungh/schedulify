@@ -100,7 +100,7 @@ class ProfileController extends Controller
         $user->email = $request->input('email');
 
         $user->save();
-        return redirect()->route('profile')->with('success', 'Profile updated successfully.');
+        return redirect()->route('p')->with('success', 'Profile updated successfully.');
     }
 
     /**

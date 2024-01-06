@@ -25,7 +25,7 @@
                 </button>
             </div>
   <!-- End Popover -->
-           <a href="{{route ('profile')}}"> <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset=""></a>
+           <a href="{{route ('p')}}"> <img src="{{ asset('assets/icons/user.svg') }}" alt="" srcset=""></a>
         </div>
     </header>
 </div>

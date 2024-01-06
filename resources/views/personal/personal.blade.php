@@ -42,7 +42,7 @@
                               {{-- garis border --}}
                       <hr class="my-5 border-white border-opacity-25" style = "margin-left: 62px; margin-top:10px"/>
                       {{-- Bagian Lihat semua --}}
-                      <a href = "{{route ('todaylihatsemua') }}">
+                      <a href = "{{route ('today') }}">
                   <div style="margin-top: -5px; display: flex; justify-content: flex-end">
 
                       <div style="padding-bottom: -10px;">
@@ -141,7 +141,7 @@
                               {{-- garis border --}}
                               <hr class="my-5 border-white border-opacity-25" style = "margin-left: 62px; margin-top:10px"/>
                       {{-- Bagian Lihat semua --}}
-                      <a href = "{{route ('prioritaslihatsemua') }}">
+                      <a href = "{{route ('prioritas') }}">
                   <div style="margin-top: -5px; display: flex; justify-content: flex-end">
                       <div style="padding-bottom: -10px;">
                           <h1 class="mt-16 ml-12 font-bold text-white" style="margin-top: -5px;">Lihat Semua</h1>
@@ -228,7 +228,7 @@
                            {{-- garis border --}}
                            <hr class="my-5 border-white border-opacity-25" style = "margin-left: 62px; margin-top:10px"/>
                           {{-- Bagian Lihat semua --}}
-                          <a href = "{{route ('todaylihatsemua') }}">
+                          <a href = "{{route ('comingsoon') }}">
                       <div style="margin-top: -5px; display: flex; justify-content: flex-end">
                           <div style="padding-bottom: -10px;">
                               <h1 class="mt-16 ml-12 font-bold text-white" style="margin-top: -5px;">Lihat Semua</h1>

@@ -8,7 +8,7 @@
             $fotoPath = auth()->user()->foto ? asset('storage/' . auth()->user()->foto) : asset('assets/icons/user.svg');
             @endphp
 
-            <img src="{{ $fotoPath }}" alt="" width="200px" height="200px">
+            <img src="{{ $fotoPath }}" alt="" class="rounded-full max-w-[200px] max-h-[200px] min-w-[200px] min-h-[200px]  object-cover">
 
         </div>
         <div>
@@ -54,7 +54,8 @@
 
                 {{-- foto --}}
                 <label for="" class="">Foto</label>
-                <input type="file" name="foto" class="rounded-sm bg-secondary outline outline-1 outline-white">
+                <input type="file" name="foto" value="{{ auth()->user()->foto}}" placeholder="value="{{ auth()->user()->no_telepon }} class="rounded-sm bg-secondary outline outline-1 outline-white">
+                {{-- <input type="text" name="last_foto" value="{{ auth()->user()->foto }}" readonly class="rounded-sm bg-secondary outline outline-1 outline-white"> --}}
 
                 {{-- email input --}}
                 <label for="" class="">Email</label>
