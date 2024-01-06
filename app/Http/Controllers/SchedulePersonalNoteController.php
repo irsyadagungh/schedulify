@@ -17,10 +17,10 @@ class SchedulePersonalNoteController extends Controller
         //
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $data = SchedulePersonal::where('id_user', $userId)->take(4)->get();
+        $data = SchedulePersonal::where('id_user', $userId)->where('status', null)->take(4)->get();
+        $data_prioritas = SchedulePersonal::where('id_user', $userId)->where('status', '!=', null)->get();
 
-
-        return view('personal.personal', compact('user', 'data'));
+        return view('personal.personal', compact('user', 'data', 'data_prioritas'));
     }
 
     public function todayShowAll()
@@ -163,5 +163,23 @@ class SchedulePersonalNoteController extends Controller
         //
         SchedulePersonal::where('id',$id)->delete();
         return redirect('/personal')->with('sukses','Data Berhasil Di Hapus');
+    }
+
+    public function change(Request $request, $id)
+    {
+        if($request->status == 'prioritas'){
+            $value = null;
+        }else{
+            $value = "prioritas";
+        }
+
+        $request->validate([
+            'status',
+        ]);
+
+        $personal = SchedulePersonal::findOrFail($id);
+        $personal->status = $value;
+        $personal->save();
+        return redirect()->route('personal');
     }
 }
