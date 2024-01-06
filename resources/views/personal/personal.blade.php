@@ -7,18 +7,17 @@
             <div style = "display:flex;  padding-bottom: 10px;">
             </div>
 
-        <div>
-
-            <nav class="flex space-x-2" aria-label="Tabs" role="tablist">
-              <button type="button" class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 gap-x-2 whitespace-nowrap hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 active" id="basic-tabs-item-1" data-hs-tab="#basic-tabs-1" aria-controls="basic-tabs-1" role="tab">
-                To Do
-              </button>
-              <button type="button" class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 gap-x-2 whitespace-nowrap hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" id="basic-tabs-item-2" data-hs-tab="#basic-tabs-2" aria-controls="basic-tabs-2" role="tab">
-                Done
-              </button>
-            </nav>
-            <hr class="my-2 border-white border-opacity-25" style = "margin-left: -2px; margin-top:1px"/>
-        </div>
+            <div>
+                <nav class="flex space-x-2" aria-label="Tabs" role="tablist">
+                  <button type="button" class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 gap-x-2 whitespace-nowrap hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 active" id="basic-tabs-item-1" data-hs-tab="#basic-tabs-1" aria-controls="basic-tabs-1" role="tab">
+                    To Do
+                  </button>
+                  <button type="button" class="inline-flex items-center px-1 py-4 text-sm text-gray-500 border-b-2 border-transparent hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 gap-x-2 whitespace-nowrap hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" id="basic-tabs-item-2" data-hs-tab="#basic-tabs-2" aria-controls="basic-tabs-2" role="tab">
+                    Done
+                  </button>
+                </nav>
+                <hr class="my-2 border-white border-opacity-25" style = "margin-left: -2px; margin-top:1px"/>
+            </div>
 
 
            {{-- Tab To Do --}}
@@ -70,7 +69,7 @@
 
                                                 <div class="flex justify-between">
                                                 {{-- Kiri --}}
-                                                <div >
+                                                <div>
                                                 <form action="{{ url('personal/change/'.$p->id) }}" method="post" class="flex">
                                                             @csrf
                                                             @method('put')
