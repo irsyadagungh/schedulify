@@ -22,10 +22,17 @@ class SchedulePersonalNoteController extends Controller
 
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $dataToday = SchedulePersonal::where('id_user', $userId)->where('tanggal_deadline', $formatDate)->take(4)->get();
+        $dataToday = SchedulePersonal::where('id_user', $userId)
+                    ->where('tanggal_deadline', $formatDate)
+                    ->orWhere('status','!=' ,'done')
+                    ->take(4)->get();
         // prioritas data by bayu
-        $data_prioritas = SchedulePersonal::where('id_user', $userId)->where('status', 'prioritas')->take(4)->get();
-        $dataComingSoon = SchedulePersonal::where('id_user', $userId)->where('tanggal_deadline','!=' ,$formatDate)->where('status',  null)->take(4)->get();
+        $data_prioritas = SchedulePersonal::where('id_user', $userId)->where('status', 'prioritas')->where('status','!=' ,'done')->take(4)->get();
+        $dataComingSoon = SchedulePersonal::where('id_user', $userId)
+                            ->where('tanggal_deadline','!=' ,$formatDate)
+                            ->orWhere('tanggal_deadline',null)
+                            ->where('status',  null)->orWhere('status', '!=' ,'done')
+                            ->take(4)->get();
 
         return view('personal.personal', compact('user', 'dataToday','dataComingSoon', 'data_prioritas','formatDate'));
     }
@@ -43,10 +50,14 @@ class SchedulePersonalNoteController extends Controller
                 ->get();
 
 
-        return view('personal.todaylihatsemua', compact('user', 'data'));
+        return view('personal.todaylihatsemua', compact('user', 'data','formatDate'));
     }
     public function prioritasShowAll()
     {
+        // date
+        $currentDate = Carbon::now();
+        $formatDate = $currentDate->format('Y-m-d');
+
         //
         $userId = Auth::id();
         $user = User::findOrFail($userId);
@@ -55,7 +66,7 @@ class SchedulePersonalNoteController extends Controller
                 ->get();
 
 
-        return view('personal.prioritaslihatsemua', compact('user', 'data'));
+        return view('personal.prioritaslihatsemua', compact('user', 'data','formatDate'));
     }
 
     public function comingSoonShowAll()
@@ -72,7 +83,7 @@ class SchedulePersonalNoteController extends Controller
                 ->get();
 
 
-        return view('personal.comingsoonlihatsemua', compact('user', 'data'));
+        return view('personal.comingsoonlihatsemua', compact('user', 'data','formatDate'));
     }
 
 

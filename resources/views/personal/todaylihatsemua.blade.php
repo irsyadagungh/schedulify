@@ -3,6 +3,8 @@
 @section('content')
 <div class="flex gap-4 flex-wrap">
 @foreach ($data as $p)
+@if ($p->tanggal_deadline == $formatDate && $p->status != 'done')
+
 
 
 <x-note :note-id="$p->id" :customBg="$p->warna">
@@ -50,6 +52,7 @@
             </div>
             </a>
             </x-note>
+            @endif
             @endforeach
         </div>
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex gap-4 flex-wrap">
 @foreach ($data as $p)
-
+@if ($p->status != 'done')
 
 <x-note :note-id="$p->id" :customBg="$p->warna">
 <div data-hs-overlay="" class="w-full h-44 flex flex-col gap-2">
@@ -50,6 +50,7 @@
             </div>
             </a>
             </x-note>
+            @endif
             @endforeach
         </div>
 @endsection
